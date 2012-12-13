@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ROS Workflow feature.
+ */
+
+include_once('ros_workflow.features.inc');

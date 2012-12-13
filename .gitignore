@@ -4,3 +4,4 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 /.project
+/.settings
