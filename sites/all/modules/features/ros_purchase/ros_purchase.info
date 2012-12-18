@@ -1,0 +1,5 @@
+name = "ROS Purchase"
+description = Purchase page for River Of Stories
+package = River Of Stories
+core = 7.x
+files[] = ros_purchase.module
