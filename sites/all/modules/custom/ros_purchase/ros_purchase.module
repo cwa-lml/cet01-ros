@@ -1,0 +1,67 @@
+<?php
+
+module_load_include('inc', 'ros_purchase', 'RosPurchaseBuild');
+module_load_include('inc', 'ros_purchase', 'RosPurchaseProcess');
+
+// help hook
+function ros_purchase_help($path, $arg) {
+	
+	switch ($path) {
+		case 'admin/help#ros_purchase':
+		return t('This module implements purchasing for CET River Of Stories');
+	}
+}
+
+
+function ros_purchase_permission() {
+	return array(
+    'ros_purchase' => array(
+      'title' => t('River Of Stories Purchase'),
+		),
+	);
+}
+
+
+// menu hook
+function ros_purchase_menu() {
+		$items['ros_purchase'] = array(
+		 'title' => t('Purchase'),
+		 'page callback' => 'ros_purchase_page',
+		'access arguments' => array('ros_purchase'),
+		 'type' => MENU_NORMAL_ITEM
+		);
+		
+		return $items;
+}
+	
+// page hook - returns the form
+function ros_purchase_page() {
+	return drupal_get_form('ros_purchase_page_form');
+}
+
+// form hook
+function ros_purchase_page_form() {
+
+	return RosPurchaseBuild::pageForm();
+	
+}
+
+function ros_purchase_updated_count($form, $form_state) {
+
+	$ros_purchase_process = new RosPurchaseProcess($form_state);
+	
+	$commands = array();
+	$commands[] = ajax_command_replace('#gst-amount', '<div id="gst-amount">$' . money_format('%i', $ros_purchase_process->gst) . '</div>');
+	$commands[] = ajax_command_replace('#total-amount', '<div id="total-amount">$' . money_format('%i', $ros_purchase_process->total_amount) . '</div>');
+	$commands[] = ajax_command_css('#edit-login', array('display' => $ros_purchase_process->grants_access ? 'inline' : 'none') );
+	
+	return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+// form submit hook
+//
+function ros_purchase_page_form_submit($form_id, $form_values) {
+
+	debug('Submit purchase: ' . print_r($form_values, true));
+}
+
