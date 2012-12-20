@@ -39,6 +39,13 @@ function ros_purchase_page() {
 	return drupal_get_form('ros_purchase_page_form');
 }
 
+function ros_purchase_load_javascript($el) {
+	
+	drupal_add_js(drupal_get_path('module', 'ros_purchase') . '/stopAutocompletePassword.js');
+	
+	return $el;
+}
+
 // form hook
 function ros_purchase_page_form() {
 
