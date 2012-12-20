@@ -1,0 +1,118 @@
+<?php
+/**
+ * @file
+ * Defines field_stepper field types.
+ */
+
+define('FIELD_STEPPER_FILE_NAME_JS', 'field_stepper.js');
+define('FIELD_STEPPER_FILE_NAME_CSS', 'field_stepper.theme.css');
+define('FIELD_STEPPER_PLUGIN_FILE_NAME_JS', 'ui.spinner.min.js');
+
+
+/**
+ * Get the element definition to drop into a form 
+ * 
+ * @param String $name The name of the element
+ * @param Integer $default_value The default value of the element
+ * @param Boolean $required True if is required
+ * @param Integer $min The minimum value
+ * @param Integer $max The maximum value
+ * @param String $ajaxcallback The ajax callback, or null if not required
+ * @return A Form API element definition 
+ */
+function field_stepper_element_def($name, $default_value, $required, $min, $max, $ajaxcallback) {
+
+  $element_id = 'edit-' . str_replace('_', '-', $name);
+
+  // Settings
+  $field_settings = array(
+    'increment' => 1,
+    'mouseWheel' => FALSE,
+    'upIconClass' => 'ui-icon-circle-plus',
+    'downIconClass' => 'ui-icon-circle-minus',
+    'allowNull' => !$required,
+  );
+
+  // Maximum
+  if ($max !== null) {
+    $field_settings['max'] = $max;
+  }
+
+  // Minimum
+  if ($min !== null) {
+      $field_settings['min'] = $min;
+  }
+
+  // Set the size large enough for min..max
+  $digits = 1 + floor(log10(max($max, abs($min))));
+  
+  // Construct the element
+  // Hooks into the javascript for the spinner
+  $element = array(
+  	'#id' => $element_id,
+    '#type' => 'textfield',
+    '#default_value' => $default_value,
+    '#size' => $digits+1,
+    '#maxlength' => $digits,
+    '#attached' => array(
+      'library' => array(
+        array('system', 'ui.widget'), // Adds the Jquery.ui core
+      ),
+      'css' => array(
+        drupal_get_path('module', 'field_stepper') . '/' . FIELD_STEPPER_FILE_NAME_CSS,
+      ),
+      'js' => array(
+        libraries_get_path('jquery.ui.spinner') . '/' . FIELD_STEPPER_PLUGIN_FILE_NAME_JS,
+        drupal_get_path('module', 'field_stepper') . '/' . FIELD_STEPPER_FILE_NAME_JS,
+        array(
+          'type' => 'setting',
+          'data' => array(
+            'fieldStepper' => array($element_id => $field_settings),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  // Deal with ajax
+  if($ajaxcallback !== null) {
+  	$element['#name'] = $name;			// Need the name set here
+  	  
+  	// Set the change event
+  	$element['#ajax'] = array('callback' => $ajaxcallback, 'event' => 'change');
+  	
+  	// Do the Ajax stuff
+  	$element = ajax_pre_render_element($element);
+  	
+  	// Merge the Js field - ajax + spinner
+  	$element['#attached']['js'][2]['data'] = array_merge( $element['#attached']['js'][2]['data'], $element['#attached']['js'][3]['data']);
+  	unset($element['#attached']['js'][3]['data']);
+  	unset($element['#attached']['js'][3]);
+  	
+  }
+
+  $element['#element_validate'][] = 'field_stepper_element_validate';
+
+  return $element;
+}
+
+/**
+ * FAPI validation of an individual number element.
+ */
+function field_stepper_element_validate($element, &$form_state) {
+  $field = field_widget_field($element, $form_state);
+  $instance = field_widget_instance($element, $form_state);
+
+  $value = $element['#value'];
+
+  // Reject invalid characters.
+  if (!empty($value)) {
+    $regexp = '@[^-0-9]@';
+    $message = t('Only numbers are allowed in %field.', array('%field' => $instance['label']));
+
+    if ($value != preg_replace($regexp, '', $value)) {
+      form_error($element, $message);
+    }
+  }
+}
+

@@ -61,12 +61,12 @@ class RosPurchaseBuild {
 				continue;
 			}
 		
-			$form['order'][$type . '_count'] = array(
-					'#type' => 'textfield',
-					'#size' => 2,
-					'#default_value' => 0,
-					'#ajax' => array('callback' => 'ros_purchase_updated_count'));
-		
+
+			// Put the count in as a stepper
+			$step_name = $type . '_count';
+			$form['order'][$step_name] = field_stepper_element_def($step_name, 0, false, 0, 10, 'ros_purchase_updated_count');
+
+			
 			$form['order'][$type . '_price'] = array(
 					'#type' => 'textfield',
 					'#title' => $item->name . ' (NZD)',

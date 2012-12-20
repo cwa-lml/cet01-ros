@@ -1,0 +1,11 @@
+name = Stepper Field Element
+description = Defines a widget element easy to increase or decrease, by pressing buttons or keys. Hacked from http://drupal.org/project/field_stepper
+package = River Of Stories
+core = 7.x
+dependencies[] = field
+dependencies[] = libraries
+
+files[] = field_stepper_element.module
+files[] = field_stepper_element.install
+
+
