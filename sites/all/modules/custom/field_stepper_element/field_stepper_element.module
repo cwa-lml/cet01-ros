@@ -46,6 +46,8 @@ function field_stepper_element_def($name, $default_value, $required, $min, $max,
   // Set the size large enough for min..max
   $digits = 1 + floor(log10(max($max, abs($min))));
   
+  global $language;
+  
   // Construct the element
   // Hooks into the javascript for the spinner
   $element = array(
@@ -54,6 +56,9 @@ function field_stepper_element_def($name, $default_value, $required, $min, $max,
     '#default_value' => $default_value,
     '#size' => $digits+1,
     '#maxlength' => $digits,
+    '#field_parents' => array(),
+    '#field_name' => $name,
+    '#language' => $language->language,
     '#attached' => array(
       'library' => array(
         array('system', 'ui.widget'), // Adds the Jquery.ui core

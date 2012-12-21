@@ -67,12 +67,62 @@ function ros_purchase_updated_count($form, $form_state) {
 
 // form submit hook
 //
-function ros_purchase_page_form_submit($form_id, $form_values) {
+function ros_purchase_page_form_submit($form_id, &$form_state) {
 
-	debug('Submit purchase: ' . print_r($form_values, true));
+	// debug('Submit purchase: ' . print_r($form_state, true));
+	
+	$ros_purchase_process = new RosPurchaseProcess($form_state);
+	
+	$ros_purchase_process->SendFulfillmentMail();
 }
 
-// function ros_purchase_form_alter(&$form, &$form_state, $form_id) {
-// 	debug('ros_purchase_form_alter: ' . print_r($form, true));
-// }
+function ros_purchase_mailkeys() {
+	return array('ros_purchase_adminbuy' => 'Message to administrator when user buys');
+}
+
+function ros_purchase_mail($key, &$message, $params) {
+	
+	if (isset($params['subject'])) {
+		$message['subject'] = $params['subject'];
+	}
+	if (isset($params['body'])) {
+		$message['body'][] = $params['body'];
+	}
+	if (isset($params['headers']) && is_array($params['headers'])) {
+		$message['headers'] += $params['headers'];
+	}
+	
+}
+
+function ros_purchase_mail_edit_text($mailkey, $language) {
+	$return = array();
+	$return['subject'] = '';
+	$return['body'] = '';
+	return $return;
+}
+
+
+function ros_purchase_mail_edit_token_types($mailkey)
+{
+	return array('ros_purchase');
+}
+
+function ros_purchase_tokens($type, $tokens, array $data = array(), array $options = array()) {
+	if($type != 'ros_purchase') {
+		return array();
+	}
+	
+	if (array_key_exists('order', $tokens)) {
+		return array($tokens['order'] => $data['order_object']->MakeOrderDetails());
+	}
+	
+	return array();
+}
+
+function ros_purchase_token_info() {
+	return array(
+		'types' => array('ros_purchase' => array('name' => 'ros_purchase', 'description' => t('River Of Stories Purchase'), 'needs-data' => 'ros_purchase')),
+		'tokens' => array('ros_purchase' => array('order' => array('name' => t('Order'), 'description' => t('Order details')))),
+	);
+}
 
