@@ -3,3 +3,6 @@ description = Purchase page for River Of Stories
 package = River Of Stories
 core = 7.x
 files[] = ros_purchase.module
+files[] = RosPurchaseBuild.inc
+files[] = RosPurchaseProcess.inc
+files[] = ros_purchase_skoolcomplete.inc

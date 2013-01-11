@@ -1367,6 +1367,67 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-purchase_page-field_spinner'
+  $fields['node-purchase_page-field_spinner'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_spinner',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'purchase_page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_spinner',
+      'label' => 'spinner',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '5',
+      ),
+    ),
+  );
+
   // Exported field: 'node-resource_item_description-body'
   $fields['node-resource_item_description-body'] = array(
     'field_config' => array(
@@ -1745,6 +1806,7 @@ function ros_workflow_field_default_fields() {
   t('Upload the image file associated with the resource');
   t('View Sample');
   t('Weight');
+  t('spinner');
 
   return $fields;
 }

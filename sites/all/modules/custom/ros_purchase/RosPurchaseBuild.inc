@@ -36,6 +36,8 @@ class RosPurchaseBuild {
 	
 	public static function pageForm() {
 				
+		$form['#after_build'][] = 'ros_purchase_after_build';
+		
 		$form['header'] = array(
 				'#type' => 'item',
 				'#after_build' => array('ros_purchase_load_javascript'),
@@ -125,9 +127,10 @@ class RosPurchaseBuild {
 		);
 		
 		$form['details']['org_name'] = array(
-											'#type' => 'textfield',
-											'#title' => t('Organisation or school name'),
-											'#size' => 45,
+					'#type' => 'textfield',
+					'#title' => t('Organisation or school name'),
+					'#autocomplete_path' => 'schools/autocomplete',
+					'#size' => 45,
 		);
 		
 		$form['details']['street_address'] = array(
@@ -218,6 +221,12 @@ class RosPurchaseBuild {
 										'#title' => t('Person who will administer this account. If left blank, the contact email address will be used'),
 		);
 		
+		$form['login']['existing_login'] = array(
+					'#type' => 'checkbox',
+					'#title' => t('I already have an account and don\'t require a new login'),
+					'#required' => false,
+		);
+		
 		$form['accept_tc'] = array(
 			'#type' => 'checkbox',
 			'#title' => t('I have read and understood the <a href="/termsandconditions">Terms and Conditions</a>'),
@@ -230,6 +239,16 @@ class RosPurchaseBuild {
 		);
 		
 		return $form;
+		
+	}
+	
+	public static function UpdateNonAjax(&$form, &$form_state) {
+		$ros_purchase_process = new RosPurchaseProcess($form_state);
+
+		$form['order']['gst_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst');
+		$form['order']['total_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount');
+		
+		$form['login']['#attributes']['style'] = array('display:' . $ros_purchase_process->GrantAccess() ? 'inline' : 'none');
 		
 	}
 	

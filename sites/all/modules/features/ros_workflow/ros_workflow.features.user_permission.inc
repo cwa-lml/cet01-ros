@@ -17,6 +17,7 @@ function ros_workflow_user_default_permissions() {
       0 => 'administrator',
       1 => 'anonymous user',
       2 => 'authenticated user',
+      3 => 'order processor',
     ),
     'module' => 'ros_purchase',
   );

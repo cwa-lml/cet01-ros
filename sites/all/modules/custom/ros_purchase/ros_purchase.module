@@ -2,6 +2,7 @@
 
 module_load_include('inc', 'ros_purchase', 'RosPurchaseBuild');
 module_load_include('inc', 'ros_purchase', 'RosPurchaseProcess');
+module_load_include('inc', 'ros_purchase', 'ros_purchase_skoolcomplete');
 
 // help hook
 function ros_purchase_help($path, $arg) {
@@ -13,6 +14,10 @@ function ros_purchase_help($path, $arg) {
 }
 
 
+/**
+ * Implement hook_purchase_permission
+ * @return array of permissions  
+ */
 function ros_purchase_permission() {
 	return array(
     'ros_purchase' => array(
@@ -22,7 +27,11 @@ function ros_purchase_permission() {
 }
 
 
-// menu hook
+
+/**
+ * Implement hook_menu
+ * @return menu definition
+ */
 function ros_purchase_menu() {
 		$items['ros_purchase'] = array(
 		 'title' => t('Purchase'),
@@ -30,6 +39,8 @@ function ros_purchase_menu() {
 		'access arguments' => array('ros_purchase'),
 		 'type' => MENU_NORMAL_ITEM
 		);
+		
+		$items = array_merge($items, ros_purchase_skoolcomplete_menu());
 		
 		return $items;
 }
@@ -39,6 +50,14 @@ function ros_purchase_page() {
 	return drupal_get_form('ros_purchase_page_form');
 }
 
+/**
+ * Implement hook_load_javascript
+ * 
+ * Load javascript to stop autocomplete of the password
+ * 
+ * @param unknown_type $el
+ * @return Ambiguous
+ */
 function ros_purchase_load_javascript($el) {
 	
 	drupal_add_js(drupal_get_path('module', 'ros_purchase') . '/stopAutocompletePassword.js');
@@ -46,40 +65,124 @@ function ros_purchase_load_javascript($el) {
 	return $el;
 }
 
-// form hook
+
+/**
+ * Implement hook_form
+ * 
+ * @return the form
+ */
 function ros_purchase_page_form() {
 
 	return RosPurchaseBuild::pageForm();
-	
 }
 
+/**
+ * after_build handler, defined in the form
+ * Used to initialize content on load to the correct settings (as per Ajax commands)
+ * 
+ * @param object $form
+ * @param object $form_state
+ * @return object the form
+ */
+function ros_purchase_after_build(&$form, &$form_state) {
+	
+	// debug('ros_purchase_after_build: ' . print_r($form_state, true));
+	
+	RosPurchaseBuild::UpdateNonAjax($form, $form_state);
+	
+	return $form;
+}
+
+/**
+ * -updated_count handler. Called when any of the _count fields are updated. Causes ajax commands to be run in the browser to update totals and 
+ * hide or show the login details fields
+ * 
+ * @param object $form
+ * @param object $form_state
+ * @return array ajax command array
+ */
 function ros_purchase_updated_count($form, $form_state) {
 
 	$ros_purchase_process = new RosPurchaseProcess($form_state);
 	
 	$commands = array();
-	$commands[] = ajax_command_replace('#gst-amount', '<div id="gst-amount">$' . money_format('%i', $ros_purchase_process->gst) . '</div>');
-	$commands[] = ajax_command_replace('#total-amount', '<div id="total-amount">$' . money_format('%i', $ros_purchase_process->total_amount) . '</div>');
+	$commands[] = ajax_command_replace('#gst-amount', $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst'));
+	$commands[] = ajax_command_replace('#total-amount', $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount'));
+	
 	$commands[] = ajax_command_css('#edit-login', array('display' => $ros_purchase_process->grants_access ? 'inline' : 'none') );
 	
 	return array('#type' => 'ajax', '#commands' => $commands);
 }
 
-// form submit hook
-//
+/**
+ * Validate handler. Performs custom validation and sets any errors
+ * 
+ * @param array $form
+ * @param array $form_state
+ */
+function ros_purchase_page_form_validate($form, &$form_state) {
+	// debug('Validate purchase: ' . print_r($form_state, true));
+	
+	$ros_purchase_process = new RosPurchaseProcess($form_state);
+	
+	$validate_results = $ros_purchase_process->Validate();
+	
+	if(!empty($validate_results)) {
+		foreach ( $validate_results as $validate_res) {
+ 			form_set_error($validate_res->fieldname, $validate_res->message);
+		}
+ 		return;
+ 	}
+}
+
+
+/**
+ * Form submit handler
+ * If we come here the form has validated. Does user create if required and sends out emails
+ * Then displays the 'thank you' page
+ * 
+ * @param array $form_id
+ * @param array $form_state
+ */
 function ros_purchase_page_form_submit($form_id, &$form_state) {
 
 	// debug('Submit purchase: ' . print_r($form_state, true));
 	
 	$ros_purchase_process = new RosPurchaseProcess($form_state);
 	
+ 	if($ros_purchase_process->GrantAccess()) {
+ 		$createres = $ros_purchase_process->CreateUser();
+ 		if(! $createres) {
+ 			drupal_set_message('User create failed', 'error');
+ 			
+ 			return;
+ 		}
+ 	}
+		
 	$ros_purchase_process->SendFulfillmentMail();
+	
+	$ros_purchase_process->SendAcknowlegeMail();
+	
+	drupal_goto('thankyou');
 }
 
+/**
+ * Implement hook_mail_keys. Defines the types of email we generate
+ * 
+ * @return multitype:string 
+ */
 function ros_purchase_mailkeys() {
-	return array('ros_purchase_adminbuy' => 'Message to administrator when user buys');
+	return array('ros_purchase_adminbuy' => 'Message to order processor when purchase made',
+		'ros_purchase_ack' => 'Order acknowledgement Message to purchaser');
 }
 
+/**
+ * Implement hook_mail
+ * 
+ * @param unknown_type $key
+ * @param unknown_type $message
+ * @param unknown_type $params
+ */
 function ros_purchase_mail($key, &$message, $params) {
 	
 	if (isset($params['subject'])) {
@@ -102,27 +205,57 @@ function ros_purchase_mail_edit_text($mailkey, $language) {
 }
 
 
+/**
+ * Implement hook_edit_token_types
+ * Defines ros_purchase as a token group
+ * 
+ * @param unknown_type $mailkey
+ * @return multitype:string 
+ */
 function ros_purchase_mail_edit_token_types($mailkey)
 {
 	return array('ros_purchase');
 }
 
+/**
+ * Implement hook_tokens
+ * Sets the content for each token we support
+ * 
+ * @param unknown_type $type
+ * @param unknown_type $tokens
+ * @param array $data
+ * @param array $options
+ * @return multitype:|multitype:NULL 
+ */
 function ros_purchase_tokens($type, $tokens, array $data = array(), array $options = array()) {
 	if($type != 'ros_purchase') {
 		return array();
 	}
 	
+	$res = array();
 	if (array_key_exists('order', $tokens)) {
-		return array($tokens['order'] => $data['order_object']->MakeOrderDetails());
+		$res[$tokens['order']] = $data['order_object']->MakeOrderDetails();
 	}
 	
-	return array();
+	if (array_key_exists('contact', $tokens)) {
+		$res[$tokens['contact']] = $data['order_object']->MakeContactDetails();
+	}
+
+	if (array_key_exists('login', $tokens)) {
+		$res[$tokens['login']] = $data['order_object']->MakeLoginDetails();
+	}
+	
+	return $res;
 }
 
 function ros_purchase_token_info() {
 	return array(
 		'types' => array('ros_purchase' => array('name' => 'ros_purchase', 'description' => t('River Of Stories Purchase'), 'needs-data' => 'ros_purchase')),
-		'tokens' => array('ros_purchase' => array('order' => array('name' => t('Order'), 'description' => t('Order details')))),
+		'tokens' => array('ros_purchase' => array(
+			'order' => array('name' => t('Order'), 'description' => t('Order details')),
+			'contact' => array('name' => t('Contact'), 'description' => t('Contact details')),
+			'login' => array('name' => t('Login'), 'description' => t('Requested login details')),
+	)),
 	);
 }
 

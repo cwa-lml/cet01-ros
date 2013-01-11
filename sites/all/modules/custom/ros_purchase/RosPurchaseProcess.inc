@@ -32,14 +32,29 @@ class RosPurchaseProcess {
 		
 		$this->gst = round($net_total * $this->orderables['_gst']->price, 2);
 		$this->total_amount = round($net_total + $this->gst, 2);
+		
 	}
 
+	public function MakeMoneyMarkup($id, $field) {
+		return '<div id="' . $id . '">$' . money_format('%i', $this->$field) . '</div>';
+	}
+	
 	public function SendFulfillmentMail() {
-		$admin = 'richardparratt@learningmedia.co.nz';
-		
+		$to = self::GetEmailsForRoles(array('administrator', 'order processor'));
+				
 		global $language;
 		
-		drupal_mail('ros_purchase', 'ros_purchase_adminbuy', $admin, $language, array('order_object' => $this));
+		drupal_mail('ros_purchase', 'ros_purchase_adminbuy', $to, $language, array('order_object' => $this));
+	}
+
+	public function SendAcknowlegeMail() {
+		$to = self::GetEmailsForRoles(array('administrator'));
+		
+		$to .= ', ' . $this->fields['email']->value;
+	
+		global $language;
+	
+		drupal_mail('ros_purchase', 'ros_purchase_ack', $to, $language, array('order_object' => $this));
 	}
 	
 	public function MakeOrderDetails() {
@@ -61,5 +76,125 @@ class RosPurchaseProcess {
 		return $res;
 	}
 
+	public function MakeContactDetails() {
+		$contact_fields = array(
+			'Organization'=>'org_name',
+			'First name'=>'purchaser_first_name',
+			'Last name'=>'purchaser_last_name',
+			'Address'=>'street_address',
+			'City'=>'city',
+			'Postcode'=>'postcode',
+			'Email'=>'email',
+			'Phone' => 'telephone',
+			'Order number' => 'order_number',
+			'Comments' => 'comments'
+		);
+		
+		return $this->MakeFieldList($contact_fields);
+	}
+	
+	public function MakeLoginDetails() {
+		$login_fields = array(
+			'User id' => 'user_id',
+			'Admin email' => 'admin_email'
+		);
+		
+		return $this->MakeFieldList($login_fields);
+	}
+		
+	public function GrantAccess() {
+		return $this->grants_access && ( !array_key_exists('existing_login', $this->fields) || !$this->fields['existing_login']->value);
+	}
+	
+	public function Validate() {
+		if(!$this->GrantAccess()) {
+			return null;
+		}
+		
+		$res = array();
+
+		if(!array_key_exists('password', $this->fields) || empty($this->fields['password']->value['pass1']) || empty($this->fields['password']->value['pass2'])) {
+			$res[] =  (object)array('fieldname' => 'password', 'message' => 'A password is required');
+		}
+		
+		if(!array_key_exists('user_id', $this->fields) || empty($this->fields['user_id']->value)) {
+			$res[] = (object)array('fieldname' => 'user_id', 'message' => 'A user name is required');
+			
+			return $res;	// No user id so can't validate
+		}
+		
+		$userid = $this->fields['user_id']->value;
+
+		$email = $this->FetchEmail();
+		
+		$users = entity_load('user');
+		
+		// debug('Create user, users=' . print_r($users, true));
+		
+		foreach ($users as $check_user) {
+			if (strcasecmp($check_user->name, $userid)==0) {
+				$res[] =  (object)array('fieldname' => 'user_id', 'message' => 'User name is in use, please select another');
+			}
+			
+			if(strcasecmp($check_user->mail, $email)==0) {
+				$res[] =  (object)array('fieldname' => 'user_id', 'message' => 'Email is already in use. Please select another or check the \'I already have an account\' box');
+			}
+		}
+		
+		return $res;
+	}
+	
+	public function CreateUser() {
+		$edit = array(
+			'name' => $this->fields['user_id']->value,
+			'pass' => $this->fields['password']->value['pass1'],
+			'mail' => $this->FetchEmail(),
+			'field_first_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_first_name']))),
+			'field_last_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_last_name']))),
+			'field_phone_number' => array(LANGUAGE_NONE => array(array('value' => $this->fields['telephone']))),
+			'field_organization' => array(LANGUAGE_NONE => array(array('value' => $this->fields['org_name']))),
+		'status' => 0
+		);
+		
+		$account = user_save(null, $edit);
+		
+		return FALSE !== $account;
+	}
+	
+	public static function GetEmailsForRoles($roles) {
+
+		$users = entity_load('user');
+		
+		$email_array = array();
+		
+		foreach ($roles as $role) {
+			foreach($users as $user) {
+				if (array_search($role, $user->roles)) {
+					$email_array[$user->mail] = $user->name;
+				}
+			}
+		}
+		
+		return implode(',', array_keys($email_array));
+	}
+	private function FetchEmail() {
+		if(!array_key_exists('admin_email', $this->fields) || empty($this->fields['admin_email']->value)) {
+			return $this->fields['email']->value;
+		}
+
+		return $this->fields['admin_email']->value;
+	}
+
+	private function MakeFieldList($fields) {
+		
+		$res = '';
+		foreach ($fields as $label => $fieldname) {
+			
+			if(array_key_exists($fieldname, $this->fields) && !empty($this->fields[$fieldname]->value)) {
+				$res .= "$label: " . $this->fields[$fieldname]->value . "\n";
+			}
+		}
+		return $res;
+	}
 
 }
