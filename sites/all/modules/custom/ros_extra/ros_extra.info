@@ -1,0 +1,5 @@
+name = "ROS Extra"
+description = Extra functions for River of Stories
+package = River Of Stories
+core = 7.x
+files[] = ros_extra.module

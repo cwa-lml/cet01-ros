@@ -1,0 +1,44 @@
+<?php 
+
+function ros_extra_block_info() {
+	return array(
+		'ROSEXTRA' => array(
+			'info' => t('User Info'),
+			'administrative' => true,
+			'visibility' => BLOCK_VISIBILITY_LISTED,
+			'region' => 'Top Bar'
+		)
+	);
+}
+
+function ros_extra_block_view($delta) {
+	if($delta=='ROSEXTRA') {
+
+		global $user;
+//		debug('User: ' . print_r($user, true));
+		
+		
+		if($user->uid < 1) {
+			return array( 'subject' => null, 'content' => '');
+		}
+
+		$user_fields = user_load($user->uid);
+		
+		$fname = (!array_key_exists('und', $user_fields->field_first_name)) ? null : $user_fields->field_first_name['und'][0]['value'];
+		$lname = (!array_key_exists('und', $user_fields->field_last_name)) ? null : $user_fields->field_last_name['und'][0]['value'];
+		$org = (!array_key_exists('und', $user_fields->field_organization)) ? null : $user_fields->field_organization['und'][0]['value'];
+		
+		if(!empty($org)) {
+			$welcome = "Welcome $org";	
+		}
+		else if(!empty($fname) && !empty($lname)) {
+			$welcome = "Welcome $fname $lname";
+		}
+		else {
+			$welcome = "Welcome " . $user->name;
+		}
+		
+		return array( 'subject' => null, 
+			'content' => ($user->uid < 1) ? '' : '<div class="ros-extra-user-info menu">' . $welcome . '</div>');
+	}
+}
