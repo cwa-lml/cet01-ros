@@ -53,6 +53,14 @@ function ros_workflow_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'page_with_multiple_files' => array(
+      'name' => t('Page with multiple files'),
+      'base' => 'node_content',
+      'description' => t('An article type page with multiple file links'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'product_item' => array(
       'name' => t('Product Item'),
       'base' => 'node_content',
