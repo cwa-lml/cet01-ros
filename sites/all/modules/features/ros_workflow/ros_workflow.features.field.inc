@@ -878,6 +878,78 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-front_page_video-field_frontvideo'
+  $fields['node-front_page_video-field_frontvideo'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_frontvideo',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'front_page_video',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'videojs',
+          'settings' => array(),
+          'type' => 'videojs',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_frontvideo',
+      'label' => 'Watch Alice blah blah',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'mp4 ogv flv m4v',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '-4',
+      ),
+    ),
+  );
+
   // Exported field: 'node-interactive_whiteboard-field_author'
   $fields['node-interactive_whiteboard-field_author'] = array(
     'field_config' => array(
@@ -1157,6 +1229,277 @@ function ros_workflow_field_default_fields() {
         ),
         'type' => 'text_textarea_with_summary',
         'weight' => -4,
+      ),
+    ),
+  );
+
+  // Exported field: 'node-product_item-body'
+  $fields['node-product_item-body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'field_name' => 'body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_with_summary',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_item',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'body',
+      'label' => 'Description',
+      'required' => 1,
+      'settings' => array(
+        'display_summary' => 1,
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '20',
+          'summary_rows' => 5,
+        ),
+        'type' => 'text_textarea_with_summary',
+        'weight' => '-4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-product_item-field_price'
+  $fields['node-product_item-field_price'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_price',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(
+        'decimal_separator' => '.',
+        'precision' => '10',
+        'scale' => '2',
+      ),
+      'translatable' => '0',
+      'type' => 'number_decimal',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_item',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 2,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_decimal',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_price',
+      'label' => 'Price',
+      'required' => 0,
+      'settings' => array(
+        'max' => '99',
+        'min' => '0',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => '-3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-product_item-field_web_access'
+  $fields['node-product_item-field_web_access'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_web_access',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => '0',
+          1 => '1',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_item',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_key',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_web_access',
+      'label' => 'Enable web access',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '-2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-product_item-field_weight'
+  $fields['node-product_item-field_weight'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_weight',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'number',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'number_integer',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_item',
+      'default_value' => array(
+        0 => array(
+          'value' => '1',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_weight',
+      'label' => 'Weight',
+      'required' => 0,
+      'settings' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'number',
+        'settings' => array(),
+        'type' => 'number',
+        'weight' => 0,
       ),
     ),
   );
@@ -1499,6 +1842,79 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-resource_item_description-field_download_module'
+  $fields['node-resource_item_description-field_download_module'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_download_module',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 1,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'resource_item_description',
+      'deleted' => '0',
+      'description' => 'Upload a module file (PDF?) that can be downloaded',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 6,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => '4',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_download_module',
+      'label' => 'Download module',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 1,
+        'file_directory' => '',
+        'file_extensions' => 'pdf zip',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'node-resource_item_description-field_listen'
   $fields['node-resource_item_description-field_listen'] = array(
     'field_config' => array(
@@ -1651,6 +2067,69 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-resource_item_description-field_resource_type'
+  $fields['node-resource_item_description-field_resource_type'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_resource_type',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'whats' => 'What\'s in the resource',
+          'teachersbook' => 'Teacher\'s resource book',
+          'card' => 'Read and respond cards',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'resource_item_description',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 5,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_resource_type',
+      'label' => 'Resource Type',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '6',
+      ),
+    ),
+  );
+
   // Exported field: 'node-resource_item_description-field_view_sample'
   $fields['node-resource_item_description-field_view_sample'] = array(
     'field_config' => array(
@@ -1681,11 +2160,7 @@ function ros_workflow_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'resource_item_description',
-      'default_value' => array(
-        0 => array(
-          'value' => 'http://example.org',
-        ),
-      ),
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter a link to the sample file',
       'display' => array(
@@ -1707,7 +2182,7 @@ function ros_workflow_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_view_sample',
       'label' => 'View Sample',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -1761,7 +2236,7 @@ function ros_workflow_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -1791,6 +2266,9 @@ function ros_workflow_field_default_fields() {
   t('Author');
   t('Body');
   t('Comment');
+  t('Description');
+  t('Download module');
+  t('Enable web access');
   t('Enter a comma-separated list of words to describe your content.');
   t('Enter a link to any audio file');
   t('Enter a link to the sample file');
@@ -1799,12 +2277,16 @@ function ros_workflow_field_default_fields() {
   t('ItemNumber');
   t('Listen');
   t('NumEduResource');
+  t('Price');
   t('Purchase Educational Resource');
   t('Resource Image');
+  t('Resource Type');
   t('Tags');
+  t('Upload a module file (PDF?) that can be downloaded');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');
   t('View Sample');
+  t('Watch Alice blah blah');
   t('Weight');
   t('spinner');
 
