@@ -168,10 +168,9 @@ function ros_workflow_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
+          'type' => 'hidden',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'comment',
@@ -1025,6 +1024,78 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-interactive_whiteboard-field_background'
+  $fields['node-interactive_whiteboard-field_background'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_background',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'deleted' => '0',
+      'description' => 'Upload a background image',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_url_plain',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_background',
+      'label' => 'Background',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'jpg png',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '5',
+      ),
+    ),
+  );
+
   // Exported field: 'node-interactive_whiteboard-field_body'
   $fields['node-interactive_whiteboard-field_body'] = array(
     'field_config' => array(
@@ -1842,11 +1913,84 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-resource_item_description-field_audio_file'
+  $fields['node-resource_item_description-field_audio_file'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_audio_file',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'resource_item_description',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 7,
+        ),
+        'teaser' => array(
+          'label' => 'inline',
+          'module' => 'videojs',
+          'settings' => array(),
+          'type' => 'videojs',
+          'weight' => '5',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_audio_file',
+      'label' => 'Audio file',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 1,
+        'file_directory' => '',
+        'file_extensions' => 'mp3',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '8',
+      ),
+    ),
+  );
+
   // Exported field: 'node-resource_item_description-field_download_module'
   $fields['node-resource_item_description-field_download_module'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '2',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_download_module',
@@ -1875,7 +2019,7 @@ function ros_workflow_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'resource_item_description',
       'deleted' => '0',
-      'description' => 'Upload a module file (PDF?) that can be downloaded',
+      'description' => 'Upload a file (PDF?) that can be downloaded. Enter an appropriate label',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1894,7 +2038,7 @@ function ros_workflow_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_download_module',
-      'label' => 'Download module',
+      'label' => 'Download',
       'required' => 0,
       'settings' => array(
         'description_field' => 1,
@@ -2110,7 +2254,7 @@ function ros_workflow_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '5',
+          'weight' => '6',
         ),
       ),
       'entity_type' => 'node',
@@ -2236,7 +2380,7 @@ function ros_workflow_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '7',
         ),
       ),
       'entity_type' => 'node',
@@ -2263,11 +2407,13 @@ function ros_workflow_field_default_fields() {
   // Included for use with string extractors like potx.
   t('A River of Stories Educational Resource (NZD)');
   t('A description of the resource item');
+  t('Audio file');
   t('Author');
+  t('Background');
   t('Body');
   t('Comment');
   t('Description');
-  t('Download module');
+  t('Download');
   t('Enable web access');
   t('Enter a comma-separated list of words to describe your content.');
   t('Enter a link to any audio file');
@@ -2282,7 +2428,8 @@ function ros_workflow_field_default_fields() {
   t('Resource Image');
   t('Resource Type');
   t('Tags');
-  t('Upload a module file (PDF?) that can be downloaded');
+  t('Upload a background image');
+  t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');
   t('View Sample');
