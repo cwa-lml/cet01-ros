@@ -56,6 +56,99 @@ function ros_workflow_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
   );
+  // Exported menu link: menu-top-right-logged-in:node/14
+  $menu_links['menu-top-right-logged-in:node/14'] = array(
+    'menu_name' => 'menu-top-right-logged-in',
+    'link_path' => 'node/14',
+    'router_path' => 'node/%',
+    'link_title' => 'Contact Us',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Display contact details for this site',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '2',
+  );
+  // Exported menu link: menu-top-right-logged-in:user/logout
+  $menu_links['menu-top-right-logged-in:user/logout'] = array(
+    'menu_name' => 'menu-top-right-logged-in',
+    'link_path' => 'user/logout',
+    'router_path' => 'user/logout',
+    'link_title' => 'Logout',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Log out from this site',
+      ),
+      'alter' => TRUE,
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: menu-top-right:node/14
+  $menu_links['menu-top-right:node/14'] = array(
+    'menu_name' => 'menu-top-right',
+    'link_path' => 'node/14',
+    'router_path' => 'node/%',
+    'link_title' => 'Contact Us',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Display our contact information',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '2',
+  );
+  // Exported menu link: menu-top-right:user/login
+  $menu_links['menu-top-right:user/login'] = array(
+    'menu_name' => 'menu-top-right',
+    'link_path' => 'user/login',
+    'router_path' => 'user/login',
+    'link_title' => 'Login',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Log in with your River Of Stories username',
+      ),
+      'alter' => TRUE,
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+  );
+  // Exported menu link: navigation:node/add/interactive-whiteboard
+  $menu_links['navigation:node/add/interactive-whiteboard'] = array(
+    'menu_name' => 'navigation',
+    'link_path' => 'node/add/interactive-whiteboard',
+    'router_path' => 'node/add/interactive-whiteboard',
+    'link_title' => 'Interactive whiteboard',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'This content type defines an Interactive Whiteboard (IWB) with popups for metaphors and word definitions',
+      ),
+    ),
+    'module' => 'system',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '0',
+    'parent_path' => 'node/add',
+  );
   // Exported menu link: navigation:node/add/purchase-page
   $menu_links['navigation:node/add/purchase-page'] = array(
     'menu_name' => 'navigation',
@@ -84,7 +177,7 @@ Only one of these.',
     'link_title' => 'Resource item description',
     'options' => array(
       'attributes' => array(
-        'title' => 'A description of a resource item that will be displayed on the "What\'s in the resource" page',
+        'title' => 'A description of a resource/module or other item.',
       ),
     ),
     'module' => 'system',
@@ -125,7 +218,11 @@ Only one of these.',
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Contact Us');
   t('Home');
+  t('Interactive whiteboard');
+  t('Login');
+  t('Logout');
   t('Purchase');
   t('Purchase page');
   t('Resource item description');
