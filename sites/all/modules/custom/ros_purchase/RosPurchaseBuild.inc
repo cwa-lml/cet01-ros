@@ -36,6 +36,8 @@ class RosPurchaseBuild {
 	
 	public static function pageForm() {
 				
+		$form['#attributes'] = array('class' => array('form-horizontal'));
+		
 		$form['#after_build'][] = 'ros_purchase_after_build';
 		
 		$form['header'] = array(
