@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ROS theme feature.
+ */
+
+include_once('ros_theme.features.inc');

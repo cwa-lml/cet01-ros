@@ -1,0 +1,366 @@
+/* general styles
+-------------------------------------------------- */
+@media(min-width: 980px) {
+  body {
+    padding-top: 0;
+  }
+}
+body.front {
+	background: url(/sites/all/themes/cet/img/front-body-bg.png) repeat-x center 0;
+}
+body {
+	background: url(/sites/all/themes/cet/img/body-bg.png) repeat-x center 0;
+	font-family: 'Gentium Basic', serif;
+	font-size: 13px;
+	line-height: 18px;
+}
+.page-header {
+	font-family: 'IM Fell English', serif;
+	font-size: 36px;
+	color: #fff;
+	border:none;
+	margin: 10px 0;
+}
+/* top banner section layout
+-------------------------------------------------- */
+.front .clouds {
+	height: 62px;
+}
+.clouds {
+	position: relative;
+	background: url(/sites/all/themes/cet/img/banner-clouds-repeat.png) repeat-x center bottom;
+	height: 43px;
+	width: 100%;
+	z-index: 100;
+}
+.front .site-header {
+	height: 126px;
+	background-image: url(/sites/all/themes/cet/img/front-bee.png);
+}
+.site-header {
+	position: relative;
+	height: 107px;
+	padding: 15px 0 0;
+	margin: -15px 0 0;
+	border: none;
+	background: url(/sites/all/themes/cet/img/bee.png) no-repeat 644px 0;
+}
+.front .site-header .site-name {
+	left: 19px;
+	top: 26px;
+	width: 611px;
+	height: 93px;
+	background-image: url(/sites/all/themes/cet/img/front-site-name.png);
+}
+.site-header .site-name {
+	position: absolute;
+	left: 40px;
+	top: 15px;
+	width: 565px;
+	height: 78px;
+	text-indent: -9000px;
+	overflow: hidden;
+	background: url(/sites/all/themes/cet/img/site-name.png) no-repeat 0 0;
+}
+.site-header .site-name a {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.site-header .cet-logo {
+	position: absolute;
+	top: 60px;
+	right: 30px;
+}
+.site-header .region-header .block-title {
+	display: none;
+}
+.site-header .region-header .nav {
+	position: absolute;
+	right: 23px;
+	top: 26px;
+}
+.site-header .region-header .nav li {
+	display: inline-block;
+	float: left;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1;
+	border-right: 1px solid #fff;
+	padding: 0 10px;
+}
+.site-header .region-header .nav li.last {
+	border: none;
+	padding-right: 0;
+}
+.site-header .region-header .nav li a {
+	color: #fff;
+}
+.site-header .region-header .nav li a:hover {
+	background: none;
+	color: #fff;
+	text-decoration: underline;
+}
+
+/* site navigation
+-------------------------------------------------- */
+.navbar .navbar-inner {
+  min-height: 28px;
+  padding: 0;
+  background: none;
+  border: none;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  filter: none;
+  *zoom: 1;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+.navbar .nav {
+	margin: 0;
+	float: none;
+}
+.navbar .nav li {
+	width: 158px;
+	border-left: 1px solid #045c87;
+	border-right: 1px solid #045c87;
+}
+.navbar .nav > li > a {
+	background: #048ea5;
+	color: #fff;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	text-shadow: none;
+	text-align: center;
+	display: block;
+	padding: 5px 0;
+}
+.navbar .nav li.first {
+	width: 160px;
+	border-left: none;
+}
+.navbar .nav li.last {
+	width: 160px;
+	border-right: none;
+}
+.navbar .nav li a.active,
+.navbar .nav li a.active:hover {
+	background: #00505a;
+}
+.navbar .nav li a:hover {
+	background: #00785a;
+	color: #fff;
+}
+
+/* breadcrumb navigation
+-------------------------------------------------- */
+.breadcrumb {
+  padding: 0;
+  background: none;
+  border: none;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  filter: none;
+  *zoom: 1;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+.breadcrumb > li {
+	text-shadow: none;
+}
+.breadcrumb a {
+	color: #fff;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 10px;
+}
+
+/* front page
+-------------------------------------------------- */
+#block-user-login {
+	padding: 9px 11px;
+	background: #00505a;
+  	-webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+          	border-radius: 6px;
+  	-webkit-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+       -moz-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+          	box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+#block-user-login .block-title {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	line-height: 18px;
+	padding-left: 11px;
+	margin: 0 0 9px;
+}
+#block-user-login .controls input {
+  	-webkit-border-radius: 0;
+       -moz-border-radius: 0;
+          	border-radius: 0;
+  	-webkit-box-shadow: none;
+       -moz-box-shadow: none;
+          	box-shadow: none;
+    border: 1px solid #004048;
+    width: 196px;
+    padding: 2px 10px;
+    margin: 0;
+}
+#block-user-login .compact-form-label {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #b8b8b8;
+	line-height: 18px;
+	top: 4px;
+	left: 11px;
+}
+#block-user-login .control-group {
+	margin-bottom: 9px;
+}
+#block-user-login ul {
+	margin: 0 0 0 11px;
+	float: left;
+	list-style: none;
+}
+#block-user-login ul a {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #fff;
+}
+#block-user-login .btn {
+	float: right;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #fff;
+	background: #048ea4;
+	padding: 2px 39px;
+	border: none;
+	text-shadow: none;
+  	-webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+          	border-radius: 6px;
+  	-webkit-box-shadow: none;
+       -moz-box-shadow: none;
+          	box-shadow: none;
+}
+.front .sidebar-second {
+	margin: 0;
+	width: 240px;
+}
+.front .sidebar-second .video-js {
+	background: #fff;
+	border: 1px solid #428699;
+	border-top-color: #8db4c0;
+	border-right-color: #4a919e;
+	border-bottom-color: #5392a6;
+  	-webkit-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+       -moz-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+          	box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.6);
+}
+.view-frontpage header * {
+	font-family: 'IM Fell English', serif;
+	font-size: 36px;
+	color: #fff;
+	width: 240px;
+}
+.view-frontpage .field-name-field-frontpagebody,
+.view-frontpage .field-name-field-frontpageimage {
+	width: 240px;
+}
+.view-frontpage .field-name-field-frontpagebody {
+	font-size: 14px;
+}
+.view-frontpage form {
+	clear: both;
+	padding: 6px 28px;
+}
+.view-frontpage .button_field {
+	float: right;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #fff;
+	background: #048ea4;
+	padding: 2px 39px;
+	border: none;
+	text-shadow: none;
+  	-webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+          	border-radius: 6px;
+  	-webkit-box-shadow: none;
+       -moz-box-shadow: none;
+          	box-shadow: none;
+}
+.view-frontpage .button_field:hover {
+	background: #00505a;
+}
+
+/* views
+-------------------------------------------------- */
+
+/* whats-in-resource */
+.page-whats-in-resource .page-header {
+	padding-left: 160px;
+}
+
+/* footer
+-------------------------------------------------- */
+.footer {
+	border: none;
+	margin: 0;
+	padding: 0 0 100px;
+	position: relative;
+}
+.front .footer {
+	background: url(/sites/all/themes/cet/img/home-footer-graphic.png) no-repeat 0 0;
+	height: 226px;
+}
+.front .footer .nav {
+	margin: 110px 0 0 380px;
+}
+.footer .nav li {
+	display: inline-block;
+	float: left;
+	border-right: 1px solid #045c87;
+	line-height: 12px;
+	padding: 0 10px;
+}
+.footer .nav li.last {
+	border: none;
+	padding-right: 0;
+}
+.footer .nav a {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #045c87;
+}
+.footer .nav a:hover {
+	background: none;
+}
+
+/* misc
+-------------------------------------------------- */
+.hidden,
+#block-user-login .form-required,
+.front .sidebar-second .view-video-block header,
+.footer .block-title {
+	position: absolute; 
+	left: -10000px; 
+	top: auto; 
+	width: 1px; 
+	height: 1px; 
+	overflow: hidden;
+}

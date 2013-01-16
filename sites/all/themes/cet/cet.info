@@ -1,0 +1,27 @@
+name = cet
+description = CET - A River of Stories. Based on Bootstrap, exdended where appropriate to incorporate the sites design.
+version = 1.0
+core = 7.x
+base theme = bootstrap
+
+regions[navigation]     			= 'Navigation'
+regions[header]         			= 'Header'
+regions[highlighted]    			= 'Highlighted'
+regions[help]           			= 'Help'
+regions[content]        			= 'Content'
+regions[sidebar_first]  			= 'Primary'
+regions[sidebar_second] 			= 'Secondary'
+regions[frontpage_sidebar_second] 	= 'Front Page Secondary'
+regions[footer]         			= 'Footer'
+
+fonts[google_fonts_api][] = "Gentium Basic&subset=latin#700"
+fonts[google_fonts_api][] = "Gentium Basic&subset=latin-ext#700"
+fonts[google_fonts_api][] = "Gentium Basic&subset=latin#regular"
+fonts[google_fonts_api][] = "Gentium Basic&subset=latin-ext#regular"
+fonts[google_fonts_api][] = "IM Fell English&subset=latin#regular"
+
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/cet_styles.css
+
+settings[toggle_name] = 0
+settings[toggle_search] = 1
