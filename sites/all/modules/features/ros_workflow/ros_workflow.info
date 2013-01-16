@@ -7,11 +7,8 @@ dependencies[] = "block"
 dependencies[] = "button_field"
 dependencies[] = "color"
 dependencies[] = "comment"
-<<<<<<< HEAD
 dependencies[] = "compact_forms"
-=======
 dependencies[] = "content_access"
->>>>>>> 9719b0bd8bbb6ca37dbaf7bc6fdf7aedb52d6fcb
 dependencies[] = "contextual"
 dependencies[] = "ctools"
 dependencies[] = "dashboard"
@@ -25,14 +22,11 @@ dependencies[] = "field_group"
 dependencies[] = "field_stepper_element"
 dependencies[] = "field_ui"
 dependencies[] = "file"
-<<<<<<< HEAD
 dependencies[] = "fontyourface"
 dependencies[] = "fontyourface_ui"
 dependencies[] = "ftools"
 dependencies[] = "google_fonts_api"
-=======
 dependencies[] = "ftools"
->>>>>>> 9719b0bd8bbb6ca37dbaf7bc6fdf7aedb52d6fcb
 dependencies[] = "help"
 dependencies[] = "image"
 dependencies[] = "jquery_update"
@@ -187,11 +181,10 @@ features[variable][] = "node_submitted_front_page_text"
 features[variable][] = "node_submitted_interactive_whiteboard"
 features[variable][] = "node_submitted_purchase_page"
 features[variable][] = "node_submitted_resource_item_description"
-=======
+
 features[user_role][] = "order processor"
 features[views_view][] = "interactive_whiteboard_resources"
 features[views_view][] = "read_and_respond_cards"
 features[views_view][] = "teachers_resource_book"
 features[views_view][] = "video_block"
->>>>>>> 9719b0bd8bbb6ca37dbaf7bc6fdf7aedb52d6fcb
 features[views_view][] = "whats_in_resource"
