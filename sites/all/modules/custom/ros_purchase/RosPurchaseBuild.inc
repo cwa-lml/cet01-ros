@@ -72,20 +72,16 @@ class RosPurchaseBuild {
 
 			
 			$form['order'][$type . '_price'] = array(
-					'#type' => 'textfield',
+					'#type' => 'item',
 					'#title' => $item->name . ' (NZD)',
-					'#size' => 6,
-					'#default_value' => '$' . $item->price,
-					'#disabled' => TRUE
+					'#markup' => '<div id="item-price">$' . $item->price . '</div>',
 			);
 		}
 		
 		$form['order']['freight_price'] = array(
-			'#type' => 'textfield',
-						'#title' => $ros_orderables['_freight']->name,
-						'#size' => 6,
-						'#default_value' => '$' . $ros_orderables['_freight']->price,
-						'#disabled' => TRUE
+				'#type' => 'item',
+				'#title' => $ros_orderables['_freight']->name,
+				'#markup' => '<div id="freight-price">$' . $ros_orderables['_freight']->price . '</div>',
 		);
 		
 		$form['order']['gst_amount'] = array(
