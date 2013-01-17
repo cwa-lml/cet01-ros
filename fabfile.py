@@ -548,7 +548,7 @@ def deploy_generic(site_package,project,site_dir,init=False):
   symlink(files_dir+'/files', current_project_dir+'/sites/default/files', sudo=True);
 
   if init is not False:
-    drush_install_site(site_dir,'minimal',True);
+    drush_install_site(site_dir,init,True);
 
   # set the ownership of the just deployed package
   chown(current_project_dir, 'root', apache_user(), True, True)
