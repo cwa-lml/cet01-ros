@@ -50,29 +50,31 @@
     <?php if ($is_front): ?>
       <section class="offset1 span7">  
     <?php else: ?>  
-      <section class="span9">  
+      <section class="span12 main-content">  
     <?php endif; ?>    
-      <?php if ($page['highlighted']): ?>
-        <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
-      <?php endif; ?>
-      <?php if ($breadcrumb): print $breadcrumb; endif;?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php print $messages; ?>
-      <?php if ($tabs): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-      <?php if ($page['help']): ?> 
-        <div class="well"><?php print render($page['help']); ?></div>
-      <?php endif; ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
+      <div class="main-inner">
+        <?php if ($page['highlighted']): ?>
+          <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+        <?php if ($breadcrumb): print $breadcrumb; endif;?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if ($title): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
+        <?php print $messages; ?>
+        <?php if ($tabs): ?>
+          <?php print render($tabs); ?>
+        <?php endif; ?>
+        <?php if ($page['help']): ?> 
+          <div class="well"><?php print render($page['help']); ?></div>
+        <?php endif; ?>
+        <?php if ($action_links): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print render($page['content']); ?>
+      </div>
     </section>
 
     <?php if ($is_front): ?>

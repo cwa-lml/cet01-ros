@@ -36,21 +36,20 @@ class RosPurchaseBuild {
 	
 	public static function pageForm() {
 				
-		$form['#attributes'] = array('class' => array('form-horizontal'));
+		$form['#attributes'] = array('class' => array('form-horizontal ros-purchase'));
 		
 		$form['#after_build'][] = 'ros_purchase_after_build';
 		
 		$form['header'] = array(
 				'#type' => 'item',
 				'#after_build' => array('ros_purchase_load_javascript'),
-				'#title' => t('Purchase the resource'),
-				'#markup' => t('You can purchase several Educational Resources but only one login id will be provided.'
+				'#title' => t('<h2>Purchase the resource</h2>'),
+				'#markup' => t('<p>You can purchase several Educational Resources but only one login id will be provided. '
 		. 'On confirmation of your order, the login details will be sent to the Administrator email address. '
 		. 'Currently this Educational Resource is only available for New Zealand. Access to the secure area of this site is only '
-		. 'granted to those purchasing the full Educational Resource and not to individual item purchases.'
-		. '<br/>'
-		. 'For any queries or requests for other items in the Educational Resource please call Customer Services on '
-		. '0800 800 565 (8am - 5pm weekdays)'),
+		. 'granted to those purchasing the full Educational Resource and not to individual item purchases.</p>'
+		. '<p>For any queries or requests for other items in the Educational Resource please call Customer Services on '
+		. '0800 800 565 (8am - 5pm weekdays)</p>'),
 		);
 		
 		$form['order'] = array(
