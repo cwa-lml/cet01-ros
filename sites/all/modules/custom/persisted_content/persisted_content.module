@@ -1,0 +1,970 @@
+<?php
+	function persisted_content_values() {
+		return array (
+  'Support for Teaching Writing' => 
+  array (
+    'type' => 'page_with_multiple_files',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Support for Teaching Writing',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_file' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '11',
+          'display' => '1',
+          'description' => '',
+          'uid' => '1',
+          'filename' => '3com hub 16751ug1.pdf',
+          'uri' => 'public://3com hub 16751ug1.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '563924',
+          'status' => '1',
+          'timestamp' => '1358127290',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+        1 => 
+        array (
+          'fid' => '12',
+          'display' => '1',
+          'description' => '',
+          'uid' => '1',
+          'filename' => 'IBP Brazing Fittings.pdf',
+          'uri' => 'public://IBP Brazing Fittings.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '869602',
+          'status' => '1',
+          'timestamp' => '1358127309',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+  ),
+  'IWB Test' => 
+  array (
+    'type' => 'interactive_whiteboard',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'IWB Test',
+    'field_author' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Richard Parratt',
+          'format' => NULL,
+          'safe_value' => 'Richard Parratt',
+        ),
+      ),
+    ),
+    'field_itemnumber' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+    'field_body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '<doc>This is some <em>text</em>.
+<metaphor popup=\'This is a metaphor for a failed love affair. Apparently\'>Someone left the cake out in the rain</metaphor>
+This is a <definition><popup>a <b>word</b>defining something</popup>definition</definition>
+</doc>',
+          'format' => NULL,
+          'safe_value' => '&lt;doc&gt;This is some &lt;em&gt;text&lt;/em&gt;.
+&lt;metaphor popup=&#039;This is a metaphor for a failed love affair. Apparently&#039;&gt;Someone left the cake out in the rain&lt;/metaphor&gt;
+This is a &lt;definition&gt;&lt;popup&gt;a &lt;b&gt;word&lt;/b&gt;defining something&lt;/popup&gt;definition&lt;/definition&gt;
+&lt;/doc&gt;',
+        ),
+      ),
+    ),
+    'field_background' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '10',
+          'display' => '1',
+          'description' => '',
+          'uid' => '1',
+          'filename' => 'spaniard_ruin.jpg',
+          'uri' => 'public://spaniard_ruin.jpg',
+          'filemime' => 'image/jpeg',
+          'filesize' => '124880',
+          'status' => '1',
+          'timestamp' => '1358126766',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+  ),
+  'Card 1: Woman\'s World' => 
+  array (
+    'type' => 'resource_item_description',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Card 1: Woman\'s World',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_resource_image' => 
+    array (
+    ),
+    'field_view_sample' => 
+    array (
+    ),
+    'field_listen' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'http://audio.org/sound.mp3',
+          'format' => NULL,
+          'safe_value' => 'http://audio.org/sound.mp3',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+    ),
+    'field_resource_type' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'card',
+        ),
+      ),
+    ),
+    'field_download_module' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '5',
+          'display' => '1',
+          'description' => 'Download card',
+          'uid' => '1',
+          'filename' => 'Conex Compression Fittings.pdf',
+          'uri' => 'public://Conex Compression Fittings.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '1287964',
+          'status' => '1',
+          'timestamp' => '1358123514',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+    'field_audio_file' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '9',
+          'display' => '1',
+          'description' => '',
+          'uid' => '1',
+          'filename' => '06 A Sunday Smile.mp3',
+          'uri' => 'public://06 A Sunday Smile_0.mp3',
+          'filemime' => 'audio/mpeg',
+          'filesize' => '6119785',
+          'status' => '1',
+          'timestamp' => '1358124484',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+  ),
+  'Module 1: Our Earth, Our Future' => 
+  array (
+    'type' => 'resource_item_description',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Module 1: Our Earth, Our Future',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_resource_image' => 
+    array (
+    ),
+    'field_view_sample' => 
+    array (
+    ),
+    'field_listen' => 
+    array (
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+    'field_resource_type' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'teachersbook',
+        ),
+      ),
+    ),
+    'field_download_module' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '4',
+          'display' => '1',
+          'description' => 'Download module',
+          'uid' => '1',
+          'filename' => 'BoardingPass.pdf',
+          'uri' => 'public://BoardingPass.pdf',
+          'filemime' => 'application/pdf',
+          'filesize' => '227863',
+          'status' => '1',
+          'timestamp' => '1358121159',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+    'field_audio_file' => 
+    array (
+    ),
+  ),
+  'Introduction' => 
+  array (
+    'type' => 'resource_item_description',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Introduction',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '(Teachers resource book introduction)
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>(Teachers resource book introduction)</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_resource_image' => 
+    array (
+    ),
+    'field_view_sample' => 
+    array (
+    ),
+    'field_listen' => 
+    array (
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+    'field_resource_type' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'teachersbook',
+        ),
+      ),
+    ),
+    'field_download_module' => 
+    array (
+    ),
+    'field_audio_file' => 
+    array (
+    ),
+  ),
+  'Read and Respond Cards' => 
+  array (
+    'type' => 'resource_item_description',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Read and Respond Cards',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '(Text for read and respond cards)',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>(Text for read and respond cards)</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_resource_image' => 
+    array (
+    ),
+    'field_view_sample' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'http://example.org',
+          'format' => NULL,
+          'safe_value' => 'http://example.org',
+        ),
+      ),
+    ),
+    'field_listen' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'http://audio.org/sound.mp3',
+          'format' => NULL,
+          'safe_value' => 'http://audio.org/sound.mp3',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '20',
+        ),
+      ),
+    ),
+    'field_resource_type' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'whats',
+        ),
+      ),
+    ),
+    'field_download_module' => 
+    array (
+    ),
+    'field_audio_file' => 
+    array (
+    ),
+  ),
+  '\'A River of Stories\' Book' => 
+  array (
+    'type' => 'resource_item_description',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => '\'A River of Stories\' Book',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_resource_image' => 
+    array (
+    ),
+    'field_view_sample' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'http://example.org',
+          'format' => NULL,
+          'safe_value' => 'http://example.org',
+        ),
+      ),
+    ),
+    'field_listen' => 
+    array (
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '10',
+        ),
+      ),
+    ),
+    'field_resource_type' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'whats',
+        ),
+      ),
+    ),
+    'field_download_module' => 
+    array (
+    ),
+    'field_audio_file' => 
+    array (
+    ),
+  ),
+  'Copyright and privacy' => 
+  array (
+    'type' => 'page',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Copyright and privacy',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Placeholder for copyright and privacy info',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Placeholder for copyright and privacy info</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+  ),
+  'Accessibility' => 
+  array (
+    'type' => 'page',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Accessibility',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Placeholder accessibility text',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Placeholder accessibility text</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+  ),
+  'About this site' => 
+  array (
+    'type' => 'page',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'About this site',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'About page placeholder',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>About page placeholder</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+  ),
+  'Contact Us' => 
+  array (
+    'type' => 'article',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Contact Us',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+<div class="contact-left">
+<b>Commonwealth Educational Trust</b>
+CET Building
+21 Anywhere St
+PO Box 1111
+Thorndon
+Wellington 6011
+Tel:  (04) 897 6543
+Fax: (04) 897 5432
+ 
+Email: xxxx
+www.ariverofstories.com
+</div>
+
+<div class="contact-right">
+<b>Learning Media Ltd</b>
+Willeston House
+22-28 Willeston Street
+Box 3293
+Wellington
+New Zealand 6140
+Tel:  (04) 472 5522
+Fax: (04) 897 5432
+ 
+Email: xxxx
+</div>
+',
+          'summary' => '',
+          'format' => 'full_html',
+          'safe_value' => '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+<div class="contact-left">
+<b>Commonwealth Educational Trust</b><br />
+CET Building<br />
+21 Anywhere St<br />
+PO Box 1111<br />
+Thorndon<br />
+Wellington 6011<br />
+Tel:  (04) 897 6543<br />
+Fax: (04) 897 5432
+<p>Email: xxxx<br /><a href="http://www.ariverofstories.com">www.ariverofstories.com</a>
+</p></div>
+<div class="contact-right">
+<b>Learning Media Ltd</b><br />
+Willeston House<br />
+22-28 Willeston Street<br />
+Box 3293<br />
+Wellington<br />
+New Zealand 6140<br />
+Tel:  (04) 472 5522<br />
+Fax: (04) 897 5432
+<p>Email: xxxx
+</p></div>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_tags' => 
+    array (
+    ),
+    'field_image' => 
+    array (
+    ),
+  ),
+  'Thank you' => 
+  array (
+    'type' => 'purchase_confirmation',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Thank you',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Your River of Stories order has been submitted.',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Your River of Stories order has been submitted.</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+  ),
+  'hardbook' => 
+  array (
+    'type' => 'product_item',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'hardbook',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'A River of Stories Book - hard cover',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>A River of Stories Book - hard cover</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '2',
+        ),
+      ),
+    ),
+    'field_price' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '40.00',
+        ),
+      ),
+    ),
+    'field_web_access' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+  ),
+  '_gst' => 
+  array (
+    'type' => 'product_item',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => '_gst',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Tax amount (GST 15.0%)',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Tax amount (GST 15.0%)</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+    'field_price' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '0.15',
+        ),
+      ),
+    ),
+    'field_web_access' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+  ),
+  '_freight' => 
+  array (
+    'type' => 'product_item',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => '_freight',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Freight (NZD)',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>Freight (NZD)</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+    'field_price' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '7.50',
+        ),
+      ),
+    ),
+    'field_web_access' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '0',
+        ),
+      ),
+    ),
+  ),
+  'resource' => 
+  array (
+    'type' => 'product_item',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'resource',
+    'body' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'A River of Stories Educational Resource',
+          'summary' => '',
+          'format' => 'filtered_html',
+          'safe_value' => '<p>A River of Stories Educational Resource</p>
+',
+          'safe_summary' => '',
+        ),
+      ),
+    ),
+    'field_weight' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+    'field_price' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '89.00',
+        ),
+      ),
+    ),
+    'field_web_access' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => '1',
+        ),
+      ),
+    ),
+  ),
+  'Watch richard (title)' => 
+  array (
+    'type' => 'front_page_video',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '0',
+    'sticky' => '0',
+    'title' => 'Watch richard (title)',
+    'field_frontvideo' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'fid' => '3',
+          'display' => '1',
+          'description' => '',
+          'uid' => '1',
+          'filename' => 'Velocitraption.m4v',
+          'uri' => 'public://Velocitraption.m4v',
+          'filemime' => 'video/x-m4v',
+          'filesize' => '32505510',
+          'status' => '1',
+          'timestamp' => '1355877697',
+          'rdf_mapping' => 
+          array (
+          ),
+        ),
+      ),
+    ),
+  ),
+  'Front page title' => 
+  array (
+    'type' => 'front_page_text',
+    'status' => '1',
+    'comment' => '1',
+    'promote' => '1',
+    'sticky' => '0',
+    'title' => 'Front page title',
+    'field_frontpagebody' => 
+    array (
+      'und' => 
+      array (
+        0 => 
+        array (
+          'value' => 'Front page body text',
+          'format' => NULL,
+          'safe_value' => 'Front page body text',
+        ),
+      ),
+    ),
+    'field_frontpageimage' => 
+    array (
+    ),
+  ),
+);
+	}

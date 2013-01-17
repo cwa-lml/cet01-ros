@@ -1,0 +1,6 @@
+name = Persist content
+description = Persist content to a PHP module
+package = Content persistance
+core = 7.x
+
+files[] = persist_content.module

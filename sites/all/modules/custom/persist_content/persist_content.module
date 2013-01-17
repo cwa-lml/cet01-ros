@@ -1,0 +1,321 @@
+<?php 
+
+function persist_content_permission() {
+	return array(
+    'persist_content' => array(
+      'title' => t('Persist content'),
+	),
+	);
+}
+
+function persist_content_menu() {
+	$items['admin/structure/persist_content'] = array(
+		 'title' => t('Persist Content'),
+      'description' => t('Persist base or test content in code'),
+		'page callback' => 'persist_content_page',
+		'access arguments' => array('persist_content'),
+		 'type' => MENU_NORMAL_ITEM
+	);
+
+	return $items;
+}
+
+function persist_content_page() {
+	return drupal_get_form('persist_content_page_form');
+}
+
+function persist_content_page_form() {
+	
+	$form['current'] = array(
+		'#type' => 'fieldset',
+		'#title' => 'Current content',
+	);
+	
+	// Display list of current nodes
+	// Amazingly, this == the example
+	$header = array(
+	    'title' => array('data' => t('Title'), 'field' => 'n.title'),
+	    'type' => array('data' => t('Type'), 'field' => 'n.type'),
+	    'author' => t('Author'),
+	    'status' => array('data' => t('Status'), 'field' => 'n.status'),
+	    'changed' => array('data' => t('Updated'), 'field' => 'n.changed', 'sort' => 'desc')
+	);
+
+
+	
+	//Get the node data.
+	$query = db_select('node', 'n')->extend('PagerDefault')->extend('TableSort');
+	$nids = $query
+	->fields('n',array('nid'))
+	->limit(50)
+	->orderByHeader($header)
+	->execute()
+	->fetchCol();
+	$nodes = node_load_multiple($nids);
+
+	// Check existing
+	$initial_values = array();
+	$persisted_data = null;
+	if(module_load_include('module', 'persisted_content', 'persisted_content') !== FALSE) {
+		$persisted_data = persisted_content_values();
+		$exported_titles = array_keys($persisted_data);
+		
+		foreach ($exported_titles as $exported_title) {
+			$nid = null;
+			
+			foreach ($nodes as $node) {
+				if($node->title == $exported_title) {
+					$nid = $node->nid;
+					break;
+				}
+			}
+			
+			if($nid != null) {
+				$initial_values[$nid] = true;
+			}
+		
+		}
+	}
+	
+	//Build the rows.
+	$options = array();
+	foreach ($nodes as $node) {
+		$langcode = entity_language('node', $node);
+		$l_options = $langcode != LANGUAGE_NONE && isset($languages[$langcode]) ? array('language' => $languages[$langcode]) : array();
+		
+		$options[$node->nid] = array(
+	      'title' => array(
+	        'data' => array(
+	          '#type' => 'link',
+	          '#title' => $node->title,
+	          '#href' => 'node/' . $node->nid,
+	          '#options' => $l_options,
+	          '#suffix' => ' ' . theme('mark', array('type' => node_mark($node->nid, $node->changed))),
+	          ''
+		),
+		),
+	      'type' => check_plain(node_type_get_name($node)),
+	      'author' => theme('username', array('account' => $node)),
+	      'status' => $node->status ? t('published') : t('not published'),
+	      'changed' => format_date($node->changed, 'short'),
+		);
+	}
+
+	//Build the tableselect.
+	$form['current']['current_content'] = array(
+      '#type' => 'tableselect',
+      '#header' => $header,
+      '#options' => $options,
+      '#default_value' => $initial_values,
+      '#empty' => t('No content available.'),
+		);
+		
+	// And the path
+	$modpath = drupal_get_path('module', 'persist_content');
+	// debug('modpath=' . $modpath);
+	$form['current']['path'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Path'),
+			'#default_value' => $_SERVER['DOCUMENT_ROOT'] . base_path() . str_replace('/persist_content', '/persisted_content', $modpath),
+			'#size' => 200
+	);
+	
+	$form['current']['rebuild'] = array(
+					'#type' => 'submit',
+					'#value' => t('Rebuild'),
+	);
+	
+	$form['saved'] = array(
+			'#type' => 'fieldset',
+			'#title' => 'Saved content',
+	);
+	
+	if(empty($persisted_data)) {
+		return $form;
+	}
+	
+	// Display list of saved nodes
+	$header = array(
+		    'title' => array('data' => t('Title'), 'field' => 'n.title'),
+		    'type' => array('data' => t('Type'), 'field' => 'n.type'),
+		    'status' => array('data' => t('Status'), 'field' => 'n.status'),
+	);
+	
+	$options = array();
+	foreach ($persisted_data as $title => $node_fields) {
+	
+		$options[$title] = array(
+		      'title' => array(
+		        'data' => array(
+		          '#type' => 'item',
+		          '#title' => $title,
+		),
+		),
+		      'type' => $node_fields['type'],
+		      'status' => $node_fields['status'] ? t('published') : t('not published'),
+		);
+	}
+	
+	//Build the tableselect.
+	$form['saved']['saved_content'] = array(
+	      '#type' => 'tableselect',
+	      '#header' => $header,
+	      '#options' => $options,
+	      '#empty' => t('No content saved.'),
+	);
+	
+	$form['saved']['load'] = array(
+						'#type' => 'submit',
+						'#value' => t('Load'),
+	);
+	
+	
+	return $form;
+}
+
+function persist_content_page_form_submit($form_id, &$form_state) {
+	
+	// debug('persist_content_page_form_submit: ' . print_r($form_state, true));
+	
+	if($form_state['clicked_button']['#value'] == 'Rebuild') {
+		persist_content_rebuild($form_state['values']['path'], array_filter( array_values($form_state['values']['current_content']),  function($i) { return $i != 0; }));
+	}
+	else if($form_state['clicked_button']['#value'] == 'Load') {
+		persist_content_load(array_filter( array_values($form_state['values']['saved_content']),  function($i) { return !($i === 0); }));
+	}
+}
+
+function persist_content_rebuild($path, $node_ids) {
+	//debug('persist_content_rebuild: ' . print_r($node_ids, true));
+	
+	$save_array = array();
+
+	$existing_ents = entity_load('node', $node_ids);
+		
+	foreach ( $existing_ents as $entity) {
+		// debug('persist_content_rebuild: ' .  print_r($entity, true));
+		
+		$save_array[$entity->title] = array();
+		
+		$propinfo = entity_get_property_info('node');
+		
+		// debug('persist_content_rebuild, propinfo: ' . print_r($propinfo, true));
+		
+		$core_properties = array('type', 'status', 'comment', 'promote', 'sticky', 'title');
+		
+		$props = array_merge($core_properties, array_keys($propinfo['bundles'][$entity->type]['properties']));
+		
+		// debug('persist_content_rebuild, props: ' . print_r($props, true));
+		
+		$prop_values = array();
+		
+		foreach ($props as $propname) {
+			if(isset($entity->{$propname})) {
+				$prop_values[$propname] = $entity->{$propname};
+			}
+		}
+		
+		//debug('persist_content_rebuild, prop_values: ' . print_r($prop_values, true));
+		$save_array[$entity->title] = $prop_values;
+	}
+	
+	// debug('persist_content_rebuild, prop_values: ' . print_r($save_array, true));
+	
+	$saved_values_php = var_export($save_array, true);
+	$persist_php = <<<ENDS
+	function persisted_content_values() {
+		return $saved_values_php;
+	}
+ENDS;
+
+	persist_content_check_target_module($path);
+	
+	file_put_contents($path . '/persisted_content.module', "<?php\n" . $persist_php);
+}
+
+function persist_content_check_target_module($path) {
+	if(!is_dir($path)) {
+		mkdir($path);
+	}
+
+	$info_path = $path . '/persisted_content.info';
+	if(!file_exists($info_path)) {
+		$info_content  = <<<ENDS
+name = Persisted content
+description = Autogenerated module with persisted content
+package = Content persistance
+core = 7.x
+
+files[] = persisted_content.module
+ENDS;
+
+		file_put_contents($info_path, $info_content);
+	}
+
+}
+
+function persist_content_load($node_titles) {
+	$persisted_data = null;
+	if(module_load_include('module', 'persisted_content', 'persisted_content') !== FALSE) {
+		$persisted_data = persisted_content_values();
+		
+		foreach( $node_titles as $node_title) {
+			$persisted_values = $persisted_data[$node_title];
+			
+			persist_content_load_item($node_title, $persisted_values);
+		}
+	}
+}
+
+function persist_content_load_all() {
+	$persisted_data = persisted_content_values();
+	
+	foreach ($persisted_data as $title => $persisted_values) {
+		persist_content_load_item($title, $persisted_values);
+	}
+}
+
+function persist_content_load_item($title, $persisted_values) {
+		
+	$qry_options = new EntityFieldQuery();
+	$res_options = $qry_options
+	->entityCondition('entity_type', 'node')
+	->entityCondition('bundle', $persisted_values['type'])
+	->propertyCondition('title', $persisted_values['title'], '=')
+	->execute();
+		
+	if (isset($res_options['node'])) {
+		$existing_ents = entity_load('node', array_keys($res_options['node']));
+			
+		if(empty($existing_ents)) {
+			return;
+		}
+			
+		$keep = array_pop($existing_ents);
+			
+		foreach ($persisted_values as $persisted_field => $persisted_value) {
+			$keep->{$persisted_field} = $persisted_value;
+		}
+	
+		entity_save('node', $keep);
+			
+		foreach ($existing_ents as $ent) {
+			debug('Want to delete: ' . $ent);
+	
+			entity_delete('node', $ent->nid);
+		}
+			
+		return;
+	}
+		
+		
+	global $user;
+		
+	$persisted_values['uid'] = $user->uid;
+		
+	$ent = entity_create('node', $persisted_values);
+
+	entity_save('node', $ent);
+}
+
+
