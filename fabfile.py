@@ -9,7 +9,7 @@ from fabric.contrib import *
 from string import lower
 
 prompt=False
-site=''
+site='www.ariverofstories.info'
 web_docs_dir='/var/www'
 base_dir='/mnt/data'
 files_dir=base_dir+'/cet_site_data'
@@ -478,7 +478,8 @@ def deploy_production(branch = 'master'):
   site_dir=web_docs_dir+'/'+site
 
   # set maintenance
-  drush_setmaintenance(True,path=site_dir)
+  if init is False:
+    drush_setmaintenance(True,path=site_dir)
 
   # prod site, back up db
   drush_sqldump(site_dir,site_dir+'/'+site,compress=True,sudo=True)
@@ -489,7 +490,24 @@ def deploy_production(branch = 'master'):
 
 
 @task
-def deploy_non_live(branch = 'master'):
+def drush_install_site(path,profile='minimal',sudo=False):
+  if path is None:
+    if prompt is True:
+      path = prompt('Enter site path: ', default = web_docs_dir + '/' + site)
+    else:
+      path = web_docs_dir + '/' + site
+
+  cmd = 'drush -y site-install ' + profile
+
+  with env.cd(path):
+    if sudo is True:
+      sudo_run(cmd)
+    else:
+      env.run(cmd)
+
+
+@task
+def deploy_non_live(branch = 'master', init=False):
   project = get_project_name(branch)
 
   # set site package
@@ -498,16 +516,17 @@ def deploy_non_live(branch = 'master'):
   # set the site dir and dont rely on the defaults
   site_dir=web_docs_dir+'/'+site
 
-  # set maintenance
-  drush_setmaintenance(True,path=site_dir)
+  if init is False:
+    # set maintenance
+    drush_setmaintenance(True,path=site_dir)
 
   # create git archive
   git_archive(branch, site_package)
-  deploy_generic(site_package,project,site_dir)
+  deploy_generic(site_package,project,site_dir,init)
 
 
 
-def deploy_generic(site_package, project, site_dir):
+def deploy_generic(site_package,project,site_dir,init=False):
   # deploy file to uat
   if env.run is not lrun:
     put(site_package, site_package)
@@ -518,24 +537,31 @@ def deploy_generic(site_package, project, site_dir):
   # uncompress this branch/master version to web dir
   sudo_run('unzip -q -o -u '+site_package+' -d '+current_project_dir)
 
-  # set the ownership of the just deployed package
-  chown(current_project_dir, 'root', apache_user(), True, True)
-  chmod(current_project_dir, '755', True, True)
+  # symlink new site dir
+  if init is False:
+    unlink(site_dir, True)
+
+  symlink(current_project_dir, site_dir, True, True)
 
   # link settings.php to sites/default
   symlink(files_dir+'/settings.php', current_project_dir+'/sites/default/settings.php', sudo=True);
   symlink(files_dir+'/files', current_project_dir+'/sites/default/files', sudo=True);
 
-  # symlink new site dir
-  unlink(site_dir, True)
-  symlink(current_project_dir, site_dir, True, True)
+  if init is not False:
+    drush_install_site(site_dir,'minimal',True);
+
+  # set the ownership of the just deployed package
+  chown(current_project_dir, 'root', apache_user(), True, True)
+  chmod(current_project_dir, '755', True, True)
 
   # run updb
   drush_updb(site_dir)
   drush_cc('all', site_dir)
 
-  drush_fra(site_dir)
-  drush_cc('all', site_dir)
+  if init is False:
+    drush_fra(site_dir)
+    drush_cc('all', site_dir)
 
   # enable site
-  drush_setmaintenance(False)
+  if init is False:
+    drush_setmaintenance(False)
