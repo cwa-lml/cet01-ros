@@ -409,9 +409,9 @@ body {
 	width: 20px;
 	margin-right: 10px;
 }
-.ros-purchase #edit-order .form-item-resource-price label,
-.ros-purchase #edit-order .form-item-hardbook-price label,
-.ros-purchase #edit-order .form-item-freight-price label,
+.ros-purchase #edit-order #edit-resource-price label,
+.ros-purchase #edit-order #edit-hardbook-price label,
+.ros-purchase #edit-order #edit-freight-price label,
 .ros-purchase #edit-order #edit-gst-amount label,
 .ros-purchase #edit-order #edit-total-amount label {
 	width: 370px;
@@ -421,7 +421,7 @@ body {
 	border-top: 1px solid #fff;
 	width: 100% !important;
 }
-.ros-purchase #edit-order .form-item-freight-price label,
+.ros-purchase #edit-order #edit-freight-price label,
 .ros-purchase #edit-order #edit-gst-amount label,
 .ros-purchase #edit-order #edit-total-amount label  {
 	padding-left: 44px;
@@ -491,6 +491,9 @@ body {
 	font-size: 12px;
 	color: #666;
 }
+.ros-purchase #edit-resource-price .controls > div,
+.ros-purchase #edit-hardbook-price .controls > div,
+.ros-purchase #edit-freight-price .controls > div,
 .ros-purchase #edit-gst-amount .controls > div, 
 .ros-purchase #edit-total-amount .controls > div {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
