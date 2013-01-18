@@ -6,3 +6,7 @@ function cet_link($variables) {
   }
   return theme_link($variables);
 }
+
+function cet_js_alter(&$javascript) {
+  $javascript['misc/jquery.js']['data'] = drupal_get_path('theme', 'cet').'/js/jquery.js';
+}
