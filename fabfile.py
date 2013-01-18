@@ -118,7 +118,6 @@ def apache_disable_site(site):
     sudo_run('a2dissite ' + site)
 
 
-@task
 def unlink(path, sudo = False, recursive = False, force = False):
   cmd = 'rm '
 
