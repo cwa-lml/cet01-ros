@@ -1134,7 +1134,7 @@ function ros_workflow_field_default_fields() {
           'settings' => array(
             'debug' => 1,
             'xsl_params' => '',
-            'xsl_path' => 'public://xsl/annotate.xsl',
+            'xsl_path' => 'sites/all/modules/contrib/xsl_formatter/xsl/annotate.xsl',
           ),
           'type' => 'xsl_formatter',
           'weight' => '3',
