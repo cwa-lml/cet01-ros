@@ -95,6 +95,7 @@ function ros_workflow_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Read and Respond Cards';
+  $handler->display->display_options['css_class'] = 'ros-list-view';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -106,28 +107,102 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Header: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '(Description text for Read and Respond cards)';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>(Description text for Read and Respond cards)</p>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Download all';
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'rnr-download-all\'>Download All</div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="#" class="btn">Download all</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Resource Image */
+  $handler->display->display_options['fields']['field_resource_image']['id'] = 'field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['table'] = 'field_data_field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['field'] = 'field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_resource_image']['element_class'] = 'row-img';
+  $handler->display->display_options['fields']['field_resource_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Field: Content: Download */
+  $handler->display->display_options['fields']['field_download_module']['id'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['table'] = 'field_data_field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['field'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['label'] = '';
+  $handler->display->display_options['fields']['field_download_module']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['text'] = '<p><a href="[field_download_module]" title="View sample. " class="btn btn-sample">View sample</a></p>';
+  $handler->display->display_options['fields']['field_download_module']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_download_module']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_module']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_download_module']['delta_offset'] = '0';
+  /* Field: Content: Audio file */
+  $handler->display->display_options['fields']['field_audio_file']['id'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['table'] = 'field_data_field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['field'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['label'] = '';
+  $handler->display->display_options['fields']['field_audio_file']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['text'] = ' <p><a href="#sample-audio-[nid]" role="button" data-toggle="modal" class="btn btn-listen">Listen</a></p>
+    <div id="sample-audio-[nid]" class="modal hide">
+      <div class="modal-header">
+        <a  class="close">X</a>
+        <h3>Sample audio file</h3>
+      </div>
+      <div class="modal-body">
+        [field_audio_file]
+      </div>
+    </div>';
+  $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="row-bd">
+  <h2><a href="/node/[nid]">[title]</a></h2>
+  [body]
+  <div class="controls">
+    [field_download_module]
+    [field_audio_file]
+  </div>
+</div>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Weight (field_weight) */
   $handler->display->display_options['sorts']['field_weight_value']['id'] = 'field_weight_value';
   $handler->display->display_options['sorts']['field_weight_value']['table'] = 'field_data_field_weight';
@@ -179,6 +254,7 @@ function ros_workflow_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Teachers\' Resource Book';
+  $handler->display->display_options['css_class'] = 'ros-list-view';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -190,29 +266,103 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Header: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '(Description text for Teachers\' Resource Book)';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>Rate aborporepre ni dolupti osanditat imus. Nequo tem. Sediosa quam, ute veliam quosser chicia velenet, consequo torporro volor molo di accatat officip issinti ut qui dolores tioremque ma demoles serioriatust autem voluptatem ipicimp orestis et esto illes aut volore venimpore et landipsam lab ipiendignis sum evernamet que officia vendis est, veliquasped experunt. </p>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Teachers Resource Book Download All';
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'trb-download-all\'>Download All</div>
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="#" class="btn">Download all</a></div>
 ';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Resource Image */
+  $handler->display->display_options['fields']['field_resource_image']['id'] = 'field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['table'] = 'field_data_field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['field'] = 'field_resource_image';
+  $handler->display->display_options['fields']['field_resource_image']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_resource_image']['element_class'] = 'row-img';
+  $handler->display->display_options['fields']['field_resource_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Content: Download */
+  $handler->display->display_options['fields']['field_download_module']['id'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['table'] = 'field_data_field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['field'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['label'] = '';
+  $handler->display->display_options['fields']['field_download_module']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['text'] = '<p><a href="[field_download_module]" title="View sample. " class="btn btn-sample">View sample</a></p>';
+  $handler->display->display_options['fields']['field_download_module']['alter']['path'] = '[field_download_module]';
+  $handler->display->display_options['fields']['field_download_module']['alter']['link_class'] = 'btn btn-sample';
+  $handler->display->display_options['fields']['field_download_module']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_download_module']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_module']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_download_module']['delta_offset'] = '0';
+  /* Field: Content: Audio file */
+  $handler->display->display_options['fields']['field_audio_file']['id'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['table'] = 'field_data_field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['field'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['label'] = '';
+  $handler->display->display_options['fields']['field_audio_file']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['text'] = ' <p><a href="#sample-audio-[nid]" role="button" data-toggle="modal" class="btn btn-listen">Listen</a></p>
+    <div id="sample-audio-[nid]" class="modal hide">
+      <div class="modal-header">
+        <a  class="close">X</a>
+        <h3>Sample audio file</h3>
+      </div>
+      <div class="modal-body">
+        [field_audio_file]
+      </div>
+    </div>';
+  $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="row-bd">
+  <h2><a href="/node/[nid]">[title]</a></h2>
+  [body]
+  <div class="controls">
+    [field_download_module]
+    [field_audio_file]
+  </div>
+</div>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Weight (field_weight) */
   $handler->display->display_options['sorts']['field_weight_value']['id'] = 'field_weight_value';
   $handler->display->display_options['sorts']['field_weight_value']['table'] = 'field_data_field_weight';
@@ -308,7 +458,6 @@ function ros_workflow_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['video_block'] = $view;
 
   $view = new view();
@@ -324,6 +473,7 @@ function ros_workflow_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'What\'s in the resource';
+  $handler->display->display_options['css_class'] = 'ros-list-view';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -339,12 +489,21 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '(Description text for What\'s In The Resource)';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>(Description text for What\'s In The Resource)</p>';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['label'] = 'What\'s in the resource Download All';
+  $handler->display->display_options['header']['area']['content'] = '<div class="download-all"><a href="#" class="btn">Download all</a></div>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Resource Image */
   $handler->display->display_options['fields']['field_resource_image']['id'] = 'field_resource_image';
   $handler->display->display_options['fields']['field_resource_image']['table'] = 'field_data_field_resource_image';
@@ -367,25 +526,40 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
-  /* Field: Content: Free Samples */
-  $handler->display->display_options['fields']['field_freesamples']['id'] = 'field_freesamples';
-  $handler->display->display_options['fields']['field_freesamples']['table'] = 'field_data_field_freesamples';
-  $handler->display->display_options['fields']['field_freesamples']['field'] = 'field_freesamples';
-  $handler->display->display_options['fields']['field_freesamples']['label'] = '';
-  $handler->display->display_options['fields']['field_freesamples']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_freesamples']['element_label_colon'] = FALSE;
-  /* Field: Content: Listen */
-  $handler->display->display_options['fields']['field_listen']['id'] = 'field_listen';
-  $handler->display->display_options['fields']['field_listen']['table'] = 'field_data_field_listen';
-  $handler->display->display_options['fields']['field_listen']['field'] = 'field_listen';
-  $handler->display->display_options['fields']['field_listen']['label'] = '';
-  $handler->display->display_options['fields']['field_listen']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_listen']['alter']['text'] = '[title]
-[body] 
-[field_freesamples]
-[field_listen]
-';
-  $handler->display->display_options['fields']['field_listen']['element_label_colon'] = FALSE;
+  /* Field: Content: Download */
+  $handler->display->display_options['fields']['field_download_module']['id'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['table'] = 'field_data_field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['field'] = 'field_download_module';
+  $handler->display->display_options['fields']['field_download_module']['label'] = '';
+  $handler->display->display_options['fields']['field_download_module']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_download_module']['alter']['text'] = '<p><a href="[field_download_module]" title="View sample. " class="btn btn-sample">View sample</a></p>';
+  $handler->display->display_options['fields']['field_download_module']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_download_module']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_download_module']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_download_module']['type'] = 'file_url_plain';
+  $handler->display->display_options['fields']['field_download_module']['delta_offset'] = '0';
+  /* Field: Content: Audio file */
+  $handler->display->display_options['fields']['field_audio_file']['id'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['table'] = 'field_data_field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['field'] = 'field_audio_file';
+  $handler->display->display_options['fields']['field_audio_file']['label'] = '';
+  $handler->display->display_options['fields']['field_audio_file']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_audio_file']['alter']['text'] = ' <p><a href="#sample-audio-[nid]" role="button" data-toggle="modal" class="btn btn-listen">Listen</a></p>
+    <div id="sample-audio-[nid]" class="modal hide">
+      <div class="modal-header">
+        <a  class="close">X</a>
+        <h3>Sample audio file</h3>
+      </div>
+      <div class="modal-body">
+        [field_audio_file]
+      </div>
+    </div>';
+  $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -396,16 +570,15 @@ function ros_workflow_views_default_views() {
   <h2><a href="/node/[nid]">[title]</a></h2>
   [body]
   <div class="controls">
-    [field_freesamples]
-    [field_listen]
+    [field_download_module]
+    [field_audio_file]
   </div>
-</div>
-
-';
+</div>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Weight (field_weight) */
   $handler->display->display_options['sorts']['field_weight_value']['id'] = 'field_weight_value';
   $handler->display->display_options['sorts']['field_weight_value']['table'] = 'field_data_field_weight';
