@@ -8,9 +8,12 @@ function cet_link($variables) {
 }
 
 function cet_js_alter(&$javascript) {
+  // Note the following is neeed to populate all the defaults in the javascript array
+  // and avoid getting warnings from drupal_sort_css_js
   $file = drupal_get_path('theme', 'cet') . '/js/jquery.js';
-  $javascript['misc/jquery.js']['data'] = $file;
-  $javascript['misc/jquery.js']['scope'] = 'header';
+  $javascript['misc/jquery.js']  = drupal_js_defaults($file);
+  $javascript['misc/jquery.js']['group'] = JS_THEME;
+  
 }
 
 function cet_theme(&$existing, $type, $theme, $path) {
