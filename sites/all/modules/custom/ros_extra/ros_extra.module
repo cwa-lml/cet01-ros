@@ -24,9 +24,9 @@ function ros_extra_block_view($delta) {
 
 		$user_fields = user_load($user->uid);
 		
-		$fname = (!array_key_exists('und', $user_fields->field_first_name)) ? null : $user_fields->field_first_name['und'][0]['value'];
-		$lname = (!array_key_exists('und', $user_fields->field_last_name)) ? null : $user_fields->field_last_name['und'][0]['value'];
-		$org = (!array_key_exists('und', $user_fields->field_organization)) ? null : $user_fields->field_organization['und'][0]['value'];
+		$fname = (!isset($user_fields->field_first_name) || !array_key_exists('und', $user_fields->field_first_name)) ? null : $user_fields->field_first_name['und'][0]['value'];
+		$lname = (!isset($user_fields->field_last_name) || !array_key_exists('und', $user_fields->field_last_name)) ? null : $user_fields->field_last_name['und'][0]['value'];
+		$org = (!isset($user_fields->field_organization) || !array_key_exists('und', $user_fields->field_organization)) ? null : $user_fields->field_organization['und'][0]['value'];
 		
 		if(!empty($org)) {
 			$welcome = "Welcome $org";	
