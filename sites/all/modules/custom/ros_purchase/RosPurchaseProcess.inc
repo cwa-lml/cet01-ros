@@ -149,10 +149,14 @@ class RosPurchaseProcess {
 			'name' => $this->fields['user_id']->value,
 			'pass' => $this->fields['password']->value['pass1'],
 			'mail' => $this->FetchEmail(),
-			'field_first_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_first_name']))),
-			'field_last_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_last_name']))),
-			'field_phone_number' => array(LANGUAGE_NONE => array(array('value' => $this->fields['telephone']))),
-			'field_organization' => array(LANGUAGE_NONE => array(array('value' => $this->fields['org_name']))),
+			'field_first_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_first_name']->value))),
+			'field_last_name' => array(LANGUAGE_NONE => array(array('value' => $this->fields['purchaser_last_name']->value))),
+			'field_phone_number' => array(LANGUAGE_NONE => array(array('value' => $this->fields['telephone']->value))),
+			'field_organization' => array(LANGUAGE_NONE => array(array('value' => $this->fields['org_name']->value))),
+// 		'field_first_name' => $this->fields['purchaser_first_name']->value,
+// 		'field_last_name' => $this->fields['purchaser_last_name']->value,
+// 		'field_phone_number' => $this->fields['telephone']->value,
+// 		'field_organization' => $this->fields['org_name']->value,
 		'status' => 0
 		);
 		
