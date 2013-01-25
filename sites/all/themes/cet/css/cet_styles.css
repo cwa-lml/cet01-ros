@@ -484,7 +484,6 @@ body {
   	-webkit-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
        -moz-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
           	box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
-
 }
 .ros-purchase #edit-order .form-item-resource-count .form-text,
 .ros-purchase #edit-order .form-item-hardbook-count .form-text {
@@ -595,6 +594,207 @@ body {
 	padding: 6px 0 0 7px;
 	height: 20px;
 }
+
+
+/* interactive whiteboards
+-------------------------------------------------- */
+.glossary {
+	border-bottom: 1px dotted #8ad4c9;
+}
+.metaphor,
+.simile {
+	border-bottom: 1px dotted #ffce86;
+}
+.glossary.active {
+	background: #8ad4c9;
+}
+.metaphor.active,
+.simile.active {
+	background: #ffce86;
+}
+.popover {
+	border: none;
+   	-webkit-border-radius: 0;
+       -moz-border-radius: 0;
+          	border-radius: 0;
+ 	-webkit-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
+       -moz-box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
+          	box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);	
+}
+.popover-glossary {
+	background: #8ad4c9;
+}
+.popover-glossary.right .arrow::after {
+	border-right-color: #8ad4c9;
+}
+.popover-metaphor,
+.popover-simile  {
+	background: #ffce86;
+}
+.popover-metaphor.right .arrow::after,
+.popover-simile.right .arrow::after {
+	border-right-color: #ffce86;
+}
+.popover-metaphor,
+.popover-simile {
+	z-index: 1000;	
+}
+.popover-glossary {
+	z-index: 1010	
+}
+.popover-title {
+	background: none;
+	border-bottom: none;
+	color: #58595b;
+	font-style: italic;
+	font-size: 12px;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	padding: 20px 20px 5px;
+}
+.node-interactive-whiteboard {
+	padding: 23px;
+	margin: 0 80px;
+	background-color: #006089;
+	background-image: -moz-linear-gradient(top, #006089, #7dc7c2);
+	background-image: -ms-linear-gradient(top, #006089, #7dc7c2);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#006089), to(#7dc7c2));
+	background-image: -webkit-linear-gradient(top, #006089, #7dc7c2);
+	background-image: -o-linear-gradient(top, #006089, #7dc7c2);
+	background-image: linear-gradient(top, #006089, #7dc7c2);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006089', endColorstr='#7dc7c2', GradientType=0);
+}
+.node-interactive-whiteboard .iwb-top-img {
+	overflow: hidden;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: right top;
+  	-webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+          	border-radius: 10px;
+}
+.node-interactive-whiteboard .iwb-bd {
+	position: relative;
+	background-color: none;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	padding: 80px;
+}
+.iwb-content-type-poem .node-interactive-whiteboard .iwb-bd {
+	padding: 80px 137px;
+}
+.node-interactive-whiteboard .field-name-field-country {
+	position: absolute;
+	top: 0;
+	left: 57px;
+	color: #fff;
+	font-size:18px;
+	line-height: 22px;
+	text-transform: uppercase;
+	background: #006089;
+	padding: 3px 34px 10px;
+}
+.node-interactive-whiteboard h1 {
+	color: #000;
+	font-size: 50px;
+	margin: 0;
+}
+.node-interactive-whiteboard .author {
+	font-size: 20px;
+	font-weight: normal;
+	font-style: italic;
+	margin-bottom: 20px;
+}
+.node-interactive-whiteboard .popover-content {
+	color: #58595b;
+	font-size: 10px;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	padding: 0 20px 20px;
+}
+.node-interactive-whiteboard .field-name-field-body {
+	font-size: 18px;
+	line-height: 25px;
+	padding-left: 20px;	
+}
+.iwb-content-type-story .node-interactive-whiteboard .field-name-field-body p {
+	margin: 0;
+	text-indent: 30px;
+}
+.iwb-content-type-story .node-interactive-whiteboard .field-name-field-body .popover,
+.iwb-content-type-poem .node-interactive-whiteboard .field-name-field-body .popover {
+	text-indent: 0;
+	line-height: 18px;
+}
+.node-interactive-whiteboard .field-name-field-country,
+.node-interactive-whiteboard .field-name-field-author,
+.node-interactive-whiteboard .field-name-field-body {
+	z-index: 20;
+}
+.node-interactive-whiteboard .field-name-field-background-image {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+	z-index: 10;
+}
+.node-interactive-whiteboard .field-name-field-upper-background-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 10;
+}
+[class*="iwb-content-span"] {
+	float: none;
+	min-height: auto;
+	margin: 0;
+}
+.iwb-content-span8 .field-name-field-body {
+  width: 640px;
+}
+
+.iwb-content-span7 .field-name-field-body {
+  width: 560px;
+}
+
+.iwb-content-span6 .field-name-field-body {
+  width: 480px;
+}
+
+.iwb-content-span5 .field-name-field-body {
+  width: 400px;
+}
+
+.iwb-content-span4 .field-name-field-body {
+  width: 320px;
+}
+
+.iwb-content-span3 .field-name-field-body {
+  width: 240px;
+}
+
+.iwb-content-span2 .field-name-field-body {
+  width: 160px;
+}
+
+.iwb-content-span1 .field-name-field-body {
+  width: 80px;
+}
+
+.iwb-content-offset4 .field-name-field-body {
+  margin-left: 340px;
+}
+
+.iwb-content-offset3 .field-name-field-body {
+  margin-left: 260px;
+}
+
+.iwb-content-offset2 .field-name-field-body {
+  margin-left: 180px;
+}
+
+.iwb-content-offset1 .field-name-field-body {
+  margin-left: 100px;
+}
+
 /* footer
 -------------------------------------------------- */
 .footer {

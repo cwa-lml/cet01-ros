@@ -33,9 +33,11 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'node';
-  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['type'] = 'ol';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
@@ -50,6 +52,9 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = '0';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -140,7 +145,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
     'image_style' => '',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -192,7 +197,8 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="row-bd">
-  <h2><a href="/node/[nid]">[title]</a></h2>
+  <h2>[title]</h2>
+<!-- <h2><a href="/node/[nid]">[title]</a></h2> -->
   [body]
   <div class="controls">
     [field_download_module]
@@ -301,7 +307,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
     'image_style' => '',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -352,7 +358,8 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="row-bd">
-  <h2><a href="/node/[nid]">[title]</a></h2>
+  <h2>[title]</h2>
+<!-- <h2><a href="/node/[nid]">[title]</a></h2> -->
   [body]
   <div class="controls">
     [field_download_module]
@@ -517,7 +524,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
     'image_style' => '',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -568,7 +575,8 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="row-bd">
-  <h2><a href="/node/[nid]">[title]</a></h2>
+  <h2>[title]</h2>
+<!--   <h2><a href="/node/[nid]">[title]</a></h2> -->
   [body]
   <div class="controls">
     [field_download_module]

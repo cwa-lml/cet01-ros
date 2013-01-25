@@ -1233,7 +1233,7 @@ function ros_workflow_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_frontvideo',
-      'label' => 'Watch Alice blah blah',
+      'label' => 'Video file',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
@@ -1293,7 +1293,7 @@ function ros_workflow_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '2',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1324,19 +1324,19 @@ function ros_workflow_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
 
-  // Exported field: 'node-interactive_whiteboard-field_background'
-  $fields['node-interactive_whiteboard-field_background'] = array(
+  // Exported field: 'node-interactive_whiteboard-field_background_image'
+  $fields['node-interactive_whiteboard-field_background_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_background',
+      'field_name' => 'field_background_image',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -1350,26 +1350,28 @@ function ros_workflow_field_default_fields() {
           0 => 'fid',
         ),
       ),
-      'module' => 'file',
+      'module' => 'image',
       'settings' => array(
-        'display_default' => 0,
-        'display_field' => 0,
+        'default_image' => 0,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
-      'type' => 'file',
+      'type' => 'image',
     ),
     'field_instance' => array(
       'bundle' => 'interactive_whiteboard',
       'deleted' => '0',
-      'description' => 'Upload a background image',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_url_plain',
-          'weight' => '4',
+          'module' => 'image_url_formatter',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image_url',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1379,24 +1381,29 @@ function ros_workflow_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_background',
-      'label' => 'Background',
+      'field_name' => 'field_background_image',
+      'label' => 'Lower background image',
       'required' => 0,
       'settings' => array(
-        'description_field' => 0,
+        'alt_field' => 0,
+        'default_image' => 0,
         'file_directory' => '',
-        'file_extensions' => 'jpg png',
+        'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'file',
+        'module' => 'image',
         'settings' => array(
+          'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'file_generic',
-        'weight' => '5',
+        'type' => 'image_image',
+        'weight' => '8',
       ),
     ),
   );
@@ -1434,14 +1441,10 @@ function ros_workflow_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'xsl_formatter',
-          'settings' => array(
-            'debug' => 1,
-            'xsl_params' => '',
-            'xsl_path' => 'public://xsl/annotate.xsl',
-          ),
-          'type' => 'xsl_formatter',
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'teaser' => array(
@@ -1454,18 +1457,229 @@ function ros_workflow_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_body',
       'label' => 'Body',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
-        'text_processing' => 0,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
         'weight' => '4',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_body_content_width'
+  $fields['node-interactive_whiteboard-field_body_content_width'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_body_content_width',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'span1' => 'Span 1',
+          'span2' => 'Span 2',
+          'span3' => 'Span 3',
+          'span4' => 'Span 4',
+          'span5' => 'Span 5',
+          'span6' => 'Span 6',
+          'span7' => 'Span 7',
+          'span8' => 'Span 8',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => array(
+        0 => array(
+          'value' => 'span8',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_body_content_width',
+      'label' => 'Body content width',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_body_padding_bottom'
+  $fields['node-interactive_whiteboard-field_body_padding_bottom'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_body_padding_bottom',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '4',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Set the padding below the body content to offset it from any images sitting at the bottom of the page.
+Example: 200',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '5',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_body_padding_bottom',
+      'label' => 'Body padding bottom',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '4',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_country'
+  $fields['node-interactive_whiteboard-field_country'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_country',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_country',
+      'label' => 'Country',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
       ),
     ),
   );
@@ -1493,9 +1707,15 @@ function ros_workflow_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '2',
+          'module' => 'number',
+          'settings' => array(
+            'decimal_separator' => '.',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => ' ',
+          ),
+          'type' => 'number_integer',
+          'weight' => '14',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1533,6 +1753,222 @@ function ros_workflow_field_default_fields() {
         'settings' => array(),
         'type' => 'number',
         'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_title_width'
+  $fields['node-interactive_whiteboard-field_title_width'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_title_width',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '3',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Limit the with of the title to force a line break.
+Example: 200',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => 'theme_ds_field_minimal',
+      'entity_type' => 'node',
+      'field_name' => 'field_title_width',
+      'label' => 'Title width',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '3',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_type'
+  $fields['node-interactive_whiteboard-field_type'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_type',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'poem' => 'Poem',
+          'story' => 'Story',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => array(
+        0 => array(
+          'value' => 'story',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '-1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_type',
+      'label' => 'Type',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_upper_background_image'
+  $fields['node-interactive_whiteboard-field_upper_background_image'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_upper_background_image',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'image_url_formatter',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image_url',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_upper_background_image',
+      'label' => 'Upper background image',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 0,
+        'default_image' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'title_field' => 0,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '7',
       ),
     ),
   );
@@ -2020,6 +2456,78 @@ function ros_workflow_field_default_fields() {
         'settings' => array(),
         'type' => 'number',
         'weight' => 0,
+      ),
+    ),
+  );
+
+  // Exported field: 'node-purchase_confirmation-body'
+  $fields['node-purchase_confirmation-body'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(
+        0 => 'node',
+      ),
+      'field_name' => 'body',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_with_summary',
+    ),
+    'field_instance' => array(
+      'bundle' => 'purchase_confirmation',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_summary_or_trimmed',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'body',
+      'label' => 'Body',
+      'required' => FALSE,
+      'settings' => array(
+        'display_summary' => TRUE,
+        'text_processing' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'text',
+        'settings' => array(
+          'rows' => 20,
+          'summary_rows' => 5,
+        ),
+        'type' => 'text_textarea_with_summary',
+        'weight' => '-4',
       ),
     ),
   );
@@ -3178,9 +3686,11 @@ function ros_workflow_field_default_fields() {
   t('A description of the resource item');
   t('Audio file');
   t('Author');
-  t('Background');
   t('Body');
+  t('Body content width');
+  t('Body padding bottom');
   t('Comment');
+  t('Country');
   t('Description');
   t('Download');
   t('Enable web access');
@@ -3192,8 +3702,10 @@ function ros_workflow_field_default_fields() {
   t('Free Samples');
   t('Image');
   t('ItemNumber');
-  t('Last name');
+  t('Limit the with of the title to force a line break. 
+Example: 200');
   t('Listen');
+  t('Lower background image');
   t('NumEduResource');
   t('Organization');
   t('Phone number');
@@ -3201,13 +3713,17 @@ function ros_workflow_field_default_fields() {
   t('Purchase Educational Resource');
   t('Resource Image');
   t('Resource Type');
+  t('Set the padding below the body content to offset it from any images sitting at the bottom of the page.
+Example: 200');
   t('Tags');
-  t('Upload a background image');
+  t('Title width');
+  t('Type');
   t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');
+  t('Upper background image');
+  t('Video file');
   t('View Sample');
-  t('Watch Alice blah blah');
   t('Weight');
   t('spinner');
 

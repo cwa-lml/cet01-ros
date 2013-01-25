@@ -55,3 +55,9 @@ function cet_preprocess_user_pass(&$variables) {
 	. 'Please check with them for the new password.');
 	
 }
+
+function cet_preprocess_page(&$vars){
+    if (isset($vars['node']) && $vars['node']->type == 'interactive_whiteboard'){
+        drupal_set_title('');
+    }
+}
