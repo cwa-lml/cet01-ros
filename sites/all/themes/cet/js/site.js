@@ -64,37 +64,40 @@
 
 		// Trigger for the hiding of any open metaphor or simile popovers
 		// Add a close button
-		var closeBtn = 	jQuery('<button/>').attr({'type':'button', 'class':'close'})
-							.text('x')
-							.click(function(){
-								jQuery('span.metaphor, span.simile').popover('hide');
-							});
 
-		jQuery('span.glossary, span.metaphor, span.simile').each(function() {
-			jQuery(this).on('click', function(e){
-				e.stopPropagation();
-				//console.log('clicked');
-				resetActive();
-				var className = 'active';//-' + jQuery(this).attr('class');
-				jQuery(this).addClass(className);
-				jQuery('.popover').hide();
-				var popover = jQuery(this).data('popover');
-				if(popover.tip().hasClass('in')) {
-					jQuery(this).popover('show');
-    				popoverClass(jQuery(this));
-				} 
-				var shown = popover && popover.tip().hasClass('in');
-	            if(shown) return;        // Avoids flashing
-	            jQuery(this).popover('show');
-    			popoverClass(jQuery(this));
-				//closeBtn.appendTo('.popover .popover-title');
+		if(jQuery('span.glossary, span.metaphor, span.simile').length){
+
+			var closeBtn = 	jQuery('<button/>').attr({'type':'button', 'class':'close'})
+								.text('x')
+								.click(function(){
+									jQuery('span.metaphor, span.simile').popover('hide');
+								});
+
+			jQuery('span.glossary, span.metaphor, span.simile').each(function() {
+				jQuery(this).on('click', function(e){
+					e.stopPropagation();
+					resetActive();
+					var className = 'active';//-' + jQuery(this).attr('class');
+					jQuery(this).addClass(className);
+					jQuery('.popover').hide();
+					var popover = jQuery(this).data('popover');
+					var shown = popover && popover.tip().hasClass('in');
+		            if(!shown) {
+		            	jQuery(this).popover('show');
+	    				popoverClass(jQuery(this));
+						//closeBtn.appendTo('.popover .popover-title');
+					} else {
+						jQuery('span.glossary, span.metaphor, span.simile').popover('hide');
+						resetActive();
+					}	
+				});
 			});
-		});
 
-		$('html').on('click.popover.data-api',function() {
-    		jQuery('span.glossary, span.metaphor, span.simile').popover('hide');
-    		resetActive();
-		});
+			$('html').on('click.popover.data-api',function() {
+    			jQuery('span.glossary, span.metaphor, span.simile').popover('hide');
+    			resetActive();
+			});		
+		}
 
 		function popoverClass(item) {
 			jQuery('.popover').removeClass('popover-metaphor').removeClass('popover-simile').removeClass('popover-glossary');
