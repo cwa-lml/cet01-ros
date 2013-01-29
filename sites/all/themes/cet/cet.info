@@ -22,6 +22,7 @@ fonts[google_fonts_api][] = "Gentium Basic&subset=latin#regular"
 fonts[google_fonts_api][] = "Gentium Basic&subset=latin-ext#regular"
 fonts[google_fonts_api][] = "IM Fell English&subset=latin#regular"
 
+stylesheets[all][] = css/bootstrap-responsive.css
 stylesheets[all][] = css/cet_styles.css
 
 scripts[] = js/site.js
