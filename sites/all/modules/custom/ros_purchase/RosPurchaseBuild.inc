@@ -146,21 +146,25 @@ class RosPurchaseBuild {
 		$form['details']['postcode'] = array(
 					'#type' => 'textfield',
 					'#title' => t('Post code'),
-					'#size' => 20,
+					'#size' => 5,
+					'#maxlength' => 4,
+					'#element_validate' => array('element_validate_integer_positive'),
 		);
 
 		$form['details']['email'] = array(
-								'#type' => 'textfield',
-								'#title' => t('Email'),
-								'#required' => true,
-								'#size' => 20,
+					'#type' => 'textfield',
+					'#title' => t('Email'),
+					'#required' => true,
+					'#size' => 20,
+					'#element_validate' => array('ros_purchase_element_validate_email'),
 		);
 		
 		$form['details']['telephone'] = array(
-						'#type' => 'textfield',
-						'#title' => t('Telephone'),
-						'#required' => true,
-						'#size' => 20,
+					'#type' => 'textfield',
+					'#title' => t('Telephone'),
+					'#required' => true,
+					'#size' => 20,
+					'#element_validate' => array('ros_purchase_element_validate_nzphone'),
 		);
 		
 		$form['details']['telephone_note'] = array(
@@ -172,7 +176,7 @@ class RosPurchaseBuild {
 		$form['details']['order_number'] = array(
 							'#type' => 'textfield',
 							'#title' => t('Your purchase order number or reference'),
-							'#size' => 45,
+							'#size' => 25,
 		);
 		$form['details']['order_note'] = array(
 										'#type' => 'item',
@@ -209,9 +213,10 @@ class RosPurchaseBuild {
 		);
 		
 		$form['login']['admin_email'] = array(
-											'#type' => 'textfield',
-											'#title' => t('Administrator email'),
-											'#size' => 20,
+					'#type' => 'textfield',
+					'#title' => t('Administrator email'),
+					'#size' => 20,
+					'#element_validate' => array('ros_purchase_element_validate_email'),		
 		);
 		$form['login']['admin_note'] = array(
 										'#type' => 'item',

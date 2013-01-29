@@ -261,4 +261,57 @@ function ros_purchase_token_info() {
 	);
 }
 
+function ros_purchase_element_validate_email($element, &$form_state, $form) {
+	if (!empty($element['#value']) && !valid_email_address($element['#value'])) {
+		form_error($element, '<i>' . $element['#title'] . '</i>' . t(' must be in the correct format'));
+	}
+}
 
+function ros_purchase_element_validate_nzphone($element, &$form_state, $form) {
+	if (empty($element['#value'])) {
+		return;
+	}
+	
+// 	$phone_number = preg_replace('/[^\d\(\)]/', '', $element['#value']);
+// 	$pattern = '/^(\((03|04|06|07|09)\)\d{7})|(\((021|022|025|027|028|029)\)\d{6,8})|((0508|0800|0900)\d{5,8})$/';
+	
+// 	if(!preg_match($pattern, $phone_number)) {
+// 		form_error($element, $element['#title'] . t(' must be a valid NZ phone number'));
+// 	}
+
+	// Following is a pragmatic algorithm to detect a phone number
+	// Must start with 0,+ or bracket, have 7-17 digits and include digits, spaces, dashes and balanced brackets
+	$phone_number = preg_replace('/ /', '', $element['#value']);
+	
+	$fail = false;
+	if (strlen($phone_number) < 7 || strlen($phone_number) > 17) {
+		$fail = true;
+	}
+	else if ($phone_number[0]!='+' && $phone_number[0] != '0' && $phone_number[0] != '(') {
+		$fail = true;
+	}
+	else {
+		if ($phone_number[0] == '+') {
+			$phone_number = substr($phone_number, 1);
+		}
+		
+		$nbrax = 0;
+		foreach (str_split($phone_number) as $char) {
+			if ($char == '(') {
+				$nbrax++;
+			}
+			else if ($char == ')') {
+				$nbrax--;
+			}
+			else if( $char != '-' && !ctype_digit($char)) {
+				$fail = true;
+				break;
+			}
+		}
+		$fail |= $nbrax != 0;
+	}
+	
+	if($fail) {
+		form_error($element, '<i>' . $element['#title'] . '</i>' . t(' must be a valid phone number'));
+	}
+}
