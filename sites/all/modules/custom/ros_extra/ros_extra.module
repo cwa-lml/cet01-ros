@@ -4,9 +4,9 @@ function ros_extra_block_info() {
 	return array(
 		'ROSEXTRA' => array(
 			'info' => t('User Info'),
-			'administrative' => true,
+//			'administrative' => true,
 			'visibility' => BLOCK_VISIBILITY_LISTED,
-			'region' => 'Top Bar'
+//			'region' => 'Top Bar'
 		)
 	);
 }
