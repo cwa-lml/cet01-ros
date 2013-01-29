@@ -151,7 +151,7 @@ function ros_purchase_page_form_submit($form_id, &$form_state) {
 	
 	$ros_purchase_process = new RosPurchaseProcess($form_state);
 	
- 	if(!user_is_logged_in() && $this->GrantAccess()) {
+ 	if(!user_is_logged_in() && $ros_purchase_process->GrantAccess()) {
  		$createres = $ros_purchase_process->CreateUser();
  		if(! $createres) {
  			drupal_set_message('User create failed', 'error');
