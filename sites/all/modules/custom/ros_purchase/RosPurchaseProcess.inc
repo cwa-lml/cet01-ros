@@ -103,11 +103,11 @@ class RosPurchaseProcess {
 	}
 		
 	public function GrantAccess() {
-		return $this->grants_access && ( !array_key_exists('existing_login', $this->fields) || !$this->fields['existing_login']->value);
+		return $this->grants_access && ( !isset($this->fields) || !array_key_exists('existing_login', $this->fields) || !$this->fields['existing_login']->value);
 	}
 	
 	public function Validate() {
-		if(!$this->GrantAccess()) {
+		if(user_is_logged_in() || !$this->GrantAccess()) {
 			return null;
 		}
 		

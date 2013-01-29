@@ -218,10 +218,21 @@ class RosPurchaseBuild {
 										'#title' => t('Person who will administer this account. If left blank, the contact email address will be used'),
 		);
 		
+		
 		$form['login']['existing_login'] = array(
 					'#type' => 'checkbox',
 					'#title' => t('I already have an account and don\'t require a new login'),
 					'#required' => false,
+		);
+
+		$form['already_logged_in'] = array(
+								'#type' => 'fieldset',
+								'#attributes' => array('style' => array('display:none')),
+		);
+		$form['already_logged_in']['message'] = array(
+						'#type' => 'item',
+						'#title' => t('You are able to access the River Of Stories website with your current login. '
+						. ' If you want to order the resource for a different school or individual, please log out first'),
 		);
 		
 		$form['accept_tc'] = array(
@@ -245,7 +256,9 @@ class RosPurchaseBuild {
 		$form['order']['gst_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst');
 		$form['order']['total_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount');
 		
-		$form['login']['#attributes']['style'] = array('display:' . $ros_purchase_process->GrantAccess() ? 'inline' : 'none');
+		$form['login']['#attributes']['style'] = array('display:' . ((!user_is_logged_in() && $ros_purchase_process->GrantAccess()) ? 'inline' : 'none'));
+
+		$form['already_logged_in']['#attributes']['style'] = array('display:' . ((user_is_logged_in() && $ros_purchase_process->GrantAccess()) ? 'inline' : 'none'));
 		
 	}
 	

@@ -109,7 +109,8 @@ function ros_purchase_updated_count($form, $form_state) {
 	$commands[] = ajax_command_replace('#gst-amount', $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst'));
 	$commands[] = ajax_command_replace('#total-amount', $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount'));
 	
-	$commands[] = ajax_command_css('#edit-login', array('display' => $ros_purchase_process->grants_access ? 'inline' : 'none') );
+	$commands[] = ajax_command_css('#edit-login', array('display' => (!user_is_logged_in() && $ros_purchase_process->GrantAccess()) ? 'inline' : 'none') );
+	$commands[] = ajax_command_css('#edit-already-logged-in', array('display' => (user_is_logged_in() && $ros_purchase_process->GrantAccess()) ? 'inline' : 'none') );
 	
 	return array('#type' => 'ajax', '#commands' => $commands);
 }
@@ -150,7 +151,7 @@ function ros_purchase_page_form_submit($form_id, &$form_state) {
 	
 	$ros_purchase_process = new RosPurchaseProcess($form_state);
 	
- 	if($ros_purchase_process->GrantAccess()) {
+ 	if(!user_is_logged_in() && $this->GrantAccess()) {
  		$createres = $ros_purchase_process->CreateUser();
  		if(! $createres) {
  			drupal_set_message('User create failed', 'error');

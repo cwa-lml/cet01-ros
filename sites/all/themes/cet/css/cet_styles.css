@@ -574,6 +574,7 @@ body {
 }
 .ros-purchase #edit-admin-note label,
 .ros-purchase #edit-order-note label, 
+.ros-purchase #edit-already-logged-in label, 
 .ros-purchase #edit-telephone-note label {
 	padding-left: 180px;
 	width: auto;
