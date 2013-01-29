@@ -99,9 +99,7 @@ body {
 	display: none;
 }
 .site-header .region-header .nav {
-	position: absolute;
-	right: 23px;
-	top: 26px;
+	float:right;
 }
 .site-header .region-header .nav li {
 	display: inline-block;
@@ -112,6 +110,10 @@ body {
 	line-height: 1;
 	border-right: 1px solid #fff;
 	padding: 0 10px;
+}
+#block-menu-menu-top-right-logged-in li.first {
+	border-left: 1px solid #fff;
+	margin-left: 10px;
 }
 .site-header .region-header .nav li.last {
 	border: none;
