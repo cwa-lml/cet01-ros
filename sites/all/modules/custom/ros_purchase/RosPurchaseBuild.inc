@@ -215,7 +215,8 @@ class RosPurchaseBuild {
 		);
 		$form['login']['admin_note'] = array(
 										'#type' => 'item',
-										'#title' => t('Person who will administer this account. If left blank, the contact email address will be used'),
+										'#title' => t('Person who will administer this account. If left blank, the contact email address will be used.'
+										. 'If purchasing for a school, it is recommended to provide a school administrator email.'),
 		);
 		
 		

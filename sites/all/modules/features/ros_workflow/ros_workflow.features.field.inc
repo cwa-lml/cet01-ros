@@ -1329,6 +1329,78 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-interactive_whiteboard-field_background'
+  $fields['node-interactive_whiteboard-field_background'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_background',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'deleted' => '0',
+      'description' => 'Upload a background image',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_url_plain',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_background',
+      'label' => 'Background',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'jpg png',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '5',
+      ),
+    ),
+  );
+
   // Exported field: 'node-interactive_whiteboard-field_background_image'
   $fields['node-interactive_whiteboard-field_background_image'] = array(
     'field_config' => array(
@@ -2532,78 +2604,6 @@ Example: 200',
     ),
   );
 
-  // Exported field: 'node-purchase_confirmation-body'
-  $fields['node-purchase_confirmation-body'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(
-        0 => 'node',
-      ),
-      'field_name' => 'body',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_with_summary',
-    ),
-    'field_instance' => array(
-      'bundle' => 'purchase_confirmation',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'body',
-      'label' => 'Body',
-      'required' => FALSE,
-      'settings' => array(
-        'display_summary' => TRUE,
-        'text_processing' => 1,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'text',
-        'settings' => array(
-          'rows' => 20,
-          'summary_rows' => 5,
-        ),
-        'type' => 'text_textarea_with_summary',
-        'weight' => '-4',
-      ),
-    ),
-  );
-
   // Exported field: 'node-purchase_page-body'
   $fields['node-purchase_page-body'] = array(
     'field_config' => array(
@@ -3686,6 +3686,7 @@ Example: 200',
   t('A description of the resource item');
   t('Audio file');
   t('Author');
+  t('Background');
   t('Body');
   t('Body content width');
   t('Body padding bottom');
@@ -3702,7 +3703,8 @@ Example: 200',
   t('Free Samples');
   t('Image');
   t('ItemNumber');
-  t('Limit the with of the title to force a line break. 
+  t('Last name');
+  t('Limit the with of the title to force a line break.
 Example: 200');
   t('Listen');
   t('Lower background image');
@@ -3718,6 +3720,7 @@ Example: 200');
   t('Tags');
   t('Title width');
   t('Type');
+  t('Upload a background image');
   t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');
