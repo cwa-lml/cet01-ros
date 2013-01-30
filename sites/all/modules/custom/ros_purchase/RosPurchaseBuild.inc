@@ -72,8 +72,8 @@ class RosPurchaseBuild {
 			
 			$form['order'][$type . '_price'] = array(
 					'#type' => 'item',
-					'#title' => $item->name . ' (NZD)',
-					'#markup' => '<div id="item-price">$' . $item->price . '</div>',
+					'#title' => $item->name . ' (NZD) @ $' . $item->price,
+					'#markup' => '<div id="' . RosPurchaseProcess::MakeSubTotalId($type) . '" >--</div>',
 			);
 		}
 		
@@ -91,7 +91,7 @@ class RosPurchaseBuild {
 		
 		$form['order']['total_amount'] = array(
 					'#type' => 'item',
-					'#title' => 'Total NZD (incl. shipping)',
+					'#title' => 'Total NZD (incl. shipping and GST)',
 					'#markup' => '<div id="total-amount" />'
 		);
 		
@@ -259,6 +259,8 @@ class RosPurchaseBuild {
 	public static function UpdateNonAjax(&$form, &$form_state) {
 		$ros_purchase_process = new RosPurchaseProcess($form_state);
 
+		$ros_purchase_process->SetTotalPrices($form['order']);
+		
 		$form['order']['gst_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst');
 		$form['order']['total_amount']['#markup'] = $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount');
 		

@@ -9,13 +9,21 @@ class RosPurchaseProcess {
 		$this->grants_access = false;
 		$net_total = 0;
 		
+		$this->item_totals = array();
+		$this->ordered_anything = false;
+		
 		foreach ($form_state['input'] as $fieldname => $fieldvalue) {
 			$countpos = strrpos( $fieldname, '_count');
 			if ( $countpos  == strlen($fieldname) - 6) {
 				// ends with _count
 				$itemname = substr($fieldname, 0, $countpos);
+				
+				$this->ordered_anything |= $fieldvalue > 0;
 					
-				$net_total += $fieldvalue * $this->orderables[$itemname]->price;
+				$this->item_totals[$itemname] = $fieldvalue * $this->orderables[$itemname]->price;
+				
+				$net_total += $this->item_totals[$itemname];
+				
 				if ($fieldvalue > 0) {
 					$this->grants_access |= $this->orderables[$itemname]->web_access;
 				}
@@ -36,7 +44,54 @@ class RosPurchaseProcess {
 	}
 
 	public function MakeMoneyMarkup($id, $field) {
-		return '<div id="' . $id . '">$' . money_format('%i', $this->$field) . '</div>';
+		if ($this->ordered_anything) {
+			return '<div id="' . $id . '">$' . money_format('%i', $this->$field) . '</div>';
+		}
+		else {
+			return '<div id="' . $id . '">--</div>';
+		}
+	}
+	
+	public static function MakeSubTotalId($itemname) {
+		return 'item-' . $itemname . '-total-price';	
+	}
+	
+	public function SetTotalPrices(&$order_block) {
+		foreach ($this->orderables as $itemname => $item) {
+			if ($itemname[0] == '_' ) {
+				continue;
+			}
+			
+			$subtotal_id = self::MakeSubTotalId($itemname);
+			
+			if(array_key_exists($itemname, $this->item_totals) && $this->item_totals[$itemname] > 0) {
+				$order_block[$itemname . '_price']['#markup'] = '<div id="' . $subtotal_id . '">$' 
+					. money_format('%i', $this->item_totals[$itemname]) . '</div>';
+			}
+			else {
+				$order_block[$itemname . '_price']['#markup'] = '<div id="' . $subtotal_id . '" >--</div>';
+			}
+		}
+	}
+	
+	public function GetSubTotalCommands() {
+		$res = array();
+		foreach ($this->orderables as $itemname => $item) {
+			if ($itemname[0] == '_' ) {
+				continue;
+			}
+				
+			$subtotal_id = self::MakeSubTotalId($itemname);
+			if(array_key_exists($itemname, $this->item_totals) && $this->item_totals[$itemname] > 0) {
+				$res[] = ajax_command_replace('#' . $subtotal_id, '<div id="' . $subtotal_id . '">$'
+					. money_format('%i', $this->item_totals[$itemname]) . '</div>');
+			}
+			else {
+				$res[] = ajax_command_replace('#' . $subtotal_id, '<div id="' . $subtotal_id . '">--</div>');
+			}
+		}
+		
+		return $res;
 	}
 	
 	public function SendFulfillmentMail() {
@@ -107,12 +162,16 @@ class RosPurchaseProcess {
 	}
 	
 	public function Validate() {
-		if(user_is_logged_in() || !$this->GrantAccess()) {
-			return null;
+		$res = array();
+		
+		if(!$this->ordered_anything) {
+			$res[] = (object)array('fieldname' => 'total_amount', 'message' => 'At least one item must be ordered');
 		}
 		
-		$res = array();
-
+		if(user_is_logged_in() || !$this->GrantAccess()) {
+			return $res;
+		}
+		
 		if(!array_key_exists('password', $this->fields) || empty($this->fields['password']->value['pass1']) || empty($this->fields['password']->value['pass2'])) {
 			$res[] =  (object)array('fieldname' => 'password', 'message' => 'A password is required');
 		}

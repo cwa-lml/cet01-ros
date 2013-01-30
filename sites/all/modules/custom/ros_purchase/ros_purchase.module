@@ -105,7 +105,8 @@ function ros_purchase_updated_count($form, $form_state) {
 
 	$ros_purchase_process = new RosPurchaseProcess($form_state);
 	
-	$commands = array();
+	$commands = $ros_purchase_process->GetSubTotalCommands();
+	
 	$commands[] = ajax_command_replace('#gst-amount', $ros_purchase_process->MakeMoneyMarkup('gst-amount', 'gst'));
 	$commands[] = ajax_command_replace('#total-amount', $ros_purchase_process->MakeMoneyMarkup('total-amount', 'total_amount'));
 	
