@@ -307,6 +307,27 @@ function ros_workflow_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'custom_breadcrumbs_append_page_title';
+  $strongarm->value = 0;
+  $export['custom_breadcrumbs_append_page_title'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'custom_breadcrumbs_append_page_title_no_link';
+  $strongarm->value = 0;
+  $export['custom_breadcrumbs_append_page_title_no_link'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'custom_breadcrumbs_paths_allow_wildcards';
+  $strongarm->value = 1;
+  $export['custom_breadcrumbs_paths_allow_wildcards'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__front_page_text';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -726,6 +747,20 @@ function ros_workflow_strongarm() {
   $strongarm->name = 'node_submitted_resource_item_description';
   $strongarm->value = 0;
   $export['node_submitted_resource_item_description'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_interactive_whiteboard_pattern';
+  $strongarm->value = 'interactive-whiteboard-resources/[node:title]';
+  $export['pathauto_node_interactive_whiteboard_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_pattern';
+  $strongarm->value = '[node:title]';
+  $export['pathauto_node_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
