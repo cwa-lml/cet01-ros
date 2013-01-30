@@ -253,34 +253,45 @@ function ros_workflow_context_default_contexts() {
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'user_menu';
-  $context->description = 'Header user menu';
+  $context->name = 'header-user-menus';
+  $context->description = 'Add user ';
   $context->tag = '';
   $context->conditions = array(
-    'user' => array(
+    'sitewide' => array(
       'values' => array(
-        'authenticated user' => 'authenticated user',
-      ),
-    ),
+  1 => 1,
+  ),
+  ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'system-user-menu' => array(
-          'module' => 'system',
-          'delta' => 'user-menu',
+        'menu-menu-top-right' => array(
+          'module' => 'menu',
+          'delta' => 'menu-top-right',
           'region' => 'header',
-          'weight' => '3',
-        ),
-      ),
-    ),
+          'weight' => '-10',
+  ),
+        'menu-menu-top-right-logged-in' => array(
+          'module' => 'menu',
+          'delta' => 'menu-top-right-logged-in',
+          'region' => 'header',
+          'weight' => '-9',
+  ),
+        'ros_extra-ROSEXTRA' => array(
+          'module' => 'ros_extra',
+          'delta' => 'ROSEXTRA',
+          'region' => 'header',
+          'weight' => '-8',
+  ),
+  ),
+  ),
   );
   $context->condition_mode = 0;
-
+  
   // Translatables
   // Included for use with string extractors like potx.
-  t('Header user menu');
-  $export['user_menu'] = $context;
-
+  t('Add user ');
+  
   return $export;
 }
