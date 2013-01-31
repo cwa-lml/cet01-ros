@@ -99,7 +99,7 @@ function ros_workflow_wysiwyg_default_profiles() {
       'paste_auto_cleanup_on_paste' => 0,
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
-      'css_path' => '',
+      'css_path' => '/sites/all/themes/cet/css/cet_styles.css',
       'css_classes' => '',
     ),
     'rdf_mapping' => array(),

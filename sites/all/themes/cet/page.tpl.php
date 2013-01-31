@@ -21,7 +21,11 @@
     
     <?php print render($page['header']); ?>
 
-    <img class="cet-logo" src="/sites/all/themes/cet/img/cet-logo.png" width="101" height="51" title="Commonwealth Education Trust" alt="Commonwealth Education Trust" />
+    <?php if ($is_front): ?>
+      <img class="cet-logo" src="/sites/all/themes/cet/img/cet-logo-front.png" width="101" height="51" title="Commonwealth Education Trust" alt="Commonwealth Education Trust" />
+    <?php else: ?>
+      <img class="cet-logo" src="/sites/all/themes/cet/img/cet-logo.png" width="83" height="42" title="Commonwealth Education Trust" alt="Commonwealth Education Trust" />
+    <?php endif; ?>
   </header> <!-- /#header -->
 
   <header id="navbar" role="banner" class="navbar">
@@ -56,7 +60,7 @@
         <?php if ($page['highlighted']): ?>
           <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
-        <?php if ($breadcrumb): print $breadcrumb; endif;?>
+        <?php if ($breadcrumb && !$is_front): print $breadcrumb; endif;?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>

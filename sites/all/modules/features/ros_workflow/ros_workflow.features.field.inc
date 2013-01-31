@@ -949,9 +949,10 @@ function ros_workflow_field_default_fields() {
           'weight' => '3',
         ),
       ),
+      'ds_extras_field_template' => '',
       'entity_type' => 'node',
       'field_name' => 'field_freesamples',
-      'label' => 'Free Samples',
+      'label' => 'Free samples',
       'required' => FALSE,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -1059,7 +1060,7 @@ function ros_workflow_field_default_fields() {
       ),
       'module' => 'image',
       'settings' => array(
-        'default_image' => '2',
+        'default_image' => 0,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -1091,6 +1092,7 @@ function ros_workflow_field_default_fields() {
           'weight' => '1',
         ),
       ),
+      'ds_extras_field_template' => '',
       'entity_type' => 'node',
       'field_name' => 'field_frontpageimage',
       'label' => 'Image',
@@ -1101,8 +1103,8 @@ function ros_workflow_field_default_fields() {
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
-        'max_resolution' => '500x200',
-        'min_resolution' => '500x200',
+        'max_resolution' => '',
+        'min_resolution' => '',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
@@ -3700,7 +3702,7 @@ Example: 200',
   t('Enter a link to the sample file');
   t('File');
   t('First name');
-  t('Free Samples');
+  t('Free samples');
   t('Image');
   t('ItemNumber');
   t('Last name');
