@@ -189,7 +189,17 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'jplayer_player';
+  $handler->display->display_options['fields']['field_audio_file']['settings'] = array(
+    'mode' => 'playlist',
+    'autoplay' => 0,
+    'solution' => 'html, flash',
+    'preload' => 'metadata',
+    'volume' => 80,
+    'muted' => FALSE,
+    'repeat' => 'none',
+    'backgroundColor' => '000000',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -434,6 +444,7 @@ function ros_workflow_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['video_block'] = $view;
 
   $view = new view();

@@ -231,7 +231,7 @@ function ros_workflow_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_page_with_multiple_files';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_page_with_multiple_files'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -356,27 +356,6 @@ function ros_workflow_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'custom_breadcrumbs_append_page_title';
-  $strongarm->value = 0;
-  $export['custom_breadcrumbs_append_page_title'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'custom_breadcrumbs_append_page_title_no_link';
-  $strongarm->value = 0;
-  $export['custom_breadcrumbs_append_page_title_no_link'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'custom_breadcrumbs_paths_allow_wildcards';
-  $strongarm->value = 1;
-  $export['custom_breadcrumbs_paths_allow_wildcards'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__front_page_text';
   $strongarm->value = array(
     'view_modes' => array(),
@@ -384,9 +363,6 @@ function ros_workflow_strongarm() {
       'form' => array(
         'title' => array(
           'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
         ),
       ),
       'display' => array(),
@@ -413,6 +389,12 @@ function ros_workflow_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -446,15 +428,6 @@ function ros_workflow_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
-      'interactive_whiteboad_page' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -493,12 +466,13 @@ function ros_workflow_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
       'display' => array(),
     ),
   );
@@ -589,6 +563,12 @@ function ros_workflow_strongarm() {
         'custom_settings' => FALSE,
       ),
       'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -749,7 +729,6 @@ function ros_workflow_strongarm() {
   $strongarm->name = 'node_options_page_with_multiple_files';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_page_with_multiple_files'] = $strongarm;
 
@@ -878,29 +857,22 @@ function ros_workflow_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_interactive_whiteboard_pattern';
-  $strongarm->value = 'interactive-whiteboard-resources/[node:title]';
-  $export['pathauto_node_interactive_whiteboard_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'content/[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_height';
-  $strongarm->value = '134';
+  $strongarm->value = '240';
   $export['videojs_height'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_width';
-  $strongarm->value = '238';
+  $strongarm->value = '320';
   $export['videojs_width'] = $strongarm;
 
   return $export;

@@ -47,6 +47,212 @@ function ros_workflow_default_fe_block_settings() {
     ),
   );
 
+  // bartik
+  $theme = array();
+
+  $theme['menu-menu-footer'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-footer',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right-logged-in'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right-logged-in',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['ros_extra-ROSEXTRA'] = array(
+    'module' => 'ros_extra',
+    'delta' => 'ROSEXTRA',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => '1',
+  );
+
+  $theme['system-main'] = array(
+    'module' => 'system',
+    'delta' => 'main',
+    'theme' => 'bartik',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'bartik',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_first',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['views-video_block-block'] = array(
+    'module' => 'views',
+    'delta' => 'video_block-block',
+    'theme' => 'bartik',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $export['theme']['bartik'] = $theme;
+
+  // bootstrap
+  $theme = array();
+
+  $theme['menu-menu-footer'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-footer',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '-11',
+    'region' => 'footer',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right-logged-in'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right-logged-in',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $theme['ros_extra-ROSEXTRA'] = array(
+    'module' => 'ros_extra',
+    'delta' => 'ROSEXTRA',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => '1',
+  );
+
+  $theme['system-main'] = array(
+    'module' => 'system',
+    'delta' => 'main',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '-9',
+    'region' => 'sidebar_second',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['views-video_block-block'] = array(
+    'module' => 'views',
+    'delta' => 'video_block-block',
+    'theme' => 'bootstrap',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_second',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $export['theme']['bootstrap'] = $theme;
+
   // cet
   $theme = array();
 
@@ -68,9 +274,9 @@ function ros_workflow_default_fe_block_settings() {
     'module' => 'menu',
     'delta' => 'menu-top-right',
     'theme' => 'cet',
-    'status' => 0,
-    'weight' => '2',
-    'region' => '',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
     'custom' => '0',
     'visibility' => '0',
     'pages' => '',
@@ -83,7 +289,7 @@ function ros_workflow_default_fe_block_settings() {
     'delta' => 'menu-top-right-logged-in',
     'theme' => 'cet',
     'status' => '1',
-    'weight' => '1',
+    'weight' => '0',
     'region' => 'header',
     'custom' => '0',
     'visibility' => '0',
@@ -96,13 +302,13 @@ function ros_workflow_default_fe_block_settings() {
     'module' => 'ros_extra',
     'delta' => 'ROSEXTRA',
     'theme' => 'cet',
-    'status' => 0,
+    'status' => '1',
     'weight' => '0',
-    'region' => '',
+    'region' => 'header',
     'custom' => '0',
-    'visibility' => '1',
+    'visibility' => '0',
     'pages' => '',
-    'title' => '',
+    'title' => '<none>',
     'cache' => '1',
   );
 
@@ -149,6 +355,212 @@ function ros_workflow_default_fe_block_settings() {
   );
 
   $export['theme']['cet'] = $theme;
+
+  // garland
+  $theme = array();
+
+  $theme['menu-menu-footer'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-footer',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'footer',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right-logged-in'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right-logged-in',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'header',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['ros_extra-ROSEXTRA'] = array(
+    'module' => 'ros_extra',
+    'delta' => 'ROSEXTRA',
+    'theme' => 'garland',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => '1',
+  );
+
+  $theme['system-main'] = array(
+    'module' => 'system',
+    'delta' => 'main',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'sidebar_first',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['views-video_block-block'] = array(
+    'module' => 'views',
+    'delta' => 'video_block-block',
+    'theme' => 'garland',
+    'status' => '1',
+    'weight' => '1',
+    'region' => 'sidebar_first',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $export['theme']['garland'] = $theme;
+
+  // seven
+  $theme = array();
+
+  $theme['menu-menu-footer'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-footer',
+    'theme' => 'seven',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right',
+    'theme' => 'seven',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => -1,
+  );
+
+  $theme['menu-menu-top-right-logged-in'] = array(
+    'module' => 'menu',
+    'delta' => 'menu-top-right-logged-in',
+    'theme' => 'seven',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['ros_extra-ROSEXTRA'] = array(
+    'module' => 'ros_extra',
+    'delta' => 'ROSEXTRA',
+    'theme' => 'seven',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '<none>',
+    'cache' => '1',
+  );
+
+  $theme['system-main'] = array(
+    'module' => 'system',
+    'delta' => 'main',
+    'theme' => 'seven',
+    'status' => '1',
+    'weight' => '0',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['user-login'] = array(
+    'module' => 'user',
+    'delta' => 'login',
+    'theme' => 'seven',
+    'status' => '1',
+    'weight' => '10',
+    'region' => 'content',
+    'custom' => '0',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $theme['views-video_block-block'] = array(
+    'module' => 'views',
+    'delta' => 'video_block-block',
+    'theme' => 'seven',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '<front>',
+    'title' => '',
+    'cache' => -1,
+  );
+
+  $export['theme']['seven'] = $theme;
 
   $theme_default = variable_get('theme_default', 'garland');
   $themes = list_themes();
