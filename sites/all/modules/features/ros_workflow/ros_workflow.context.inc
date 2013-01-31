@@ -250,81 +250,37 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_type_story'] = $context;
 
-	$context = new stdClass;
-	$context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-	$context->api_version = 3;
-	$context->name = 'header-user-menus';
-	$context->description = 'Add user ';
-	$context->tag = '';
-	$context->conditions = array(
-	  'user' => array(
-	    'values' => array(
-	      'administrator' => 'administrator',
-	      'authenticated user' => 'authenticated user',
-	      'order processor' => 'order processor',
-	    ),
-	  ),
-	);
-	$context->reactions = array(
-	  'block' => array(
-	    'blocks' => array(
-	      'menu-menu-top-right-logged-in' => array(
-	        'module' => 'menu',
-	        'delta' => 'menu-top-right-logged-in',
-	        'region' => 'header',
-	        'weight' => '-9',
-	      ),
-	      'ros_extra-ROSEXTRA' => array(
-	        'module' => 'ros_extra',
-	        'delta' => 'ROSEXTRA',
-	        'region' => 'header',
-	        'weight' => '-8',
-	      ),
-	    ),
-	  ),
-	);
-	$context->condition_mode = 0;
-	
-	// Translatables
-	// Included for use with string extractors like potx.
-	t('Add user ');
-  
-	$context = new stdClass;
-	$context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
-	$context->api_version = 3;
-	$context->name = 'header-user-menus-anon';
-	$context->description = 'Add user ';
-	$context->tag = '';
-	$context->conditions = array(
-	  'user' => array(
-	    'values' => array(
-	      'anonymous user' => 'anonymous user',
-	),
-	),
-	);
-	$context->reactions = array(
-	  'block' => array(
-	    'blocks' => array(
-	      'menu-menu-top-right' => array(
-	        'module' => 'menu',
-	        'delta' => 'menu-top-right',
-	        'region' => 'header',
-	        'weight' => '-10',
-	),
-	      'ros_extra-ROSEXTRA' => array(
-	        'module' => 'ros_extra',
-	        'delta' => 'ROSEXTRA',
-	        'region' => 'header',
-	        'weight' => '-8',
-	),
-	),
-	),
-	);
-	$context->condition_mode = 0;
-	
-	// Translatables
-	// Included for use with string extractors like potx.
-	t('Add user ');
-	
+  $context = new stdClass;
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'user_menu';
+  $context->description = 'Header user menu';
+  $context->tag = '';
+  $context->conditions = array(
+    'user' => array(
+      'values' => array(
+        'authenticated user' => 'authenticated user',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
+          'region' => 'header',
+          'weight' => '3',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Header user menu');
+  $export['user_menu'] = $context;
+
   return $export;
 }

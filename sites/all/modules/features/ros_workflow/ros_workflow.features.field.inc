@@ -2227,7 +2227,7 @@ Example: 200',
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
