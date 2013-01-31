@@ -14,13 +14,67 @@ body {
 	font-size: 13px;
 	line-height: 18px;
 }
+h1,
 .page-header {
 	font-family: 'IM Fell English', serif;
 	font-size: 36px;
-	color: #fff;
+	color: #045c87;
 	border:none;
 	margin: 10px 0;
 	padding: 0;
+}
+h1 a,
+h1 a:hover {
+	color: #045c87;
+	text-decoration: none;
+}
+h2 {
+	font-family: 'Gentium Basic', serif;
+	font-size: 19px;
+	font-weight: normal;
+	line-height: 26px;
+	color: #000;
+}
+h2 a,
+h2 a:hover {
+	color: #000;
+	text-decoration: none;
+}
+h3 {
+	font-family: 'Gentium Basic', serif;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #045c87;
+}
+h3 a,
+h3 a:hover {
+	color: #045c87;
+	text-decoration: none;
+}
+h4 {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 16px;
+	color: #045c87;
+}
+h4 a,
+h4 a:hover {
+	color: #045c87;
+	text-decoration: none;
+}
+h5 {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 16px;
+	color: #000;
+}
+h5 a,
+h5 a:hover {
+	color: #000;
+	text-decoration: none;
 }
 .btn {
 	min-width: 80px;
@@ -181,25 +235,35 @@ body {
 /* breadcrumb navigation
 -------------------------------------------------- */
 .breadcrumb {
-  padding: 0;
-  background: none;
-  border: none;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-  filter: none;
-  *zoom: 1;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+	color: #fff;
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	padding: 0;
+	background: none;
+	border: none;
+	-webkit-border-radius: 0;
+	   -moz-border-radius: 0;
+	        border-radius: 0;
+	filter: none;
+	*zoom: 1;
+	-webkit-box-shadow: none;
+	   -moz-box-shadow: none;
+	        box-shadow: none;
 }
 .breadcrumb > li {
 	text-shadow: none;
 }
 .breadcrumb a {
+	text-decoration: underline;
 	color: #fff;
 	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
 	font-size: 10px;
+}
+.breadcrumb a:hover {
+	text-decoration: none;
+}
+.breadcrumb > li > .divider {
+	color: #fff;
 }
 
 /* front page
@@ -377,6 +441,8 @@ body {
 /* ros list styles */
 .ros-list-view .views-row {
 	clear: both;
+	padding-bottom: 20px;
+	overflow: hidden;
 }
 .ros-list-view .view-content {
 	padding-left: 80px;

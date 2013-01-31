@@ -58,3 +58,25 @@ function cet_preprocess_page(&$vars){
         drupal_set_title('');
     }
 }
+
+function cet_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
+
+  if (!empty($breadcrumb)) {
+    $breadcrumbs = '<ul class="breadcrumb">';
+    
+    $count = count($breadcrumb) - 1;
+    foreach ($breadcrumb as $key => $value) {
+      if ($count != $key) {
+        $breadcrumbs .= '<li>' . $value . '<span class="divider">&rsaquo;</span></li>';
+      }
+      else{
+        $breadcrumbs .= '<li>' . $value . '</li>';
+      }
+    }
+    $breadcrumbs .= '</ul>';
+    
+    return $breadcrumbs;
+  }
+}
+
