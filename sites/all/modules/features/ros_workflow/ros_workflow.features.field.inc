@@ -1221,18 +1221,9 @@ function ros_workflow_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'jplayer',
-          'settings' => array(
-            'autoplay' => '0',
-            'backgroundColor' => '000000',
-            'mode' => 'single',
-            'muted' => '0',
-            'preload' => 'metadata',
-            'repeat' => 'none',
-            'solution' => 'html, flash',
-            'volume' => '80',
-          ),
-          'type' => 'jplayer_player',
+          'module' => 'videojs',
+          'settings' => array(),
+          'type' => 'videojs',
           'weight' => '0',
         ),
         'teaser' => array(
@@ -1242,6 +1233,7 @@ function ros_workflow_field_default_fields() {
           'weight' => 0,
         ),
       ),
+      'ds_extras_field_template' => '',
       'entity_type' => 'node',
       'field_name' => 'field_frontvideo',
       'label' => 'Video file',
@@ -1249,7 +1241,7 @@ function ros_workflow_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'mp4 ogv flv m4v',
+        'file_extensions' => 'mp4 ogv flv m4v mp3',
         'max_filesize' => '',
         'user_register_form' => FALSE,
       ),
@@ -2990,18 +2982,9 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'jplayer',
-          'settings' => array(
-            'autoplay' => '0',
-            'backgroundColor' => '000000',
-            'mode' => 'single',
-            'muted' => '0',
-            'preload' => 'metadata',
-            'repeat' => 'none',
-            'solution' => 'html, flash',
-            'volume' => '80',
-          ),
-          'type' => 'jplayer_player',
+          'module' => 'videojs',
+          'settings' => array(),
+          'type' => 'videojs',
           'weight' => '7',
         ),
         'teaser' => array(
@@ -3072,9 +3055,9 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file',
+          'module' => 'file_force',
           'settings' => array(),
-          'type' => 'file_default',
+          'type' => 'file_force_file_default',
           'weight' => '6',
         ),
         'teaser' => array(

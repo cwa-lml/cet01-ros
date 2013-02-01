@@ -665,6 +665,14 @@ h5 a:hover {
 	height: 20px;
 }
 
+/* node type artive and multiple files
+-------------------------------------------------- */
+.node-type-page .main-content .main-inner,
+.node-type-article .main-content .main-inner,
+.node-type-page-with-multiple-files .main-content .main-inner {
+	padding-left: 160px;
+	padding-right: 160px;
+}
 
 /* interactive whiteboards
 -------------------------------------------------- */
@@ -880,12 +888,18 @@ h5 a:hover {
 .front .footer .nav {
 	margin: 110px 0 0 380px;
 }
+.footer .nav {
+	margin-left: 160px;
+}
 .footer .nav li {
 	display: inline-block;
 	float: left;
 	border-right: 1px solid #045c87;
 	line-height: 12px;
 	padding: 0 10px;
+}
+.footer .nav li.first {
+	padding-left: 0;
 }
 .footer .nav li.last {
 	border: none;
