@@ -1241,7 +1241,7 @@ function ros_workflow_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'mp4 ogv flv m4v mp3',
+        'file_extensions' => 'mp4 ogv flv m4v',
         'max_filesize' => '',
         'user_register_form' => FALSE,
       ),
@@ -2982,9 +2982,18 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'videojs',
-          'settings' => array(),
-          'type' => 'videojs',
+          'module' => 'jplayer',
+          'settings' => array(
+            'autoplay' => 0,
+            'backgroundColor' => '000000',
+            'mode' => 'playlist',
+            'muted' => FALSE,
+            'preload' => 'metadata',
+            'repeat' => 'none',
+            'solution' => 'html, flash',
+            'volume' => 80,
+          ),
+          'type' => 'jplayer_player',
           'weight' => '7',
         ),
         'teaser' => array(

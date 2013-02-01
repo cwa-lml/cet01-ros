@@ -152,7 +152,8 @@ h5 a:hover {
 .site-header .region-header .block-title {
 	display: none;
 }
-.site-header .region-header .nav {
+#block-menu-menu-top-right-logged-in {
+	clear: both;
 	float:right;
 }
 .site-header .region-header .nav li {
@@ -165,9 +166,14 @@ h5 a:hover {
 	border-right: 1px solid #fff;
 	padding: 0 10px;
 }
-#block-menu-menu-top-right-logged-in li.first {
-	border-left: 1px solid #fff;
-	margin-left: 10px;
+#block-ros-extra-rosextra {
+	float: right;
+	color: #fff;	
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1;
+	padding-bottom: 10px;
 }
 .site-header .region-header .nav li.last {
 	border: none;
@@ -927,4 +933,7 @@ h5 a:hover {
 	width: 1px; 
 	height: 1px; 
 	overflow: hidden;
+}
+.modal-backdrop {
+	*display: none;
 }

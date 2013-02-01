@@ -189,7 +189,17 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'jplayer_player';
+  $handler->display->display_options['fields']['field_audio_file']['settings'] = array(
+    'mode' => 'playlist',
+    'autoplay' => '0',
+    'solution' => 'html, flash',
+    'preload' => 'metadata',
+    'volume' => '80',
+    'muted' => '0',
+    'repeat' => 'none',
+    'backgroundColor' => '000000',
+  );
   /* Field: Content: Audio file */
   $handler->display->display_options['fields']['field_audio_file_1']['id'] = 'field_audio_file_1';
   $handler->display->display_options['fields']['field_audio_file_1']['table'] = 'field_data_field_audio_file';
@@ -534,7 +544,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_audio_file']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_audio_file']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_audio_file']['alter']['text'] = ' <p><a href="#sample-audio-[nid]" role="button" data-toggle="modal" class="btn btn-listen">Listen</a></p>
-    <div id="sample-audio-[nid]" class="modal">
+    <div id="sample-audio-[nid]" class="modal hide">
       <div class="modal-header">
         <a  class="close">X</a>
         <h3>Sample audio file</h3>
@@ -546,7 +556,17 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_audio_file']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_audio_file']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_audio_file']['type'] = 'videojs';
+  $handler->display->display_options['fields']['field_audio_file']['type'] = 'jplayer_player';
+  $handler->display->display_options['fields']['field_audio_file']['settings'] = array(
+    'mode' => 'playlist',
+    'autoplay' => '0',
+    'solution' => 'html, flash',
+    'preload' => 'metadata',
+    'volume' => '80',
+    'muted' => '0',
+    'repeat' => 'none',
+    'backgroundColor' => '000000',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
