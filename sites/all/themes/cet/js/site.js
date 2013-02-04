@@ -56,7 +56,8 @@
 		jQuery('span.glossary').popover({
 			trigger: 'hover'
 		});
-*/
+		*/
+		
 		jQuery('span.glossary, span.metaphor, span.simile').popover({
 			trigger: 'manual'
 		});

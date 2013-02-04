@@ -152,7 +152,8 @@ h5 a:hover {
 .site-header .region-header .block-title {
 	display: none;
 }
-#block-menu-menu-top-right-logged-in {
+#block-menu-menu-top-right-logged-in,
+#block-menu-menu-top-right {
 	clear: both;
 	float:right;
 }
@@ -510,6 +511,12 @@ h5 a:hover {
 	text-align: left;
 	margin: 0;
 }
+.ros-purchase #edit-order .form-type-textfield {
+	clear: left;
+}
+.ros-purchase #edit-order .controls {
+	padding-left: 0;
+}
 .ros-purchase #edit-order {
 	padding: 20px 10px 10px;
 	background: #048ea4;
@@ -527,7 +534,12 @@ h5 a:hover {
 	border-bottom: 1px solid #e5e5e5;
 	position: relative;
 	bottom: -25px;
+	bottom: 0\9;
 	color: #fff;
+}
+.ros-purchase #edit-order .ui-spinner-buttons {
+	top: -4px\9 !important;
+	*top: 1px !important;
 }
 .ros-purchase #edit-order .form-item-resource-count,
 .ros-purchase #edit-order .controls,
@@ -624,6 +636,9 @@ h5 a:hover {
 .ros-purchase .password-strength {
 	margin: 0;
 }
+.ros-purchase textarea {
+	width: 306px !important \9;
+}
 .ros-purchase .form-type-checkbox label {
 	padding-left: 200px;
 	width: auto;
@@ -675,7 +690,9 @@ h5 a:hover {
 -------------------------------------------------- */
 .node-type-page .main-content .main-inner,
 .node-type-article .main-content .main-inner,
-.node-type-page-with-multiple-files .main-content .main-inner {
+.node-type-page-with-multiple-files .main-content .main-inner,
+.page-ros-purchase .main-content .main-inner,
+.page-user .main-content .main-inner {
 	padding-left: 160px;
 	padding-right: 160px;
 }
@@ -762,7 +779,7 @@ h5 a:hover {
 	background-color: none;
 	background-repeat: no-repeat;
 	background-position: right bottom;
-	padding: 80px;
+	padding: 80px 57px;
 }
 .iwb-content-type-poem .node-interactive-whiteboard .iwb-bd {
 	padding: 80px 137px;
@@ -782,6 +799,7 @@ h5 a:hover {
 	color: #000;
 	font-size: 50px;
 	margin: 0;
+	line-height: 1;
 }
 .node-interactive-whiteboard .author {
 	font-size: 20px;
@@ -798,6 +816,8 @@ h5 a:hover {
 .node-interactive-whiteboard .field-name-field-body {
 	font-size: 18px;
 	line-height: 25px;
+}
+.node-interactive-whiteboard .field-name-field-body .field-items {
 	padding-left: 20px;	
 }
 .iwb-content-type-story .node-interactive-whiteboard .field-name-field-body p {
@@ -832,35 +852,35 @@ h5 a:hover {
 	margin: 0;
 }
 .iwb-content-span8 .field-name-field-body {
-  width: 640px;
+  width: 620px;
 }
 
 .iwb-content-span7 .field-name-field-body {
-  width: 560px;
+  width: 540px;
 }
 
 .iwb-content-span6 .field-name-field-body {
-  width: 480px;
+  width: 460px;
 }
 
 .iwb-content-span5 .field-name-field-body {
-  width: 400px;
+  width: 380px;
 }
 
 .iwb-content-span4 .field-name-field-body {
-  width: 320px;
+  width: 300px;
 }
 
 .iwb-content-span3 .field-name-field-body {
-  width: 240px;
+  width: 220px;
 }
 
 .iwb-content-span2 .field-name-field-body {
-  width: 160px;
+  width: 140px;
 }
 
 .iwb-content-span1 .field-name-field-body {
-  width: 80px;
+  width: 60px;
 }
 
 .iwb-content-offset4 .field-name-field-body {
@@ -895,7 +915,7 @@ h5 a:hover {
 	margin: 110px 0 0 380px;
 }
 .footer .nav {
-	margin-left: 160px;
+	margin: 20px 0 0 160px;
 }
 .footer .nav li {
 	display: inline-block;
