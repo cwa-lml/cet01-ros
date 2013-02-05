@@ -108,6 +108,7 @@ h5 a:hover {
 	background: url(/sites/all/themes/cet/img/banner-clouds-repeat.png) repeat-x center bottom;
 	height: 43px;
 	width: 100%;
+	min-width: 940px;
 	z-index: 100;
 }
 .front .site-header {
