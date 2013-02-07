@@ -167,7 +167,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_download_module']['alter']['text'] = '<p><a href="[field_download_module]" title="Download Card. " class="btn btn-sample">Download Card</a></p>';
   $handler->display->display_options['fields']['field_download_module']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_download_module']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_download_module']['type'] = 'file_force_file_url_plain';
+  $handler->display->display_options['fields']['field_download_module']['type'] = 'file_url_plain';
   $handler->display->display_options['fields']['field_download_module']['delta_offset'] = '0';
   /* Field: Content: Audio file */
   $handler->display->display_options['fields']['field_audio_file']['id'] = 'field_audio_file';
@@ -192,25 +192,14 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_audio_file']['type'] = 'jplayer_player';
   $handler->display->display_options['fields']['field_audio_file']['settings'] = array(
     'mode' => 'playlist',
-    'autoplay' => '0',
+    'autoplay' => 0,
     'solution' => 'html, flash',
     'preload' => 'metadata',
-    'volume' => '80',
-    'muted' => '0',
+    'volume' => 80,
+    'muted' => FALSE,
     'repeat' => 'none',
     'backgroundColor' => '000000',
   );
-  /* Field: Content: Audio file */
-  $handler->display->display_options['fields']['field_audio_file_1']['id'] = 'field_audio_file_1';
-  $handler->display->display_options['fields']['field_audio_file_1']['table'] = 'field_data_field_audio_file';
-  $handler->display->display_options['fields']['field_audio_file_1']['field'] = 'field_audio_file';
-  $handler->display->display_options['fields']['field_audio_file_1']['label'] = '';
-  $handler->display->display_options['fields']['field_audio_file_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_audio_file_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_audio_file_1']['alter']['text'] = ' <p><a href="[field_audio_file_1]" class="btn btn-listen">Download Audio</a></p>';
-  $handler->display->display_options['fields']['field_audio_file_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_audio_file_1']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_audio_file_1']['type'] = 'file_force_file_url_plain';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -223,7 +212,6 @@ function ros_workflow_views_default_views() {
   <div class="controls">
     [field_download_module]
     [field_audio_file]
-    [field_audio_file_1]
   </div>
 </div>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
@@ -456,6 +444,7 @@ function ros_workflow_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['video_block'] = $view;
 
   $view = new view();

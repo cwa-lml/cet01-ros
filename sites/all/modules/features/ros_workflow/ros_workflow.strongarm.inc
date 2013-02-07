@@ -364,9 +364,6 @@ function ros_workflow_strongarm() {
         'title' => array(
           'weight' => '-5',
         ),
-        'path' => array(
-          'weight' => '30',
-        ),
       ),
       'display' => array(),
     ),
@@ -433,15 +430,6 @@ function ros_workflow_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
-      'interactive_whiteboad_page' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -478,12 +466,13 @@ function ros_workflow_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'revision' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
       'display' => array(),
     ),
   );
@@ -740,7 +729,6 @@ function ros_workflow_strongarm() {
   $strongarm->name = 'node_options_page_with_multiple_files';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_page_with_multiple_files'] = $strongarm;
 
@@ -870,21 +858,21 @@ function ros_workflow_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
-  $strongarm->value = '[node:title]';
+  $strongarm->value = 'content/[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_height';
-  $strongarm->value = '134';
+  $strongarm->value = '240';
   $export['videojs_height'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_width';
-  $strongarm->value = '238';
+  $strongarm->value = '320';
   $export['videojs_width'] = $strongarm;
 
   return $export;
