@@ -37,6 +37,14 @@ function ros_workflow_views_api() {
  */
 function ros_workflow_node_info() {
   $items = array(
+    'file' => array(
+      'name' => t('File'),
+      'base' => 'node_content',
+      'description' => t('Use basic pages for adding a file to the site.'),
+      'has_title' => '1',
+      'title_label' => t('File'),
+      'help' => '',
+    ),
     'front_page_text' => array(
       'name' => t('Front Page Text'),
       'base' => 'node_content',

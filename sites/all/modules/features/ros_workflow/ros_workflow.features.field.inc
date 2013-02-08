@@ -907,6 +907,79 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-file-field_upload_file'
+  $fields['node-file-field_upload_file'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_upload_file',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 1,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'file',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_default',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_upload_file',
+      'label' => 'Uploaded file',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'zip pdf mp3',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '31',
+      ),
+    ),
+  );
+
   // Exported field: 'node-front_page_text-field_freesamples'
   $fields['node-front_page_text-field_freesamples'] = array(
     'field_config' => array(
@@ -1180,6 +1253,146 @@ function ros_workflow_field_default_fields() {
         ),
         'type' => 'button_field_html',
         'weight' => '-2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-front_page_video-field_description'
+  $fields['node-front_page_video-field_description'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_description',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'front_page_video',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_description',
+      'label' => 'Description',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '31',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-front_page_video-field_file_path'
+  $fields['node-front_page_video-field_file_path'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_file_path',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'front_page_video',
+      'default_value' => array(
+        0 => array(
+          'value' => '<a href="">File name (1MB)</a>',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_file_path',
+      'label' => 'File path',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '1',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '32',
       ),
     ),
   );
@@ -3711,6 +3924,7 @@ Example: 200',
   t('Enter a link to any audio file');
   t('Enter a link to the sample file');
   t('File');
+  t('File path');
   t('First name');
   t('Free samples');
   t('Image');
@@ -3736,6 +3950,7 @@ Example: 200');
   t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');
+  t('Uploaded file');
   t('Upper background image');
   t('Video file');
   t('View Sample');

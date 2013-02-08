@@ -276,6 +276,25 @@ h5 a:hover {
 
 /* front page
 -------------------------------------------------- */
+
+.logged-in .node-front-page-video {
+	margin-top: 20px;
+}
+.node-front-page-video .field-name-field-frontvideo {
+	padding-bottom: 10px;
+}
+.node-front-page-video .field-name-field-description {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #045c87
+}
+.node-front-page-video .field-name-field-file-path * {
+	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	color: #00785a
+}
 #block-user-login {
 	padding: 9px 11px;
 	background: #00505a;
@@ -685,6 +704,12 @@ h5 a:hover {
 	font-size: 14px;
 	padding: 6px 0 0 7px;
 	height: 20px;
+}
+.ros-purchase .form-type-password-confirm > .controls {
+	padding-left: 0;	
+}
+.ros-purchase .form-type-password-confirm .password-parent {
+	*margin-right: -200px;	
 }
 
 /* node type artive and multiple files

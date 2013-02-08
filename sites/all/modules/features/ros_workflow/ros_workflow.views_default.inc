@@ -124,7 +124,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Download all';
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="#" class="btn">Download All</a></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="/sites/default/files/Archive.zip" class="btn">Download All</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
