@@ -508,6 +508,9 @@ function ros_workflow_strongarm() {
         'title' => array(
           'weight' => '0',
         ),
+        'path' => array(
+          'weight' => '11',
+        ),
       ),
       'display' => array(),
     ),

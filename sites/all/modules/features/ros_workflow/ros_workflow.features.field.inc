@@ -1540,79 +1540,7 @@ function ros_workflow_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-interactive_whiteboard-field_background'
-  $fields['node-interactive_whiteboard-field_background'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_background',
-      'foreign keys' => array(
-        'fid' => array(
-          'columns' => array(
-            'fid' => 'fid',
-          ),
-          'table' => 'file_managed',
-        ),
-      ),
-      'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
-        ),
-      ),
-      'module' => 'file',
-      'settings' => array(
-        'display_default' => 0,
-        'display_field' => 0,
-        'uri_scheme' => 'public',
-      ),
-      'translatable' => '0',
-      'type' => 'file',
-    ),
-    'field_instance' => array(
-      'bundle' => 'interactive_whiteboard',
-      'deleted' => '0',
-      'description' => 'Upload a background image',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_url_plain',
-          'weight' => '4',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_background',
-      'label' => 'Background',
-      'required' => 0,
-      'settings' => array(
-        'description_field' => 0,
-        'file_directory' => '',
-        'file_extensions' => 'jpg png',
-        'max_filesize' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'file',
-        'settings' => array(
-          'progress_indicator' => 'throbber',
-        ),
-        'type' => 'file_generic',
-        'weight' => '5',
+        'weight' => '3',
       ),
     ),
   );
@@ -1691,7 +1619,7 @@ function ros_workflow_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '8',
+        'weight' => '10',
       ),
     ),
   );
@@ -1757,7 +1685,7 @@ function ros_workflow_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '4',
+        'weight' => '6',
       ),
     ),
   );
@@ -1829,7 +1757,7 @@ function ros_workflow_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '5',
+        'weight' => '8',
       ),
     ),
   );
@@ -1899,7 +1827,7 @@ Example: 200',
           'size' => '4',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -1967,7 +1895,7 @@ Example: 200',
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -2040,7 +1968,7 @@ Example: 200',
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -2110,7 +2038,7 @@ Example: 200',
           'size' => '3',
         ),
         'type' => 'text_textfield',
-        'weight' => '0',
+        'weight' => '1',
       ),
     ),
   );
@@ -2177,7 +2105,7 @@ Example: 200',
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '9',
+        'weight' => '5',
       ),
     ),
   );
@@ -2256,7 +2184,7 @@ Example: 200',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '7',
+        'weight' => '9',
       ),
     ),
   );
@@ -3911,7 +3839,6 @@ Example: 200',
   t('A description of the resource item');
   t('Audio file');
   t('Author');
-  t('Background');
   t('Body');
   t('Body content width');
   t('Body padding bottom');
@@ -3946,7 +3873,6 @@ Example: 200');
   t('Tags');
   t('Title width');
   t('Type');
-  t('Upload a background image');
   t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');

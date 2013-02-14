@@ -444,7 +444,6 @@ function ros_workflow_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['video_block'] = $view;
 
   $view = new view();

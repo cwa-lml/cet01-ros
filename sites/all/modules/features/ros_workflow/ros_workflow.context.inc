@@ -28,17 +28,17 @@ function ros_workflow_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'menu-menu-top-right-logged-in' => array(
-          'module' => 'menu',
-          'delta' => 'menu-top-right-logged-in',
-          'region' => 'header',
-          'weight' => '-9',
-        ),
         'ros_extra-ROSEXTRA' => array(
           'module' => 'ros_extra',
           'delta' => 'ROSEXTRA',
           'region' => 'header',
-          'weight' => '-8',
+          'weight' => '-15',
+        ),
+        'menu-menu-top-right-logged-in' => array(
+          'module' => 'menu',
+          'delta' => 'menu-top-right-logged-in',
+          'region' => 'header',
+          'weight' => '-14',
         ),
       ),
     ),
