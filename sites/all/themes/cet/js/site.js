@@ -80,6 +80,15 @@
 					resetActive();
 					var className = 'active';//-' + jQuery(this).attr('class');
 					jQuery(this).addClass(className);
+					// Create a relationship between popovers for situations where
+					// highlighted text spans seperate paragraphs
+					if (jQuery(this).attr('data-rel')){
+						var dataRel = jQuery(this).attr('data-rel');
+						//console.log(jQuery(this).attr('data-rel'));
+						jQuery("span[data-rel='" + dataRel +"']").each(function(){
+							jQuery(this).addClass(className);
+						});
+					}
 					jQuery('.popover').hide();
 					var popover = jQuery(this).data('popover');
 					var shown = popover && popover.tip().hasClass('in');

@@ -725,18 +725,18 @@ h5 a:hover {
 
 /* interactive whiteboards
 -------------------------------------------------- */
-.glossary {
+.glossary span {
 	border-bottom: 1px dotted #8ad4c9;
 }
-.metaphor,
-.simile {
+.metaphor span,
+.simile span {
 	border-bottom: 1px dotted #ffce86;
 }
-.glossary.active {
+.glossary.active span {
 	background: #8ad4c9;
 }
-.metaphor.active,
-.simile.active {
+.metaphor.active span,
+.simile.active span {
 	background: #ffce86;
 }
 .popover {
