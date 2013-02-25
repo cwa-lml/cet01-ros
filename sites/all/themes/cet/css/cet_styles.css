@@ -728,6 +728,7 @@ h5 a:hover {
 .glossary span {
 	border-bottom: 1px dotted #8ad4c9;
 }
+.focus span,
 .metaphor span,
 .simile span {
 	border-bottom: 1px dotted #ffce86;
@@ -735,6 +736,7 @@ h5 a:hover {
 .glossary.active span {
 	background: #8ad4c9;
 }
+.focus.active span,
 .metaphor.active span,
 .simile.active span {
 	background: #ffce86;
@@ -754,14 +756,17 @@ h5 a:hover {
 .popover-glossary.right .arrow::after {
 	border-right-color: #8ad4c9;
 }
+.popover-focus,
 .popover-metaphor,
 .popover-simile  {
 	background: #ffce86;
 }
+.popover-focus.right .arrow::after,
 .popover-metaphor.right .arrow::after,
 .popover-simile.right .arrow::after {
 	border-right-color: #ffce86;
 }
+.popover-focus,
 .popover-metaphor,
 .popover-simile {
 	z-index: 1000;	

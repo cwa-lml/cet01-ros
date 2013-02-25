@@ -58,7 +58,7 @@
 		});
 		*/
 		
-		jQuery('span.glossary, span.metaphor, span.simile').popover({
+		jQuery('span.glossary, span.focus, span.metaphor, span.simile').popover({
 			trigger: 'manual'
 		});
 
@@ -66,15 +66,17 @@
 		// Trigger for the hiding of any open metaphor or simile popovers
 		// Add a close button
 
-		if(jQuery('span.glossary, span.metaphor, span.simile').length){
+		if(jQuery('span.glossary, span.focus, span.metaphor, span.simile').length){
 
+			/*
 			var closeBtn = 	jQuery('<button/>').attr({'type':'button', 'class':'close'})
 								.text('x')
 								.click(function(){
 									jQuery('span.metaphor, span.simile').popover('hide');
 								});
+			*/
 
-			jQuery('span.glossary, span.metaphor, span.simile').each(function() {
+			jQuery('span.glossary, span.focus, span.metaphor, span.simile').each(function() {
 				jQuery(this).on('click', function(e){
 					e.stopPropagation();
 					resetActive();
@@ -97,22 +99,24 @@
 	    				popoverClass(jQuery(this));
 						//closeBtn.appendTo('.popover .popover-title');
 					} else {
-						jQuery('span.glossary, span.metaphor, span.simile').popover('hide');
+						jQuery('span.glossary, span.focus, span.metaphor, span.simile').popover('hide');
 						resetActive();
 					}	
 				});
 			});
 
 			$('html').on('click.popover.data-api',function() {
-    			jQuery('span.glossary, span.metaphor, span.simile').popover('hide');
+    			jQuery('span.glossary, span.focus, span.metaphor, span.simile').popover('hide');
     			resetActive();
 			});		
 		}
 
 		function popoverClass(item) {
-			jQuery('.popover').removeClass('popover-metaphor').removeClass('popover-simile').removeClass('popover-glossary');
+			jQuery('.popover').removeClass('popover-focus').removeClass('popover-metaphor').removeClass('popover-simile').removeClass('popover-glossary');
 			if( item.hasClass('metaphor')) {
 				jQuery('.popover').addClass('popover-metaphor');
+			} else if ( item.hasClass('focus')) {
+				jQuery('.popover').addClass('popover-focus');
 			} else if ( item.hasClass('simile')) {
 				jQuery('.popover').addClass('popover-simile');
 			} else {
@@ -121,7 +125,7 @@
 		}
 
 		function resetActive(){
-			jQuery('span.glossary, span.metaphor, span.simile').each(function() {
+			jQuery('span.glossary, span.focus, span.metaphor, span.simile').each(function() {
 				jQuery(this).removeClass('active');
 			});
 		}
