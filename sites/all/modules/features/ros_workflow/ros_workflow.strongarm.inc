@@ -502,6 +502,12 @@ function ros_workflow_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -509,7 +515,7 @@ function ros_workflow_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '11',
+          'weight' => '13',
         ),
       ),
       'display' => array(),
@@ -980,7 +986,7 @@ function ros_workflow_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_height';
-  $strongarm->value = '240';
+  $strongarm->value = '180';
   $export['videojs_height'] = $strongarm;
 
   $strongarm = new stdClass;

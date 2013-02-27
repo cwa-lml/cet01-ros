@@ -1509,7 +1509,7 @@ function ros_workflow_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1587,7 +1587,7 @@ function ros_workflow_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image_url',
-          'weight' => '7',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1619,7 +1619,7 @@ function ros_workflow_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '10',
+        'weight' => '12',
       ),
     ),
   );
@@ -1661,7 +1661,7 @@ function ros_workflow_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1736,7 +1736,7 @@ function ros_workflow_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1757,7 +1757,7 @@ function ros_workflow_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '8',
+        'weight' => '7',
       ),
     ),
   );
@@ -1802,7 +1802,7 @@ Example: 200',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1827,7 +1827,147 @@ Example: 200',
           'size' => '4',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_body_padding_left'
+  $fields['node-interactive_whiteboard-field_body_padding_left'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_body_padding_left',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '4',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Set the left padding for the body content to offset the text from the left hand side of the page (default offset already set for stories/poems so use carefully).
+Example: 80',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '8',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_body_padding_left',
+      'label' => 'Body padding left',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '4',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '10',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_body_padding_top'
+  $fields['node-interactive_whiteboard-field_body_padding_top'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_body_padding_top',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '4',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Set the padding above the body content to offset it from any images sitting at the top of the page.
+Example: 200',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'ds_extras_field_template' => '',
+      'entity_type' => 'node',
+      'field_name' => 'field_body_padding_top',
+      'label' => 'Body padding top',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '4',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '8',
       ),
     ),
   );
@@ -1871,7 +2011,7 @@ Example: 200',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1931,7 +2071,7 @@ Example: 200',
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => '14',
+          'weight' => '11',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -2013,7 +2153,7 @@ Example: 200',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2083,7 +2223,7 @@ Example: 200',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '-1',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2152,7 +2292,7 @@ Example: 200',
             'image_style' => '',
           ),
           'type' => 'image_url',
-          'weight' => '6',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2184,7 +2324,7 @@ Example: 200',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '9',
+        'weight' => '11',
       ),
     ),
   );
@@ -3842,6 +3982,8 @@ Example: 200',
   t('Body');
   t('Body content width');
   t('Body padding bottom');
+  t('Body padding left');
+  t('Body padding top');
   t('Comment');
   t('Country');
   t('Description');
@@ -3868,6 +4010,10 @@ Example: 200');
   t('Purchase Educational Resource');
   t('Resource Image');
   t('Resource Type');
+  t('Set the left padding for the body content to offset the text from the left hand side of the page (default offset already set for stories/poems so use carefully).
+Example: 80');
+  t('Set the padding above the body content to offset it from any images sitting at the top of the page.
+Example: 200');
   t('Set the padding below the body content to offset it from any images sitting at the bottom of the page.
 Example: 200');
   t('Tags');

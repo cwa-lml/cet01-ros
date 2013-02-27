@@ -2,7 +2,7 @@
       
   <div class="iwb-top-img"<?php if (!empty($content['field_upper_background_image'])): ?> style="background-image: url(<?php print render($content['field_upper_background_image']); ?>);"<?php endif; ?> >
    
-    <div class="iwb-bd"<?php if (!empty($content['field_body_padding_bottom']) || !empty($content['field_background_image'])): ?> style="<?php if (!empty($content['field_body_padding_bottom']) ): ?>padding-bottom: <?php print render($content['field_body_padding_bottom']); ?>px;<?php endif; ?><?php if (!empty($content['field_background_image']) ): ?>background-image: url(<?php print render($content['field_background_image']); ?>);<?php endif; ?>"<?php endif; ?>>
+    <div class="iwb-bd"<?php if (!empty($content['field_body_padding_top']) || !empty($content['field_body_padding_bottom']) || !empty($content['field_body_padding_left']) || !empty($content['field_background_image'])): ?> style="<?php if (!empty($content['field_body_padding_top']) ): ?>padding-top: <?php print render($content['field_body_padding_top']); ?>px;<?php endif; ?><?php if (!empty($content['field_body_padding_bottom']) ): ?>padding-bottom: <?php print render($content['field_body_padding_bottom']); ?>px;<?php endif; ?><?php if (!empty($content['field_body_padding_left']) ): ?>padding-left: <?php print render($content['field_body_padding_left']); ?>px;<?php endif; ?><?php if (!empty($content['field_background_image']) ): ?>background-image: url(<?php print render($content['field_background_image']); ?>);<?php endif; ?>"<?php endif; ?>>
       
       <?php print render($content['field_country']); ?>
 
