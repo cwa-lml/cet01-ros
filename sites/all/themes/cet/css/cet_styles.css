@@ -753,18 +753,42 @@ h5 a:hover {
 .popover-glossary {
 	background: #8ad4c9;
 }
-.popover-glossary.right .arrow::after {
+.popover-glossary.top .arrow:after {
+	border-top-color: #8ad4c9;
+}
+.popover-glossary.right .arrow:after {
 	border-right-color: #8ad4c9;
+}
+.popover-glossary.bottom .arrow:after {
+	border-bottom-color: #8ad4c9;
+}
+.popover-glossary.left .arrow:after {
+	border-left-color: #8ad4c9;
 }
 .popover-focus,
 .popover-metaphor,
 .popover-simile  {
 	background: #ffce86;
 }
-.popover-focus.right .arrow::after,
-.popover-metaphor.right .arrow::after,
-.popover-simile.right .arrow::after {
+.popover-focus.top .arrow:after,
+.popover-metaphor.top .arrow:after,
+.popover-simile.top .arrow:after {
+	border-top-color: #ffce86;
+}
+.popover-focus.right .arrow:after,
+.popover-metaphor.right .arrow:after,
+.popover-simile.right .arrow:after {
 	border-right-color: #ffce86;
+}
+.popover-focus.bottom .arrow:after,
+.popover-metaphor.bottom .arrow:after,
+.popover-simile.bottom .arrow:after {
+	border-bottom-color: #ffce86;
+}
+.popover-focus.left .arrow:after,
+.popover-metaphor.left .arrow:after,
+.popover-simile.left .arrow:after {
+	border-left-color: #ffce86;
 }
 .popover-focus,
 .popover-metaphor,
