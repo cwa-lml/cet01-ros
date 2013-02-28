@@ -953,6 +953,12 @@ h5 a:hover {
 .iwb-content-offset1 .field-name-field-body {
   margin-left: 100px;
 }
+.node-interactive-whiteboard .field-name-field-body .acknowledgement,
+.node-interactive-whiteboard .field-name-field-body .acknowledgement {
+	font-size: 12px !important;
+	padding-top: 50px !important;
+	text-indent: 0 !important;
+}
 
 /* footer
 -------------------------------------------------- */
