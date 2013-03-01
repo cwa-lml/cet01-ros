@@ -476,11 +476,18 @@ h5 a:hover {
 	padding-right: 160px;
 }
 .ros-list-view .row-img {
+	display: inline;
+}
+.ros-list-view .row-img  {
 	display: inline-block;
 	float: left;
 	width:140px;
 	min-height: 40px;
 	margin: 0 20px 0 0;
+}
+.ros-list-view .row-img img {
+	display: inline-block;
+	float: left;
 	background-color: #fff;
 	background-image: -moz-linear-gradient(top, #ffffff, #8ad4ca);
 	background-image: -ms-linear-gradient(top, #ffffff, #8ad4ca);
@@ -803,7 +810,7 @@ h5 a:hover {
 	border-bottom: none;
 	color: #58595b;
 	font-style: italic;
-	font-size: 12px;
+	font-size: 15px;
 	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
 	padding: 20px 20px 5px;
 }
@@ -864,7 +871,7 @@ h5 a:hover {
 }
 .node-interactive-whiteboard .popover-content {
 	color: #58595b;
-	font-size: 10px;
+	font-size: 14px;
 	font-family: "Trebuchet MS", Verdana, Geneva, sans-serif;
 	padding: 0 20px 20px;
 }
@@ -878,6 +885,9 @@ h5 a:hover {
 .iwb-content-type-story .node-interactive-whiteboard .field-name-field-body p {
 	margin: 0;
 	text-indent: 30px;
+}
+.iwb-content-type-story .node-interactive-whiteboard .field-name-field-body p.no-indent {
+	text-indent: 0;
 }
 .iwb-content-type-story .node-interactive-whiteboard .field-name-field-body .popover,
 .iwb-content-type-poem .node-interactive-whiteboard .field-name-field-body .popover {

@@ -142,6 +142,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_resource_image']['element_class'] = 'row-img';
   $handler->display->display_options['fields']['field_resource_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_resource_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
     'image_style' => '',
@@ -302,10 +303,12 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['fields']['field_resource_image']['table'] = 'field_data_field_resource_image';
   $handler->display->display_options['fields']['field_resource_image']['field'] = 'field_resource_image';
   $handler->display->display_options['fields']['field_resource_image']['label'] = '';
+  $handler->display->display_options['fields']['field_resource_image']['alter']['text'] = '<div class="shadow">[field_resource_image]</div>';
   $handler->display->display_options['fields']['field_resource_image']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_resource_image']['element_class'] = 'row-img';
   $handler->display->display_options['fields']['field_resource_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_resource_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_resource_image']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_resource_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_resource_image']['settings'] = array(
     'image_style' => '',
