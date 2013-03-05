@@ -427,14 +427,12 @@ h5 a:hover {
 	font-size: 36px;
 	line-height: 1;
 	color: #fff;
-	width: 240px;
-}
-.view-frontpage .field-name-field-frontpagebody,
-.view-frontpage .field-name-field-frontpageimage {
-	width: 240px;
+	width: 220px;
 }
 .view-frontpage .field-name-field-frontpagebody {
+	width: 220px;
 	font-size: 14px;
+	float: left;
 }
 .view-frontpage form {
 	clear: both;
