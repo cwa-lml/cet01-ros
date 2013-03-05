@@ -13,3 +13,7 @@ sites/all/modules/contrib/wysiwyg/plugins/.DS_Store
 sites/all/modules/contrib/wysiwyg/.DS_Store
 
 sites/all/libraries/tinymce/jscripts/tiny_mce/plugins/.DS_Store
+
+*.pyc
+
+fabfile.pyc

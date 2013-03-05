@@ -222,6 +222,11 @@ h5 a:hover {
 .logged-in .navbar .navbar-inner {
 	display: inline-block;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.logged-in .navbar .navbar-inner {
+		display: block;
+	}
+}
 .navbar .nav {
 	margin: 0;
 	float: none;
@@ -231,7 +236,7 @@ h5 a:hover {
 	border-right: 1px solid #045c87;
 }
 .navbar .nav > li.first > a {
-	padding: 5px 17px 5px 17px;
+	padding: 5px 18px;
 }
 .navbar .nav > li > a {
 	background: #048ea5;
@@ -250,6 +255,14 @@ h5 a:hover {
 }
 .navbar .nav li.last {
 	border-right: 2px solid #045c87;
+}
+.logged-in .navbar .nav li.last {
+	border-right: none; 
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.logged-in .navbar .nav li.last {
+		border-right: 2px solid #045c87;
+	}
 }
 .navbar .nav li a.active,
 .navbar .nav li a.active:hover {
