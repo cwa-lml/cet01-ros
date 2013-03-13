@@ -1,4 +1,4 @@
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix<?php if (!empty($content['field_acknowledgement'])): ?> has-acknowledgement<?php endif; ?> "<?php print $attributes; ?>>
       
   <div class="iwb-top-img"<?php if (!empty($content['field_upper_background_image'])): ?> style="background-image: url(<?php print render($content['field_upper_background_image']); ?>);"<?php endif; ?> >
    
@@ -24,11 +24,14 @@
         hide($content['comments']);
         hide($content['links']);
         hide($content['field_tags']);
+        hide($content['field_acknowledgement']);
         print render($content);
       ?>
     
     </div><!-- /.iwb-bd -->
 
   </div><!-- /.iwb-top-img -->
+  
+  <?php print render($content['field_acknowledgement']); ?>
 
 </article> <!-- /.node -->

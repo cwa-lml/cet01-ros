@@ -1470,6 +1470,72 @@ function ros_workflow_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-interactive_whiteboard-field_acknowledgement'
+  $fields['node-interactive_whiteboard-field_acknowledgement'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_acknowledgement',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Acknowledgement and copyright information.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '5',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_acknowledgement',
+      'label' => 'Acknowledgement',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '3',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'node-interactive_whiteboard-field_author'
   $fields['node-interactive_whiteboard-field_author'] = array(
     'field_config' => array(
@@ -1587,7 +1653,7 @@ function ros_workflow_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image_url',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1619,7 +1685,7 @@ function ros_workflow_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '12',
+        'weight' => '13',
       ),
     ),
   );
@@ -1736,7 +1802,7 @@ function ros_workflow_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1757,7 +1823,7 @@ function ros_workflow_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -1802,7 +1868,7 @@ Example: 200',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1827,7 +1893,7 @@ Example: 200',
           'size' => '4',
         ),
         'type' => 'text_textfield',
-        'weight' => '9',
+        'weight' => '10',
       ),
     ),
   );
@@ -1872,7 +1938,7 @@ Example: 80',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1897,7 +1963,7 @@ Example: 80',
           'size' => '4',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '11',
       ),
     ),
   );
@@ -1942,7 +2008,7 @@ Example: 200',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1967,7 +2033,7 @@ Example: 200',
           'size' => '4',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
@@ -2071,7 +2137,7 @@ Example: 200',
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => '11',
+          'weight' => '12',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -2292,7 +2358,7 @@ Example: 200',
             'image_style' => '',
           ),
           'type' => 'image_url',
-          'weight' => '9',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2324,7 +2390,7 @@ Example: 200',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '11',
+        'weight' => '12',
       ),
     ),
   );
@@ -3978,6 +4044,8 @@ Example: 200',
   // Included for use with string extractors like potx.
   t('A River of Stories Educational Resource (NZD)');
   t('A description of the resource item');
+  t('Acknowledgement');
+  t('Acknowledgement and copyright information.');
   t('Audio file');
   t('Author');
   t('Body');

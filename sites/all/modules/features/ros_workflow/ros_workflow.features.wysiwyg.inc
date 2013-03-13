@@ -53,8 +53,7 @@ function ros_workflow_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => 'Acknowledgement=acknowledgement
-  No indent=no-indent',
+      'css_classes' => 'No indent=no-indent',
     ),
     'rdf_mapping' => array(),
   );
@@ -103,8 +102,7 @@ function ros_workflow_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '/sites/all/themes/cet/css/cet_styles.css',
-      'css_classes' => 'Acknowledgement=acknowledgement
-  No indent=no-indent',
+      'css_classes' => 'No indent=no-indent',
     ),
     'rdf_mapping' => array(),
   );

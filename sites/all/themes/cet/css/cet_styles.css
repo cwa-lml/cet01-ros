@@ -880,6 +880,15 @@ h5 a:hover {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006089', endColorstr='#7dc7c2', GradientType=0);
 }
+.has-acknowledgement {
+	padding-bottom: 10px;
+}
+.node-interactive-whiteboard .field-name-field-acknowledgement {
+	padding: 10px 0 0;
+}
+.node-interactive-whiteboard .field-name-field-acknowledgement p:last-child {
+	margin-bottom: 0;
+}
 .node-interactive-whiteboard .iwb-top-img {
 	overflow: hidden;
 	background-color: #fff;
