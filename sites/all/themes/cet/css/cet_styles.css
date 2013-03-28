@@ -624,8 +624,7 @@ h5 a:hover {
 .ros-purchase #edit-order .form-item-resource-count,
 .ros-purchase #edit-order .controls,
 .ros-purchase #edit-order .form-item-resource-price,
-.ros-purchase #edit-order .form-item-hardbook-price,
-.ros-purchase #edit-order .form-item-hardbook-count,
+.ros-purchase #edit-order .form-type-textfield,
 .ros-purchase #edit-order .form-item-freight-price {
 	width: auto !important;
 	display: inline-block;
@@ -652,7 +651,7 @@ h5 a:hover {
           	box-shadow: 6px 6px 8px rgba(4, 92, 135, 0.2);
 }
 .ros-purchase #edit-order .form-item-resource-count .form-text,
-.ros-purchase #edit-order .form-item-hardbook-count .form-text {
+.ros-purchase #edit-order .form-type-textfield .form-text {
 	width: 36px;
 	margin-right: 10px;
 	text-align: left;
@@ -661,11 +660,7 @@ h5 a:hover {
           	border-radius: 4px 0 0 4px;
 
 }
-.ros-purchase #edit-order #edit-resource-price label,
-.ros-purchase #edit-order #edit-hardbook-price label,
-.ros-purchase #edit-order #edit-freight-price label,
-.ros-purchase #edit-order #edit-gst-amount label,
-.ros-purchase #edit-order #edit-total-amount label {
+.ros-purchase #edit-order label {
 	width: 354px;
 	text-align: left;
 }
@@ -679,7 +674,6 @@ h5 a:hover {
 	padding-left: 60px;
 }
 .ros-purchase #edit-resource-price,
-.ros-purchase #edit-hardbook-price,
 .ros-purchase #edit-freight-price {
 	border: 0;
 	width: auto;
@@ -756,7 +750,7 @@ h5 a:hover {
 	color: #666;
 }
 .ros-purchase #edit-resource-price .controls > div,
-.ros-purchase #edit-hardbook-price .controls > div,
+.ros-purchase .form-type-item .controls > div,
 .ros-purchase #edit-freight-price .controls > div,
 .ros-purchase #edit-gst-amount .controls > div, 
 .ros-purchase #edit-total-amount .controls > div {
