@@ -18,7 +18,7 @@ function cet_theme(&$existing, $type, $theme, $path) {
     
   $items['user_login'] = array(
     'render element' => 'form',
-    'path' => drupal_get_path('theme', 'cet') . '/bootstrap/bootstrap/templates',
+    'path' => drupal_get_path('theme', 'cet') . '/templates',
     'template' => 'user-login',
     'preprocess functions' => array(
        'cet_preprocess_user_login'
@@ -27,7 +27,7 @@ function cet_theme(&$existing, $type, $theme, $path) {
 
   $items['user_pass'] = array(
       'render element' => 'form',
-      'path' => drupal_get_path('theme', 'cet') . '/bootstrap/bootstrap/templates',
+      'path' => drupal_get_path('theme', 'cet') . '/templates',
       'template' => 'user-pass',
       'preprocess functions' => array(
          'cet_preprocess_user_pass'
