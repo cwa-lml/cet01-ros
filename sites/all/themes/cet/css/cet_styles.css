@@ -205,6 +205,9 @@ h5 a:hover {
 
 /* site navigation
 -------------------------------------------------- */
+.navbar {
+	*position: static;
+}
 .navbar .navbar-inner {
 	min-height: 28px;
 	padding: 0;
