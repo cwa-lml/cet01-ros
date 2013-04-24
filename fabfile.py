@@ -70,10 +70,11 @@ def localhost():
 
 
 @task
-def remote(host):
+def remote(host, user=env.user):
   """ Run command on remote hosts """
   env.run = run
   env.cd = cd
+  env.user = user
 
   if ',' in host:
     host = host.split(',')
