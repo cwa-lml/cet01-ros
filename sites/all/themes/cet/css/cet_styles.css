@@ -209,6 +209,7 @@ h5 a:hover {
 	*position: static;
 }
 .navbar .navbar-inner {
+	display: block;
 	min-height: 28px;
 	padding: 0;
 	background: #048ea5;
@@ -221,14 +222,6 @@ h5 a:hover {
 	-webkit-box-shadow: none;
 	   -moz-box-shadow: none;
 	        box-shadow: none;
-}
-.logged-in .navbar .navbar-inner {
-	display: inline-block;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.logged-in .navbar .navbar-inner {
-		display: block;
-	}
 }
 .navbar .nav {
 	margin: 0;
@@ -258,14 +251,6 @@ h5 a:hover {
 }
 .navbar .nav li.last {
 	border-right: 2px solid #045c87;
-}
-.logged-in .navbar .nav li.last {
-	border-right: none; 
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	.logged-in .navbar .nav li.last {
-		border-right: 2px solid #045c87;
-	}
 }
 .navbar .nav li a.active,
 .navbar .nav li a.active:hover {
@@ -436,10 +421,12 @@ h5 a:hover {
 	width: 220px;
 	font-size: 14px;
 	float: left;
+	padding-bottom: 20px;
 }
 .view-frontpage form {
-	clear: both;
 	padding: 6px 28px;
+	float: right;
+	margin-bottom: 0;
 }
 .view-frontpage .field-name-field-frontpagebody,
 .view-frontpage .field-name-field-frontpageimage {
@@ -494,7 +481,7 @@ h5 a:hover {
 .page-whats-in-resource .main-content .view-header,
 .page-teachersresource .main-content .view-header,
 .page-readandrespond .main-content .view-header {
-	min-height: 65px;
+	min-height: 75px;
 	position: relative;
 	overflow: hidden;
 	padding-bottom: 5px;
@@ -514,7 +501,7 @@ h5 a:hover {
 .download-all {
 	position: absolute;
 	right: 160px;
-	bottom: 15px;
+	top: 15px;
 }
 .download-all .btn {
 	float: right;
@@ -572,7 +559,7 @@ h5 a:hover {
 .ros-list-view .controls {
 	position: absolute;
 	right: 0;
-	bottom: 10px;
+	top: 10px;
 }
 .ros-list-view .controls .btn {
 	float: right;
@@ -775,7 +762,8 @@ h5 a:hover {
 .node-type-article .main-content .main-inner,
 .node-type-page-with-multiple-files .main-content .main-inner,
 .page-ros-purchase .main-content .main-inner,
-.page-user .main-content .main-inner {
+.page-user .main-content .main-inner,
+.page-interactive-whiteboard-resources .main-content .main-inner {
 	padding-left: 160px;
 	padding-right: 160px;
 }
