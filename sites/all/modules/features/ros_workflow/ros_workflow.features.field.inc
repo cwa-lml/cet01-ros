@@ -1086,23 +1086,26 @@ function ros_workflow_field_default_fields() {
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'settings' => array(
+            'trim_length' => 600,
+          ),
+          'type' => 'text_trimmed',
           'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_frontpagebody',
       'label' => 'Body',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
-        'text_processing' => 0,
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => 5,
+          'rows' => '5',
         ),
         'type' => 'text_textarea',
         'weight' => '-4',
@@ -1311,7 +1314,7 @@ function ros_workflow_field_default_fields() {
       'label' => 'Description',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
@@ -1607,6 +1610,78 @@ function ros_workflow_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-interactive_whiteboard-field_background'
+  $fields['node-interactive_whiteboard-field_background'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_background',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'interactive_whiteboard',
+      'deleted' => '0',
+      'description' => 'Upload a background image',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_url_plain',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_background',
+      'label' => 'Background',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'jpg png',
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '5',
       ),
     ),
   );
@@ -4048,6 +4123,7 @@ Example: 200',
   t('Acknowledgement and copyright information.');
   t('Audio file');
   t('Author');
+  t('Background');
   t('Body');
   t('Body content width');
   t('Body padding bottom');
@@ -4088,6 +4164,7 @@ Example: 200');
   t('Tags');
   t('Title width');
   t('Type');
+  t('Upload a background image');
   t('Upload a file (PDF?) that can be downloaded. Enter an appropriate label');
   t('Upload an image to go with this article.');
   t('Upload the image file associated with the resource');

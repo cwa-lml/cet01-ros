@@ -44,12 +44,17 @@ class RosPurchaseBuild {
 				'#type' => 'item',
 				'#after_build' => array('ros_purchase_load_javascript'),
 				'#title' => t('<h2>Purchase the resource</h2>'),
-				'#markup' => t('<p>You can purchase several Educational Resources but only one login id will be provided. '
-		. 'On confirmation of your order, the login details will be sent to the Administrator email address. '
-		. 'Currently this Educational Resource is only available for New Zealand. Access to the secure area of this site is only '
-		. 'granted to those purchasing the full Educational Resource and not to individual item purchases.</p>'
-		. '<p>For any queries or requests for other items in the Educational Resource please call Customer Services on '
-		. '0800 800 565 (8am - 5pm weekdays)</p>'),
+				'#markup' => t(<<<EOT
+						<p>You can purchase multiple copies of the Educational Resource but only one 
+						login id will be provided. On confirmation of your order, the login details will be sent to 
+						the Administrator's email address. Please contact your office administrator for these details. 
+						Currently this Educational Resource is only available in New Zealand. Access to the secure area 
+						of this site is only available to those purchasing the full Educational Resource and not to 
+						those purchasing individual items.</p>
+						<p>For any queries or requests for the other items from the A River of Stories Educational 
+						Resource, please call Customer Services on 0800 800 565 (8am - 5pm weekdays).</p>
+EOT
+						),
 		);
 		
 		$form['order'] = array(
@@ -135,6 +140,11 @@ class RosPurchaseBuild {
 													'#title' => t('Street address'),
 													'#cols' => 45,
 													'#rows' => 3,
+		);
+		
+		$form['details']['street_address_note'] = array(
+				'#type' => 'item',
+				'#title' => t('(No P.O. Box or Private Bag)'),
 		);
 		
 		$form['details']['city'] = array(
