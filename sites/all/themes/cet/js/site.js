@@ -3,27 +3,31 @@
   Drupal.behaviors.exampleModule = {
     attach: function (context, settings) {
       	
-		if (jQuery('.front').length){
-			var waitForFinalEvent = (function () {
-				var timer;
-				return function (callback, ms) {
-				  if (timer) {
-				    clearTimeout (timer);
-				  }
-				  timer = setTimeout(callback, ms);
-				};
-			})();
+      	// homepage - add the cover image for the video on load
 
-			if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) <= 8) {
-			  	waitForFinalEvent(function(){
+		if (jQuery('.front').length){
+			function addVideoImage() {
+
+				if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) <= 8) {
+					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show().delay(300);
+				} else {
 					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
-				}, 2000);
-			} else {
-			  	waitForFinalEvent(function(){
-					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
-				}, 1000);
+				}
+				//console.log('image added');
 			}
-			
+
+			function autorun() {
+			    if (jQuery(".video-js").is(":visible")){
+			    	//console.log('video exists');
+			        clearInterval(autoSlider);
+			        setTimeout(addVideoImage, 600);
+			        return false;
+			    } 
+				//console.log('video loading');
+				autoSlider;
+			}
+
+			var autoSlider = setInterval(autorun,100);
     	}
 
       	// if close button over overlay clicked, hide both
