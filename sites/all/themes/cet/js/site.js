@@ -3,6 +3,29 @@
   Drupal.behaviors.exampleModule = {
     attach: function (context, settings) {
       	
+		if (jQuery('.front').length){
+			var waitForFinalEvent = (function () {
+				var timer;
+				return function (callback, ms) {
+				  if (timer) {
+				    clearTimeout (timer);
+				  }
+				  timer = setTimeout(callback, ms);
+				};
+			})();
+
+			if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) <= 8) {
+			  	waitForFinalEvent(function(){
+					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
+				}, 2000);
+			} else {
+			  	waitForFinalEvent(function(){
+					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
+				}, 1000);
+			}
+			
+    	}
+
       	// if close button over overlay clicked, hide both
 		jQuery('.modal .close, .modal-backdrop').click(function () {
 			jQuery('.modal-backdrop, .modal').hide();

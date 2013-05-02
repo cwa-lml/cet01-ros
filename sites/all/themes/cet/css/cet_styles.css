@@ -427,6 +427,7 @@ h5 a:hover {
 	padding: 6px 28px;
 	float: right;
 	margin-bottom: 0;
+	clear: right;
 }
 .view-frontpage .field-name-field-frontpagebody,
 .view-frontpage .field-name-field-frontpageimage {
@@ -434,6 +435,26 @@ h5 a:hover {
 }
 .view-frontpage .button_field {
 	float: right;
+}
+	/*video*/
+.vjs-default-skin div.vjs-big-play-button > span {
+	background-position: 0 0;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	left: 36%;
+	top: 26%; 
+}	
+.vjs-default-skin .vjs-big-play-button {
+	height: 3em;
+	width: 4em;
+	top: auto;
+	left: 10px;
+	bottom: 10px;
+	margin: 0;
+	  -webkit-border-radius: 10px;
+	     -moz-border-radius: 10px;
+	          border-radius: 10px;
 }
 /* views
 -------------------------------------------------- */
