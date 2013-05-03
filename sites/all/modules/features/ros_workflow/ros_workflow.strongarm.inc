@@ -986,14 +986,14 @@ function ros_workflow_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_height';
-  $strongarm->value = '180';
+  $strongarm->value = '135';
   $export['videojs_height'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'videojs_width';
-  $strongarm->value = '320';
+  $strongarm->value = '240';
   $export['videojs_width'] = $strongarm;
 
   return $export;
