@@ -34,7 +34,7 @@ function ros_purchase_permission() {
  */
 function ros_purchase_menu() {
 		$items['ros_purchase'] = array(
-		 'title' => t('Purchase'),
+		 'title' => t('Purchase resources'),
 		 'page callback' => 'ros_purchase_page',
 		'access arguments' => array('ros_purchase'),
 		 'type' => MENU_NORMAL_ITEM

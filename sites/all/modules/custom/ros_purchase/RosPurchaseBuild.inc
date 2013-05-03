@@ -43,7 +43,6 @@ class RosPurchaseBuild {
 		$form['header'] = array(
 				'#type' => 'item',
 				'#after_build' => array('ros_purchase_load_javascript'),
-				'#title' => t('<h2>Purchase the resource</h2>'),
 				'#markup' => t(<<<EOT
 						<p>You can purchase multiple copies of the Educational Resource but only one 
 						login id will be provided. On confirmation of your order, the login details will be sent to 
