@@ -1,19 +1,6 @@
+# Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
 
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-/.project
-/.settings
-
-sites/all/modules/contrib/wysiwyg/plugins/break/.DS_Store
-
-sites/all/modules/contrib/wysiwyg/plugins/.DS_Store
-
-sites/all/modules/contrib/wysiwyg/.DS_Store
-
-sites/all/libraries/tinymce/jscripts/tiny_mce/plugins/.DS_Store
-
-*.pyc
-
-fabfile.pyc
