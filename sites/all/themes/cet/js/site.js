@@ -20,14 +20,14 @@
 			    if (jQuery(".video-js").is(":visible")){
 			    	//console.log('video exists');
 			        clearInterval(autoSlider);
-			        setTimeout(addVideoImage, 600);
+			        setTimeout(addVideoImage, 800);
 			        return false;
 			    } 
 				//console.log('video loading');
 				autoSlider;
 			}
 
-			var autoSlider = setInterval(autorun,100);
+			var autoSlider = setInterval(autorun,200);
     	}
 
       	// if close button over overlay clicked, hide both
