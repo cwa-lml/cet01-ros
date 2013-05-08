@@ -7,20 +7,19 @@
 
 		if (jQuery('.front').length){
 			function addVideoImage() {
-
-				if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) <= 8) {
-					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show().delay(300);
-				} else {
-					jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
-				}
-				//console.log('image added');
+				jQuery('.video-js img').attr('src','/sites/all/themes/cet/img/homepage-video.png').show();
 			}
 
 			function autorun() {
 			    if (jQuery(".video-js").is(":visible")){
 			    	//console.log('video exists');
 			        clearInterval(autoSlider);
-			        setTimeout(addVideoImage, 800);
+
+					if (jQuery.browser.msie  && parseInt(jQuery.browser.version, 10) <= 8) {
+				        setTimeout(addVideoImage, 1200);
+					} else {
+				        setTimeout(addVideoImage, 600);
+					}
 			        return false;
 			    } 
 				//console.log('video loading');
