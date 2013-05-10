@@ -600,6 +600,7 @@ h5 a:hover {
 	width: 100%;
 	text-align: left;
 	margin: 0;
+	padding-left: 0;
 }
 .ros-purchase #edit-order .form-type-textfield {
 	clear: left;
@@ -631,6 +632,7 @@ h5 a:hover {
 	top: -4px\9 !important;
 	*top: 1px !important;
 }
+.ros-purchase #edit-order .form-item,
 .ros-purchase #edit-order .form-item-resource-count,
 .ros-purchase #edit-order .controls,
 .ros-purchase #edit-order .form-item-resource-price,
