@@ -137,3 +137,12 @@ DirectoryIndex index.php index.html index.htm
     </FilesMatch>
   </IfModule>
 </IfModule>
+
+# Video MIME types
+<IfModule mod_mime.c>
+AddType video/m4v .m4v
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+</IfModule>
+
