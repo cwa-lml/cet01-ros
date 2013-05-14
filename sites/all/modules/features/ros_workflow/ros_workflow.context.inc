@@ -10,7 +10,7 @@
 function ros_workflow_context_default_contexts() {
   $export = array();
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'header-user-menus';
@@ -50,7 +50,7 @@ function ros_workflow_context_default_contexts() {
   t('Add user ');
   $export['header-user-menus'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'header-user-menus-anon';
@@ -88,7 +88,7 @@ function ros_workflow_context_default_contexts() {
   t('Add user ');
   $export['header-user-menus-anon'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span1';
@@ -112,7 +112,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span1'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span2';
@@ -136,7 +136,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span2'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span3';
@@ -160,7 +160,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span3'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span4';
@@ -184,7 +184,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span4'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span5';
@@ -208,7 +208,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span5'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span6';
@@ -232,7 +232,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span6'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span7';
@@ -256,7 +256,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span7'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_body_width_span8';
@@ -280,7 +280,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_body_width_span8'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_type_poem';
@@ -304,7 +304,7 @@ function ros_workflow_context_default_contexts() {
   $context->condition_mode = 0;
   $export['interactive_whiteboard_type_poem'] = $context;
 
-  $context = new stdClass;
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'interactive_whiteboard_type_story';

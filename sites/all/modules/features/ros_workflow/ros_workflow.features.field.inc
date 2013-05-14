@@ -3484,9 +3484,8 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'file_force',
           'settings' => array(),
-          'type' => 'file_force_file_default',
+          'type' => 'hidden',
           'weight' => '6',
         ),
         'teaser' => array(
@@ -3707,9 +3706,8 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
+          'type' => 'hidden',
           'weight' => '5',
         ),
         'teaser' => array(
@@ -3828,14 +3826,8 @@ Example: 200',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => '4',
         ),
         'teaser' => array(
