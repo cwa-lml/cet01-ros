@@ -80,6 +80,7 @@ function ros_workflow_wysiwyg_default_profiles() {
           'unlink' => 1,
           'formatselect' => 1,
           'styleselect' => 1,
+          'fontsizeselect' => 1,
           'blockquote' => 1,
           'copy' => 1,
           'paste' => 1,

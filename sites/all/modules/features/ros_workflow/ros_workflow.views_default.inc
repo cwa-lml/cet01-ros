@@ -43,8 +43,8 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Description';
-  $handler->display->display_options['header']['area']['content'] = '(Description text for interacive whiteboard)';
-  $handler->display->display_options['header']['area']['format'] = 'plain_text';
+  $handler->display->display_options['header']['area']['content'] = 'These files contain interactive versions of the sixteen Read and Respond cards. In each file, the text has active areas relating to glossarised vocabulary and a study focus. Tapping, or clicking on, the active area will create a pop-up with a definition of a word or information about an aspect of the text, for example, metaphor and simile. ';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -118,13 +118,13 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>(Description text for Read and Respond cards)</p>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>These sixteen Read and Respond cards are facsimiles of selected texts from A River of Stories. The cards are linked to specific activities that you can use in your teaching plan, but they can also be used at any point in a module. The cards are perfect for independent work, for use in pair or small-group exercises, and as starting points for discussion in small groups.</p>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Download all';
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="/sites/default/files/Archive.zip" class="btn">Download All</a></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="/sites/default/files/AllReadRespondCards.zip#" class="btn">Download All</a></div>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -289,13 +289,13 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>Rate aborporepre ni dolupti osanditat imus. Nequo tem. Sediosa quam, ute veliam quosser chicia velenet, consequo torporro volor molo di accatat officip issinti ut qui dolores tioremque ma demoles serioriatust autem voluptatem ipicimp orestis et esto illes aut volore venimpore et landipsam lab ipiendignis sum evernamet que officia vendis est, veliquasped experunt. </p>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>The Teachers’ Book contains four modules, each with a specific focus. Each module provides a selection of ten activities to choose from. At the rear of the book, there is a selection of graphic organisers that relate to the activities. The modules are: Our Earth, Our Future; Our Stories, Our Culture; Exploring Poetry; and The Power of Story.</p>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Teachers Resource Book Download All';
-  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="#" class="btn">Download All</a></div>
+  $handler->display->display_options['header']['area']['content'] = '<div class=\'download-all\'><a href="/sites/default/files/TeachersBook.pdf" class="btn">Download All</a></div>
 ';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Field: Content: Resource Image */
@@ -447,7 +447,6 @@ function ros_workflow_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['video_block'] = $view;
 
   $view = new view();
@@ -462,7 +461,7 @@ function ros_workflow_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'What\'s in the resource';
+  $handler->display->display_options['title'] = 'What\'s in the resource?';
   $handler->display->display_options['css_class'] = 'ros-list-view';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
@@ -479,7 +478,7 @@ function ros_workflow_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Description';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>(Description text for What\'s In The Resource)</p>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>There are six key components in A River of Stories Educational Resource:</p>';
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
