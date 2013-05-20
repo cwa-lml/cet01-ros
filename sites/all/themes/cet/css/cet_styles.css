@@ -666,7 +666,7 @@ h5 a:hover {
 .ros-purchase #edit-order .form-type-textfield .form-text {
 	width: 36px;
 	margin-right: 10px;
-	text-align: left;
+	text-align: left !important;
   	-webkit-border-radius: 4px 0 0 4px;
        -moz-border-radius: 4px 0 0 4px;
           	border-radius: 4px 0 0 4px;
