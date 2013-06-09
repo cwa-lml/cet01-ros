@@ -3483,9 +3483,10 @@ Example: 200',
       'description' => 'Upload a file (PDF?) that can be downloaded. Enter an appropriate label',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
+          'module' => 'file',
           'settings' => array(),
-          'type' => 'hidden',
+          'type' => 'file_url_plain',
           'weight' => '6',
         ),
         'teaser' => array(

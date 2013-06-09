@@ -101,6 +101,12 @@ h5 a:hover {
 	color: #fff;
 }
 
+/* misc styles */
+.intro,
+.intro * {
+	font-size: 14px;
+}
+
 /* top banner section layout
 -------------------------------------------------- */
 .front .clouds {
@@ -515,6 +521,12 @@ h5 a:hover {
 .page-teachersresource .main-content .view-header .btn,
 .page-readandrespond .main-content .view-header .btn {
 	font-size: 10px;
+}
+
+/* resource item description */
+.node-type-resource-item-description .resource-img {
+	float: right;
+	margin: 0 0 10px 10px;
 }
 
 /* download-all link */
