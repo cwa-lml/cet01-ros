@@ -80,7 +80,8 @@ function cet_breadcrumb($variables) {
   }
 }
 
-function cet_field__field_download_module__resource_item_description($variables) {
-  $link = $variables['path'];
-  return $link;
+function cet_field__field_download_module__resource_item_description(&$variables) {
+  if (!empty($variables['path'])) {
+    $variables['link'] = $variables['path'];
+  }
 }
