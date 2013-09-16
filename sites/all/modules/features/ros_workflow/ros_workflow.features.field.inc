@@ -2806,7 +2806,7 @@ Example: 200',
       'label' => 'Price',
       'required' => 0,
       'settings' => array(
-        'max' => '99',
+        'max' => '',
         'min' => '0',
         'prefix' => '',
         'suffix' => '',
